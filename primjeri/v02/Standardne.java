@@ -1,19 +1,39 @@
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
 
 public class Standardne
 {
     public void odrediDatum()
     {
-        Date danas = new Date();
-        System.out.println(danas.getTime());
-        System.out.println(danas.toString());
+        LocalDateTime datVri = LocalDateTime.now();
+        LocalDate danas = datVri.toLocalDate();
+        LocalTime sada = datVri.toLocalTime();
+
+        System.out.println(danas);
+        System.out.println(sada);
+        
+        LocalDate dat1 = LocalDate.of(2017, Month.FEBRUARY, 19);
+        //LocalDate dat1 = LocalDate.parse("2017-02-19");
+
+        LocalTime vrij1 = LocalTime.of(17,55);
+        //LocalTime vrij1 = LocalTime.parse("17:55:10");
+        System.out.println(dat1);
+        System.out.println(vrij1);
+        
+        formatirajDatum(datVri);
+        
     }
-    public void formatirajDatum()
+    private void formatirajDatum(LocalDateTime datVri)
     {
-        Date dan = new Date();
-        SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm"); 
-        System.out.println("Danas je "+ df.format(dan));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+        String datVr = datVri.format(formatter);
+        
+        System.out.println("Sada je "+ datVr);
 
     }
     public void desetSlucajnih(int pocetak, int kraj)

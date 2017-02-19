@@ -4,10 +4,5 @@ public class Primjer2 {
         //  a ne objekta.
         Pjesmas.sviranje("Mozart");
     } 
-    public int test(final int a){
-        final int h=9 ;
-        h = h+1;
-        return h+1;
-    }
 }
 
