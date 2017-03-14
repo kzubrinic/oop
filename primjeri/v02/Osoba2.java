@@ -5,6 +5,10 @@ public class Osoba2{
     public Osoba2(){
         System.out.println("Nova osoba!");
     }
+    // konstruktor koji poziva drugi konstruktor pomoæu reference na trenutni objekt this
+    public Osoba2(Osoba x){
+        this(x.ime);
+    }
     // konstruktor koji postavlja ime
     public Osoba2(String im){
         ime = im;
