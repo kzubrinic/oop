@@ -1,7 +1,7 @@
 package usporedbaobjekata;
 import java.util.Arrays;
 import java.util.Comparator;
-public class Test implements Comparator{
+public class Test implements Comparator<Trokut>{
     // instance variables - replace the example below with your own
     public void testiraj(){
         Trokut t1 = new Trokut(9,6,4);
@@ -16,9 +16,7 @@ public class Test implements Comparator{
         for (Trokut t: trokuti)
             System.out.println(t);
     }
-    public int compare(Object o1, Object o2){
-        Trokut t1 = (Trokut)o1;
-        Trokut t2 = (Trokut)o2;
+    public int compare(Trokut t1, Trokut t2){
         if (t1.getA()+t1.getB()+t1.getC() < t2.getA()+t2.getB()+t2.getC()) return -1;
         else if (t1.getA()+t1.getB()+t1.getC() > t2.getA()+t2.getB()+t2.getC()) return 1;
         else return 0;

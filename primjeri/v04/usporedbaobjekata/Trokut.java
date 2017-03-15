@@ -1,6 +1,6 @@
 package usporedbaobjekata;
 
-public class Trokut implements Comparable{
+public class Trokut implements Comparable<Trokut>{
     private int a, b, c;
     public int getA(){
         return a;
@@ -44,8 +44,7 @@ public class Trokut implements Comparable{
         return String.format("Trokut stranica duljine: %d, %d i %d", a, b, c);
     }
     
-    public int compareTo(Object o){
-        Trokut t = (Trokut)o;
+    public int compareTo(Trokut t){
         if (a+b+c < t.getA()+t.getB()+t.getC())
             return -1;
         else if (a+b+c > t.getA()+t.getB()+t.getC()) 
