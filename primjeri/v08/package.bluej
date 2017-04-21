@@ -1,0 +1,25 @@
+#BlueJ package file
+objectbench.height=100
+objectbench.width=885
+package.editor.height=572
+package.editor.width=759
+package.editor.x=234
+package.editor.y=273
+package.numDependencies=0
+package.numTargets=1
+package.showExtends=true
+package.showUses=true
+project.charset=windows-1250
+target1.editor.height=1168
+target1.editor.width=1930
+target1.editor.x=-5
+target1.editor.y=0
+target1.height=50
+target1.name=TestDerby
+target1.naviview.expanded=true
+target1.showInterface=false
+target1.type=ClassTarget
+target1.typeParameters=
+target1.width=100
+target1.x=70
+target1.y=10
