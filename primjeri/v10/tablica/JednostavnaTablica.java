@@ -45,7 +45,7 @@ public class JednostavnaTablica extends JFrame {
 		cp1 = new JPanel();
 		String[] stupci = {"Ime", "Prezime", "Slika"};
 
-		Object[][] podaci = {{"Pero", "Perić", new Integer(1)},
+		Object[][] podaci = {{"Pero", "Perić", 1},
 		{"Ana", "Anić", 2},
 		{"Ivo", "Ivić", 3},
 		{"Bero", "Berić", 4},
