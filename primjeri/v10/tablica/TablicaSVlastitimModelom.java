@@ -89,7 +89,9 @@ public class TablicaSVlastitimModelom extends JFrame {
         TableModel model = t.getModel();
         int brRed = model.getRowCount();
         int brStup = model.getColumnCount();
-		int brSr = t.getSelectedRow();
+        // Povezuje indeks retka tablice s indeksom retka u modelu
+        // Ako podaci nisu sortirani, indeksi su jednaki!
+		int brSr = t.convertRowIndexToModel(t.getSelectedRow());
 		int brSs = t.getSelectedColumn();
         System.out.println("Dohvaćanje podataka iz retka " + brSr);
         for (int j=0; j < brStup; j++) {

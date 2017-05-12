@@ -60,7 +60,9 @@ public class TablicaSVlastitimModelom2 extends JFrame {
 			
 			@Override
 			public void tableChanged(TableModelEvent e) {
-				int brSr = t.getSelectedRow();
+			    // Povezivanje indeksa retka na koji je kliknuto s retkom u modelu
+			    // Ako podaci nisu sortirani, indeksi su isti!
+				int brSr = t.convertRowIndexToModel(t.getSelectedRow());
 				int brSs = t.getSelectedColumn();
 				
 				
@@ -106,7 +108,7 @@ public class TablicaSVlastitimModelom2 extends JFrame {
 				//	elementi brišu jednapo jedan počevši od zadnjeg prema prvom.
 				List<Integer> selection = new ArrayList<>(izabrani.length);
                 for (int row : izabrani) {
-                    selection.add(row);
+                    selection.add(t.convertRowIndexToModel(row));
                 }
                 Collections.sort(selection);
                 Collections.reverse(selection);
@@ -140,7 +142,7 @@ public class TablicaSVlastitimModelom2 extends JFrame {
         TableModel model = t.getModel();
         int brRed = model.getRowCount();
         int brStup = model.getColumnCount();
-		int brSr = t.getSelectedRow();
+		int brSr = t.convertRowIndexToModel(t.getSelectedRow());
 		int brSs = t.getSelectedColumn();
         System.out.println("Dohvaćanje podataka iz retka " + brSr);
         for (int j=0; j < brStup; j++) {

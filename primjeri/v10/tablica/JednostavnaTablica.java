@@ -90,7 +90,9 @@ public class JednostavnaTablica extends JFrame {
         System.out.println("--------------------------");
 	}
 	private void obradiCeliju(JTable t){
-		int brSr = t.getSelectedRow();
+	    // Pretvara indeks retka u tablicu u indeks retka u modelu.
+	    // Ako podaci nisu sortirani, indeksi su jednaki.
+		int brSr = t.convertRowIndexToModel(t.getSelectedRow());
 		int brSs = t.getSelectedColumn();
         int brRed = t.getRowCount();
         int brStup = t.getColumnCount();
