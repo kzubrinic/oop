@@ -1,4 +1,4 @@
-package hr.unidu.oop.p02;
+package hr.unidu.oop.p01;
  
 
 /**
@@ -8,7 +8,7 @@ package hr.unidu.oop.p02;
  * @author Kruno 
  * @version velja�a 2015.
  */
-public class Casting
+public class PretvorbaTipova
 {
     public void casting() {
         String sNum = "246";
@@ -22,7 +22,7 @@ public class Casting
         System.out.println("sNum2: "+sNum2);
     }
     public static void main(String[] args) {
-    	Casting c = new Casting();
+    	PretvorbaTipova c = new PretvorbaTipova();
     	c.casting();
     }
 }

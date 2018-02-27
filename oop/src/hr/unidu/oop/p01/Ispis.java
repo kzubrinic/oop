@@ -1,4 +1,4 @@
-package hr.unidu.oop.p02;
+package hr.unidu.oop.p01;
 
 /**
  * Različiti načini formatiranog i neformatiranog ispisa.

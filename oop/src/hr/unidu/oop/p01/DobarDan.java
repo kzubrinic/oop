@@ -1,9 +1,9 @@
-package hr.unidu.oop.p02;
+package hr.unidu.oop.p01;
 
 /**
  * Prvi program.
  */
-public class PrviProgram{
+public class DobarDan{
     public static void main(String[] args){
         System.out.println("Dobar dan!");
     }
