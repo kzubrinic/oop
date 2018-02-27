@@ -10,42 +10,41 @@ package hr.unidu.oop.p01;
  */ 
 
 public class Varijable{
-	/*
-    public void varijable(){
+    public void koristenjeVarijablePogresno(){
         int suma;
-        // greška! Varijabla suma nije inicijalizirana
+        // Greška! Varijabla suma nije inicijalizirana a pokušava se koristiti
+        // Program se ne može prevesti!
         suma = suma + 2;
         System.out.println(suma);
     }
-    */
 
-    public void varijable_ispravno(){
-        // varijabla se prije prvog korištenja na desnoj strani izraza mora inicijalizirati
+    public void koristenjeVarijableIspravno(){
+        // Varijabla se prije prvog korištenja na desnoj strani izraza 
+    	//  mora inicijalizirati
         int suma = 0;
         suma = suma + 2;
         System.out.println(suma);
     }
 
-    /*
-    public void varijable2(){
+    public void gubitakPreciznostiPogresno(){
         int x = 24;
-        // greška - mogući gubitak podataka
+        // Greška - mogući gubitak podataka
+        // Program se ne može prevesti!
         byte y = x;
         System.out.println(y);
     }
-    */
 
-    public void varijable2_ispravno(){
+    public void gubitakPreciznostiIspravno(){
         int x = 24;
-        // svjesni smo mogućeg gubitka i vršimo pretvorbu podataka
+        // Svjesni smo mogućeg gubitka i vršimo pretvorbu podataka
         byte y = (byte)x;
         System.out.println(y);
     }
     public static void main(String[] args) {
     	Varijable v = new Varijable();
-    	//v.varijable();
-    	v.varijable2_ispravno();
-    	//v.varijable2();
-    	v.varijable2_ispravno();
+    	v.koristenjeVarijablePogresno();
+    	v.koristenjeVarijableIspravno();
+    	v.gubitakPreciznostiPogresno();
+    	v.gubitakPreciznostiIspravno();
     }
 }
