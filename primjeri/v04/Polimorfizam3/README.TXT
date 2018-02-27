@@ -1,1 +1,0 @@
-Primjer bez korištenja polimorfizma
