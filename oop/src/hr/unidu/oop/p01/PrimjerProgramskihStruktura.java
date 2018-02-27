@@ -2,7 +2,7 @@ package hr.unidu.oop.p01;
 /**
  * Primjer programskih struktura (grananja i petlje)
  */
-public class PrimjerStruktura{
+public class PrimjerProgramskihStruktura{
     public void grananje(int starost){
         if (starost < 13)
             System.out.println("Dijete");
@@ -87,7 +87,7 @@ public class PrimjerStruktura{
         }
     }
     public static void main(String[] args){
-        PrimjerStruktura p = new PrimjerStruktura();
+        PrimjerProgramskihStruktura p = new PrimjerProgramskihStruktura();
         p.grananje(17);
         p.forPetlja(10);
         p.forEachPetlja();
