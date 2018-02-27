@@ -2,11 +2,8 @@ package hr.unidu.oop.p01;
  
 
 /**
- * Pretvorba izme�u razli�itih tipova podataka pomo�u
- * metoda klasa omota�a
- * 
- * @author Kruno 
- * @version velja�a 2015.
+ * Pretvorba između različitih tipova podataka pomoću
+ * metoda klasa omotača
  */
 public class PretvorbaTipova
 {

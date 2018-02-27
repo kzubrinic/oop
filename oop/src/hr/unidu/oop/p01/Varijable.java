@@ -4,9 +4,6 @@ package hr.unidu.oop.p01;
 /**
  * Primjer pridruživanja vrijednosti varijablama
  * ispravne i neispravne metode
- * 
- * @author Kruno 
- * @version veljača 2015.
  */ 
 
 public class Varijable{

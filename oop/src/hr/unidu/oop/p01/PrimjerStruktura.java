@@ -1,12 +1,6 @@
 package hr.unidu.oop.p01;
- 
-
-
 /**
  * Primjer programskih struktura (grananja i petlje)
- * 
- * @author Kruno 
- * @version velja�a 2015.
  */
 public class PrimjerStruktura{
     public void grananje(int starost){
