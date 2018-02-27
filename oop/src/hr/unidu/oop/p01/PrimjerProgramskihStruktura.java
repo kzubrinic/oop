@@ -59,14 +59,14 @@ public class PrimjerProgramskihStruktura{
         int[] brojevi = {2, 7, 3, 8, 6, 0, 1, 5, 9, 12, 11};
         int i = 0;
         while (i < brojevi.length){
-            // ako je broj nula, prekini izvo�enje while petlje
+            // ako je broj nula, prekini izvođenje while petlje
             if (brojevi[i] == 0)
                 break;
-            // ako je broj troznamenkasti ili ve�i, presko�i ga
+            // ako je broj troznamenkasti ili veći, preskoči ga
             else if (brojevi[i] > 99)
                 continue;
             else
-            // ina�e, ispi�i broj
+            // inače, ispiši broj
                 System.out.println(brojevi[i]);
             i++;
         }

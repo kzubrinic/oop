@@ -1,4 +1,7 @@
 package hr.unidu.oop.p02;
+
+import hr.unidu.oop.p01.Osoba;
+
 public class Osobe{
   public void radi() {
     Osoba p1, p2, p3; 

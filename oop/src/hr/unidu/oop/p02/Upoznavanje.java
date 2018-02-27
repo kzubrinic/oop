@@ -1,4 +1,7 @@
 package hr.unidu.oop.p02;
+
+import hr.unidu.oop.p01.Osoba;
+
 /**
  * Primjer stvaranja jednog objekta, pristup varijablama
  * i metodama stvorenog objekta.

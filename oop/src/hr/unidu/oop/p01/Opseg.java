@@ -1,4 +1,4 @@
-package hr.unidu.oop.p02;
+package hr.unidu.oop.p01;
 import java.util.Scanner;
 public class Opseg {
 	public static void main(String[] args) {
