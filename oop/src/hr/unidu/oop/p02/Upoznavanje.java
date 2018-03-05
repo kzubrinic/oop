@@ -1,12 +1,8 @@
 package hr.unidu.oop.p02;
 
-import hr.unidu.oop.p01.Osoba;
-
 /**
  * Primjer stvaranja jednog objekta, pristup varijablama
  * i metodama stvorenog objekta.
- * @author Krunoslav �ubrini�
- * velja�a 2017.
  */
 public class Upoznavanje {
 	public static void main(String[] args) {
@@ -17,20 +13,20 @@ public class Upoznavanje {
 		// Prethodno deklarirana referenca susjed povezuje se sa
 		// stvorenim objektom.
 		susjed = new Osoba();
-		// Napomena: Objekt mo�emo stvoriti i kra�e u 1 retku
+		// Napomena: Objekt možemo stvoriti i kraće u 1 retku
 		// Osoba susjed = new Osoba();
 		
-		// Vrijednost varijable objekta mijenja se pomo�u operatora "to�ka"
-		// Sintaksa je: referenca to�ka imeVarijable.
+		// Vrijednost varijable objekta mijenja se pomoću operatora "točka"
+		// Sintaksa je: referenca točka imeVarijable.
 		susjed.ime = "Ivo";
 		susjed.starost = 37;
 		// Ispisuje se ime prijatelja (sadr�aj varijable ime objekta).
 		System.out.println("Dobar dan, ja sam " + susjed.ime);
-		// Metode se na stvorenom objektu pozivaju na isti na�in kao
-		// �to se pristupa varijablama (pomo�u operatora "to�ka").
+		// Metode se na stvorenom objektu pozivaju na isti način kao
+		// �to se pristupa varijablama (pomoću operatora "točka").
 		// Poziva se metoda rodjendan() koja mijenja starost susjeda.
 		susjed.rodjendan();
-		// Ispisuje se starost prijatelja (sadr�aj varijable starost objekta).
+		// Ispisuje se starost prijatelja (sadržaj varijable starost objekta).
 		System.out.println("Danas mi je ro�endan i imam " + susjed.starost+" godina.");
 	}
 }
