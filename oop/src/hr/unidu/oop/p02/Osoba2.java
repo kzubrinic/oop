@@ -21,8 +21,14 @@ public class Osoba2{
     public void setIme(String im){
         ime = im;
     }
+    public String getIme() {
+    	return ime;
+    }
     public void setStarost(int sta){
         starost = sta;
+    }
+    public int getStarost() {
+    	return starost;
     }
     public String toString(){
         return "Ime: " + ime + " Starost: " + starost;
