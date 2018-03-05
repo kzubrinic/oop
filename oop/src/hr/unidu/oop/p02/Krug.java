@@ -7,16 +7,16 @@ public class Krug{
     public Krug(double pol) { // konstruktor koji prima parametar
         setPolumjer(pol);
     }
-    public double vratiPovrsinu() { // metoda ra�una povr�inu kruga
+    public double vratiPovrsinu() { // metoda računa površinu kruga
         return polumjer * polumjer * Math.PI;
     }
-    public double vratiOpseg() { // metoda ra�una opseg kruga
+    public double vratiOpseg() { // metoda računa opseg kruga
         return 2 * polumjer * Math.PI;
     }
     public void setPolumjer(double pol) { // metoda postavlja polumjer kruga
-        polumjer = pol;             //   ako se krug stvara pomo�u
+        polumjer = pol;             //   ako se krug stvara pomoću
     }                               //   defaultnog konstruktora.
-    public double getPolumjer() { // metoda vra�a polumjer kruga
+    public double getPolumjer() { // metoda vraća polumjer kruga
         return polumjer;    
     }
     public String toString() {
