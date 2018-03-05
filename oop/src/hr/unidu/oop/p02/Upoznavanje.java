@@ -25,7 +25,7 @@ public class Upoznavanje {
 		// Metode se na stvorenom objektu pozivaju na isti način kao
 		// �to se pristupa varijablama (pomoću operatora "točka").
 		// Poziva se metoda rodjendan() koja mijenja starost susjeda.
-		susjed.rodjendan();
+		susjed.upoznavanje();
 		// Ispisuje se starost prijatelja (sadržaj varijable starost objekta).
 		System.out.println("Danas mi je ro�endan i imam " + susjed.starost+" godina.");
 	}
