@@ -4,10 +4,10 @@ public class Pjesma3 {
 	// Static metoda ne može pozivati metode koje nisu static!
 	// Pokušaj izaziva grešku kod prevođenja.
 	public static void sviranje(String novi) {
-		int duljina = vratiDuljinu();
+		int duljina = vratiDuljinuPjesme();
 		System.out.println("Svira " + novi);
 	}
-	public int vratiDuljinu() {
+	public int vratiDuljinuPjesme() {
 		return 5;
 	}
 	public static void main(String[] args) {
