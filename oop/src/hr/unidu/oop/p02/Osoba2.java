@@ -1,7 +1,5 @@
 package hr.unidu.oop.p02;
 
-import hr.unidu.oop.p01.Osoba;
-
 public class Osoba2{
     private String ime;
     private int starost;
@@ -9,14 +7,10 @@ public class Osoba2{
     public Osoba2(){
         System.out.println("Nova osoba!");
     }
-    // konstruktor koji poziva drugi konstruktor pomo�u reference na trenutni objekt this
-    public Osoba2(Osoba x){
-        this(x.ime);
-    }
-    // konstruktor koji postavlja ime
+    // konstruktor koji postavlja ime,a starost na inicijalnu vrijednost 20
     public Osoba2(String im){
-        ime = im;
-        System.out.println("Nova osoba s imenom "+ime);
+    	// Ovaj konstruktor poziva drugi konstruktor koji prima dva parametra
+    	this(im, 20);
     }
     // konstruktor koji postavlja ime i starost
     public Osoba2(String im, int sta){
@@ -32,5 +26,21 @@ public class Osoba2{
     }
     public String toString(){
         return "Ime: " + ime + " Starost: " + starost;
+    }
+    public static void main(String[] args) {
+    	// Stvaranje objekta pomoću konstruktora s imenom
+    	Osoba2 o1 = new Osoba2("Ana");
+    	// Stvaranje osobe pomoću konstruktora s imenom i starosti
+    	Osoba2 o2 = new Osoba2("Ivo", 27);
+    	// Stvaranje osobe s "dafualutnim" konstruktorom
+    	Osoba2 o3 = new Osoba2();
+    	// Pristup varijablama stvorenog objekta
+    	o3.setIme("Pero");
+    	o3.setStarost(34);
+    	
+    	// ispis objekta - ispisne metode koriste metodu toString
+    	System.out.println(o1);
+    	System.out.println(o2);
+    	System.out.println(o3);
     }
 }
