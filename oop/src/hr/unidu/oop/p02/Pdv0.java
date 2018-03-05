@@ -3,25 +3,35 @@ package hr.unidu.oop.p02;
  * Klasa koji služi kao primjer prikaza varijabli instance
  */
 public class Pdv0 {
-    // varijabla instance - svaki objekt ima svoju kopiju varijable
-    // pdv. promjena njezine vrijedbnosti odnosi se samo na jedan objekt.
-    public double pdv = 0;
+    /**
+     * pdv je varijabla instance (objekta).
+     * Svaki objekt ima svoju kopiju varijable pdv. Promjena njezine 
+     * vrijedbnosti odnosi se samo na jedan objekt.
+     */
+    private double pdv = 0;
 
     public void racPdv(double osn) {
         double iznosPdva;
         iznosPdva = osn * pdv / 100;
-        System.out.println("PDV na osnovicu "+ osn + " je " + iznosPdva);
+        System.out.println("Stopa je " + pdv + " PDV na osnovicu "+ osn + " je " + iznosPdva);
     }
-    public void postaviStopu(double ns){
+    public boolean postaviStopu(double ns){
+    	if (ns < 0) {
+    		System.out.println("Stopa ne smije biti negativna!"); 
+    		return false;
+    	}
         pdv = ns;
+        return true;
     }
     public static void main(String[] args) {
     	Pdv0 p1 = new Pdv0();
-    	p1.postaviStopu(25);
+    	if (!p1.postaviStopu(25)) return;
+		
     	Pdv0 p2 = new Pdv0();
-    	p2.postaviStopu(10);
+    	if (!p2.postaviStopu(10)) return;
+    	
     	p1.racPdv(100);
     	p2.racPdv(100);
-    	
+   	
     }
 }
