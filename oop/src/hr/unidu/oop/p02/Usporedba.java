@@ -5,7 +5,7 @@ package hr.unidu.oop.p02;
  */
 public class Usporedba
 {
-    public void usporedi1()
+    private void usporedi1()
     {
            String s1 = "Ana";
            String s2 = s1;
@@ -18,7 +18,7 @@ public class Usporedba
            else     
                 System.out.println("REFERENCE pokazuju na RAZLIČITE objekte!");
     }
-    public void usporedi2()
+    private void usporedi2()
     {
            String s1 = "Ana";
            String s2 = new String("Ana");
@@ -33,7 +33,7 @@ public class Usporedba
     }
     
     // Klasa Osoba2 nema implementirane metode equals i hashCode!
-    public void usporediOsobe(){
+    private void usporediOsobe(){
         Osoba2[] p = new Osoba2[4];
         for (int i = 0; i < 3; i++){
             p[i] = new Osoba2("Ana", 33);
@@ -52,7 +52,7 @@ public class Usporedba
         }
     }
  // Klasa Osoba3 IMA implementirane metode equals i hashCode!
-    public void usporediOsobe3(){
+    private void usporediOsobe3(){
         Osoba3[] p = new Osoba3[4];
         for (int i = 0; i < 3; i++){
             p[i] = new Osoba3("Ana", 33);
@@ -73,7 +73,7 @@ public class Usporedba
      public static void main(String[] args) {
     	 Usporedba o = new Usporedba();
     	 // 1. usporedba objekata tipa String 
-    	 //o.usporedi1();
+    	 o.usporedi1();
     	 // 2. usporedba objekata tipa String 
     	 //o.usporedi2();
     	 
@@ -82,6 +82,6 @@ public class Usporedba
     	 //o.usporediOsobe();
     	 //Usporedba objekata tipa Osoba3 koji IMAJU implementirane
     	 //   metode equals i hashCode
-    	 o.usporediOsobe3();
+    	 //o.usporediOsobe3();
      }
 }

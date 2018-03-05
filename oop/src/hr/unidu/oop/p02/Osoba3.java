@@ -1,7 +1,7 @@
 package hr.unidu.oop.p02;
 public class Osoba3{
-    String ime;
-    int starost;
+    private String ime;
+    private int starost;
     // defaultni konstruktor
     public Osoba3(){
         System.out.println("Nova osoba: " + toString());
