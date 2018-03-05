@@ -10,4 +10,8 @@ public class Pjesma2 {
 		autor = novi;
 		System.out.println("Svira " + autor);
 	}
+	public static void main(String[] args) {
+     	Pjesma2.sviranje("Mozart");
+     	Pjesma2.sviranje("Bach");
+    }
 }

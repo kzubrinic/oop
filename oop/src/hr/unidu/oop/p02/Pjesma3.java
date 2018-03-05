@@ -9,5 +9,9 @@ public class Pjesma3 {
 	}
 	public int vratiDuljinu() {
 		return 5;
-	}	
+	}
+	public static void main(String[] args) {
+     	Pjesma3.sviranje("Mozart");
+     	Pjesma3.sviranje("Bach");
+    }
 }
