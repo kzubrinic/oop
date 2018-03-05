@@ -4,18 +4,18 @@ public class Osoba3{
     int starost;
     // defaultni konstruktor
     public Osoba3(){
-        System.out.println("Nova osoba!");
+        System.out.println("Nova osoba: " + toString());
     }
     // konstruktor koji postavlja ime
     public Osoba3(String im){
         ime = im;
-        System.out.println("Nova osoba imena "+ime);
+        System.out.println("Nova osoba: " + toString());
     }
     // konstruktor koji postavlja ime i starost
     public Osoba3(String im, int sta){
         ime = im;
         starost = sta;
-        System.out.println("Nova osoba imena " + ime + " ima " + starost + " godina.");
+        System.out.println("Nova osoba: " + toString());
     }
     public void setIme(String im){
         ime = im;
