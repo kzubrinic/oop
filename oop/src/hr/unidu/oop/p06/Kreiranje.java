@@ -26,4 +26,9 @@ public class Kreiranje
             vrh--;
         return stog[vrh+1]; 
     } 
+    public static void main(String[] args) {
+    	Kreiranje k = new Kreiranje();
+    	// Stog je prazan pa će pokušaj skidanja izazvati iznimku
+    	k.kreni();
+    }
 }

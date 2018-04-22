@@ -1,8 +1,8 @@
 package hr.unidu.oop.p06;
 
 /**
- * Vje�be 7 Primjer spu�tanje gre�ke do razine na kojoj
- * se vr�i njezina obrada
+ * Vježbe 6 Primjer spuštanje greške do razine na kojoj
+ * se vrši njezina obrada
  * 
  */
 public class Primjer3 {
@@ -12,8 +12,8 @@ public class Primjer3 {
 			System.out.println("I je " + ob.vrati());
 		}
 		catch (ArrayIndexOutOfBoundsException izn) {
-			System.out.println("Gre�ka u programu!");
-			System.out.println("Tra�eni element matrice ne postoji!");
+			System.out.println("Greška u programu!");
+			System.out.println("Traženi element matrice ne postoji!");
 		}
 	}
 }

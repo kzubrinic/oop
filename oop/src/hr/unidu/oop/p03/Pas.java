@@ -7,7 +7,7 @@ public class Pas
     public void referenca() {
         Pas reks = new Pas();
         reks.ime = "Rex";
-        reks.pasmina = "njema�ki ov�ar";
+        reks.pasmina = "njemački ovčar";
         System.out.println(reks.ime+ " je " + reks.pasmina);
         Pas cuvar;
         cuvar = reks;
