@@ -1,7 +1,7 @@
 package hr.unidu.oop.p01;
 
 /**
- * Prvi program.
+ * Prvi Java program.
  */
 public class DobarDan{
     public static void main(String[] args){
