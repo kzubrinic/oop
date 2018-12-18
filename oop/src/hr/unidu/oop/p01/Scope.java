@@ -4,8 +4,14 @@ package hr.unidu.oop.p01;
  * Primjer različitih vidljivosti varijable (klasa, metoda i blok naredbi)
  */
 public class Scope{
-    // varijabla "a" je vidljiva u čitavoj klasi
+    /**
+     * Varijabla "a" je varijabla instance (objekta) vidljiva 
+     * u čitavoj klasi.
+     */
     int a=0;
+    /**
+     * Demonstracija vidljivosti lokalne varijable
+     */
     public void metoda() {
         int a=1;
         // verzija varijable "a" deklarirana u ovoj metodi vidljiva je
@@ -16,7 +22,9 @@ public class Scope{
             System.out.println ("i u for bloku = " + i);
         }
     }
-    
+    /**
+     * Demonstracija vidljivosti varijable instance
+     */
     public void metoda2() {
         // Koristi se verzija varijable "a" deklarirana van metoda koja je vidljiva
     	//  u čitavoj klasi.

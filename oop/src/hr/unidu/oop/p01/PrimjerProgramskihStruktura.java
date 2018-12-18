@@ -1,8 +1,12 @@
 package hr.unidu.oop.p01;
 /**
- * Primjer programskih struktura (grananja i petlje)
+ * Primjer programskih struktura (grananja i petlji)
  */
 public class PrimjerProgramskihStruktura{
+	/**
+	 * Prikaz grananja ovisno o primljenoj vrijednosti
+	 * @param starost - vrijednost na temelju koje se program grana
+	 */
     public void grananje(int starost){
         if (starost < 13)
             System.out.println("Dijete");
@@ -15,6 +19,10 @@ public class PrimjerProgramskihStruktura{
         else
             System.out.println("Stara osoba");
     }
+    /**
+     * Prikaz for petlje zadani broj puta
+     * @param n - broj koji određuje koliko puta se petlja vrti
+     */
     public void forPetlja(int n){
         for (int i=0; i<n; i++){
             if (i % 2 == 0)
@@ -23,6 +31,9 @@ public class PrimjerProgramskihStruktura{
                 System.out.println(i + " je neparan broj.");
         }
     }
+    /**
+     * Prikaz kretanja for-each petljom kroz kolekciju (polje)
+     */
     public void forEachPetlja(){
         int[] brojevi = {2, 7, 3, 8, 6, 4, 1, 5, 9, 12, 11};
         for (int broj : brojevi){
@@ -33,6 +44,9 @@ public class PrimjerProgramskihStruktura{
         }
 
     }
+    /**
+     * Prikaz kretanja while petljom kroz kolekciju (polje)
+     */
     public void whilePetlja(){
         int[] brojevi = {2, 7, 3, 8, 6, 4, 1, 5, 9, 12, 11};
         int i = 0;
@@ -44,6 +58,9 @@ public class PrimjerProgramskihStruktura{
             i++;
         }
     }
+    /**
+     * Prikaz kretanja do-while petljom kroz kolekciju (polje)
+     */
     public void doWhilePetlja(){
         int[] brojevi = {2, 7, 3, 8, 6, 4, 1, 5, 9, 12, 11};
         int i = 0;
@@ -55,6 +72,9 @@ public class PrimjerProgramskihStruktura{
             i++;
         } while (i < brojevi.length);
     }
+    /**
+     * Prikaz izlaska iz petlje (break) i povratka na vrh petlje (continue)
+     */
     public void breakContinue(){
         int[] brojevi = {2, 7, 3, 8, 6, 0, 1, 5, 9, 12, 11};
         int i = 0;
@@ -71,7 +91,11 @@ public class PrimjerProgramskihStruktura{
             i++;
         }
     }
+    /**
+     * Prikaz switch-case grananja
+     */
     public void switchCase(int mjesec){
+    	// switch vrijednost mora biti cijeli broj ili String
         switch (mjesec) {
         case 3:  
         	System.out.print("Ožujak");
@@ -86,6 +110,7 @@ public class PrimjerProgramskihStruktura{
         	System.out.print("Nije proljetni mjesec!");
         }
     }
+    
     public static void main(String[] args){
         PrimjerProgramskihStruktura p = new PrimjerProgramskihStruktura();
         p.grananje(17);
