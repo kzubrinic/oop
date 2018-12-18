@@ -9,14 +9,14 @@ public class Zivotinja {
 	}
 
 	public void glasanje() {
-		System.out.println("Glasanje �IVOTINJE!");
+		System.out.println("Glasanje ŽIVOTINJE!");
 	}
 
 	public void hranjenje() {
-		System.out.println("Hranjenje �IVOTINJE!");
+		System.out.println("Hranjenje ŽIVOTINJE!");
 	}
 
 	public static void spavanje() {
-		System.out.println("STATIC spavanje �IVOTINJE!");
+		System.out.println("STATIC spavanje ŽIVOTINJE!");
 	}
 }

@@ -19,10 +19,15 @@ package hr.unidu.oop.p02;
  */
 public class Osoba
 {
+<<<<<<< HEAD
 	/**
 	 * Varijabla koja čuva ime osobe. Svaki objekt ima svoju vlastitu
 	 * kopiju te varijable.
 	 */
+=======
+   	// Varijable koje čuvaju ime i starost
+   	// Svatko im može pristupiti i promijeniti im vrijednost
+>>>>>>> branch 'master' of https://github.com/kzubrinic/oop.git
     public String ime = "Ivo";
 	/**
 	 * Varijabla koja čuva starost osobe. Svaki objekt ima svoju vlastitu
@@ -30,7 +35,11 @@ public class Osoba
 	 */
     public int starost = 0;
 	/**
+<<<<<<< HEAD
 	 * Metoda povećava starost osobe za 1 godinu i ispisuje pozdravnu poruku.
+=======
+	 * Metoda rodjendan() povećava starost osobe za 1 godinu.
+>>>>>>> branch 'master' of https://github.com/kzubrinic/oop.git
 	 */
 	public void upoznavanje(){
 		starost = starost + 1;

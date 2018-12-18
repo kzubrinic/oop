@@ -1,8 +1,8 @@
 package hr.unidu.oop.p06;
 
 /**
- * Vje�be 7 Primjer spu�tanje gre�ke (throws), ali niti jedna
- * metoda ne vr�i obradu gre�ke
+ * Vježbe 6 Primjer spuštanje greške (throws), ali niti jedna
+ * metoda ne vrši obradu greške
  * 
  */
 public class Primjer4 {

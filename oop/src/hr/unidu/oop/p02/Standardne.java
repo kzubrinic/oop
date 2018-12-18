@@ -1,5 +1,6 @@
 package hr.unidu.oop.p02;
 import java.util.Date;
+import java.util.Random;
 
 import hr.unidu.oop.p01.Osoba;
 
@@ -42,12 +43,19 @@ public class Standardne
         System.out.println("Sada je "+ datVr);
 
     }
-    public void desetSlucajnih(int pocetak, int kraj)
+    public void slucajni()
     {
     	System.out.println("");
-    	System.out.println("---- METODA desetSlucajnih ---- ");
-        for (int i = 0; i < 10; i++)
-        System.out.println(pocetak +(int)(Math.random()*kraj));
+    	System.out.println("---- METODA slucajni ---- ");
+        Random r = new Random();
+        boolean b = r.nextBoolean();
+        float f1 = r.nextFloat();
+        float f2 = r.nextFloat()*100;
+        System.out.println("Slučajna logička vrijednost: " + b);
+        System.out.println("Slučajni float: " + f1);
+        System.out.println("Slučajni float u intervalu 0.00 - 99.99: " + f2);
+    	for (int i = 0; i < 10; i++)
+        System.out.println("Slučajni cijeli broj u intervalu 10-100: " + (r.nextInt(90)+10));
     }
     public void josNekeMath()
     {
@@ -72,7 +80,7 @@ public class Standardne
     public static void main(String[] args){
         Standardne s = new Standardne();
         s.odrediDatum();
-        s.desetSlucajnih(10, 100);
+        s.slucajni();
         s.josNekeMath();
         s.formatiraj();
     }
