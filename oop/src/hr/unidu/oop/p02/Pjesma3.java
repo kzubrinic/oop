@@ -1,7 +1,7 @@
 package hr.unidu.oop.p02;
 public class Pjesma3 {
 	String autor;
-	// Static metoda ne može pozivati metode koje nisu static!
+	// Static metoda ne može izravno pozivati metode koje nisu static!
 	// Pokušaj izaziva grešku kod prevođenja.
 	public static void sviranje(String novi) {
 		int duljina = vratiDuljinuPjesme();

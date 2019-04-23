@@ -1,13 +1,11 @@
 package hr.unidu.oop.p02;
-public class Pas
-{
+public class Pas{
     private String pasmina;
     private String ime;
-    
     public void referenca() {
         Pas reks = new Pas();
         reks.ime = "Rex";
-        reks.pasmina = "njema�ki ov�ar";
+        reks.pasmina = "njemački ovčar";
         System.out.println(reks.ime+ " je " + reks.pasmina);
         Pas cuvar;
         cuvar = reks;

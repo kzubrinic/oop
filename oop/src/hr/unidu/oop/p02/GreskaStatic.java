@@ -1,9 +1,9 @@
 package hr.unidu.oop.p02;
 
-public class GreskaStatic
-{
+public class GreskaStatic{
     private int x, y;
     public static void main(String[] args) {
+    	// GREŠKA!
     	// Iz static metode pristupa se varijablama i metodama instance
          x = 3;
          y = 5;

@@ -26,6 +26,9 @@ public class Osoba3{
     public String toString(){
         return "Ime: " + ime + " Starost: " + starost;
     }
+    // Metoda koja uspoređuje dva objekta tipa Osoba3
+    // mora ići u paru s metodom hashCode() koja kod usporedbe 
+    // treba koristiti iste varijable instance kao metoda equals().
     public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
@@ -40,10 +43,8 @@ public class Osoba3{
     public int hashCode() {
 		final int prim = 31;
 		int hash = 1;
-		hash = 31 * hash + starost;
-		hash = 31 * hash + (null == ime ? 0 : ime.hashCode());
+		hash = prim * hash + starost;
+		hash = prim * hash + (null == ime ? 0 : ime.hashCode());
 		return hash;
 	}
-    
 }
-

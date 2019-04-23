@@ -9,6 +9,6 @@ public class Pjesma {
      	Pjesma p1 = new Pjesma();
      	p1.sviranje("Mozart");
      	Pjesma p2 = new Pjesma();
-     	p1.sviranje("Bach");
+     	p2.sviranje("Bach");
     }
 }

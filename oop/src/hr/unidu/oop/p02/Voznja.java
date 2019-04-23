@@ -1,26 +1,19 @@
 package hr.unidu.oop.p02;
 /**
- * Test razred za razred Automobil
- * 
- * @author Krunoslav �ubrini�
- * @version February 2008.
+ * Test klasa za klasu Automobil
  */
-public class Voznja 
-{
-    public static void main(String[] args) 
-    {
+public class Voznja{
+    public static void main(String[] args){
         Automobil punto=new Automobil ("DU 111 A",137);
         boolean end=false;
         System.out.println("Automobil miruje.");
-        while(end==false) 
-        {
+        while(end == false){
           end=punto.ubrzanje(20);
           System.out.print("Automobil " + punto.getRegBroj() );
           System.out.println(" vozi brzinom " + punto.getBrzina());
-          if (end==true)
+          if (end == true)
             break;
         }
         System.out.print("Automobil miruje.");
     }   
-}   
-    
+}    

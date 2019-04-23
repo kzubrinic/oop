@@ -1,8 +1,6 @@
 package hr.unidu.oop.p02;
 /**
- * Klasa pokazuje stvaranje više objekata iz određenog razreda
- * @author Krunoslav Žubrinić
- *
+ * Klasa pokazuje stvaranje više objekata istog tipa
  */
 public class Gomila {
 	public static void main(String[] args) {
@@ -28,5 +26,11 @@ public class Gomila {
 		Osoba prijateljIzVrtica = new Osoba();
 		// Postavi vrijednost varijable petog objekta (varijable instance)
 		prijateljIzVrtica.ime = "Ivo";
+		// Ispiši stanje objekata
+		System.out.println(desniSusjed.ime);
+		System.out.println(lijeviSusjed.ime);
+		System.out.println(kolegicaIzSkole.ime);
+		System.out.println(prijateljicaIzVrtica.ime);
+		System.out.println(prijateljIzVrtica.ime);
 	}
 }
