@@ -1,12 +1,13 @@
 package hr.unidu.oop.p01;
 /**
- * Klasa Osoba s primjerom varijabli i metode
+ * Klasa Osoba s primjerom varijabli i metode.
  * Varijable objekta imaju pristup "public" što znači da im
  * izravno može pristupiti bilo koja metoda bilo kojeg objekta.
  * U programima se to <b>ne smije dozvoliti</b> već se razina
  * pristupa varijablama mora postaviti na <b>private</b>, a 
- * varijablama treba pristupati public getter/setter metodama.
- * Primjerice ovdje bi to bilo:
+ * varijablama treba pristupati korištenjem public getter i
+ * setter metoda.
+ * Primjerice ovdje bi se to napravilo na sljedeći način:
  * <code>String getIme(){
  * 		return ime;
  * }
@@ -17,16 +18,15 @@ package hr.unidu.oop.p01;
  * }
  * </code> 
  */
-public class Osoba
-{
+public class Osoba{
 	/**
-	 * Varijabla koja čuva ime osobe. Svaki objekt ima svoju vlastitu
-	 * kopiju te varijable.
+	 * Varijabla koja čuva ime osobe. 
+	 * Svaki objekt ima vlastitu kopiju te varijable.
 	 */
     public String ime = "Ivo";
 	/**
-	 * Varijabla koja čuva starost osobe. Svaki objekt ima svoju vlastitu
-	 * kopiju te varijable.
+	 * Varijabla koja čuva starost osobe. 
+	 * Svaki objekt ima vlastitu kopiju te varijable.
 	 */
     public int starost = 0;
     /**

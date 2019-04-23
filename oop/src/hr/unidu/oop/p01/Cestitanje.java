@@ -3,7 +3,6 @@ package hr.unidu.oop.p01;
  * Primjer stvaranja objekata i pristupa varijablama i metodama
  */
 public class Cestitanje {
-
 	public static void main(String[] args) {
 		// stvaramo objekt "ovog" tipa (Cestitanje)
 		Cestitanje program = new Cestitanje();
@@ -44,11 +43,11 @@ public class Cestitanje {
 		// Naredba 
 		//   ivo.cestitajRodjendan();
 		// bi uzrokovala grešku kod izvođenja jer prvi stvoreni objekt 
-		// tipa Osoba viuše ne postoji.
+		// tipa Osoba više ne postoji.
 	}
 	/**
 	 * Ispisuje pozdravnu poruku osobe
-	 * @param ime - ime osobe koja se pozdravlja
+	 * @param ime - ime osobe s kojom se uspoznajemo
 	 */
 	private void upoznavanje(String ime) {
 		System.out.println("Dobar dan " + ime + ", drago mi je da smo se upoznali!");
