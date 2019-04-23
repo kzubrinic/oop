@@ -1,7 +1,7 @@
 package hr.unidu.oop.p08;
 /**
- * @author Krunoslav Žubrinić
- * 22. tra 2018.
+ * Primjer rada s JDBC-om
+ * baza sqlite
  */
 // Sučelja koja sadrže opise apstraktnih metoda koje se koriste pri radu
 // s konkretnom bazom opisana su u paketu java.sql.
@@ -10,7 +10,7 @@ public class TestBaza	{
 	private Connection conn;
 	// URL za spajanje na "embedded" bazu knjiznica.db koja je stvorena u mapi baza/
 	// U projekt mora biti uključen JAR koji sadrži konkretnu implementaciju programa
-	// za rad s konkretnom bazom (u ovom slučaju sqlite-jdbc-3.21.0.jar ).
+	// za rad s konkretnom bazom (u ovoj verziji korišten je sqlite-jdbc-3.21.0.jar ).
 	private static String spojniURL = "jdbc:sqlite:baza/knjiznica.db";
 
 	private void citanjeSvih() {
@@ -31,12 +31,7 @@ public class TestBaza	{
 			}
 			System.out.println("----------------------------------------------------------------") ;
 		}catch(SQLException se) {
-			while(se != null) {
-				System.out.println( "Stanje  : " + se.getSQLState()  ) ;
-				System.out.println( "Poruka: " + se.getMessage()   ) ;
-				System.out.println( "Greška  : " + se.getErrorCode() ) ;
-				se = se.getNextException() ;
-			}
+			prikaziSqlIznimke(se);
 		}
 	}
 
@@ -55,15 +50,10 @@ public class TestBaza	{
 			pstmt.setString(2, naziv);
 			pstmt.setString(3, autor);
 			// Upit koji mijenja tablicu se izvodi pomoću metode executeUpdate
-			int i = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			System.out.println("Dodavanje zapisa s rednim brojem "+id+" je uspješno!");
 		}catch(SQLException se) {
-			while(se != null) {
-				System.out.println( "Stanje  : " + se.getSQLState()  ) ;
-				System.out.println( "Poruka: " + se.getMessage()   ) ;
-				System.out.println( "Greška  : " + se.getErrorCode() ) ;
-				se = se.getNextException() ;
-			}
+			prikaziSqlIznimke(se);
 		} 
 	}
 
@@ -75,22 +65,17 @@ public class TestBaza	{
 		}
 		String upit = "update KNJIGE set NAZIV=?,AUTOR=? where ID=?";
 		// Priprema upit za izvođenje. Kod izvođnja se samo na odgovarajuća mjesta
-				// zapisuju konkretne vrijednosti (konkretan id, naziv, autor).
+		// zapisuju konkretne vrijednosti (konkretan id, naziv, autor).
 		try (PreparedStatement pstmt = conn.prepareStatement(upit)){
 			// Postavljaju se konkretne vrijednosti naziva, autora i id-ja.
 			pstmt.setString(1, naziv);
 			pstmt.setString(2, autor);
 			pstmt.setInt(3, id);
 			// Upit se izvodi
-			int i = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			System.out.println("Izmjena zapisa s rednim brojem "+id+" je uspješna!");
 		}catch(SQLException se) {
-			while(se != null) {
-				System.out.println( "Stanje  : " + se.getSQLState()  ) ;
-				System.out.println( "Poruka: " + se.getMessage()   ) ;
-				System.out.println( "Greška  : " + se.getErrorCode() ) ;
-				se = se.getNextException() ;
-			}
+			prikaziSqlIznimke(se);
 		} 	
 	}
 
@@ -107,15 +92,10 @@ public class TestBaza	{
 			// Postavljaju se konkretna vrijednost id-ja
 			pstmt.setInt(1, id);
 			// Upit koji mijenja tablicu se izvodi pomoću metode executeUpdate
-			int i = pstmt.executeUpdate();	
+			pstmt.executeUpdate();	
 			System.out.println("Brisanje zapisa s rednim brojem "+id+" je uspješno!");
 		}catch(SQLException se) {
-			while(se != null) {
-				System.out.println( "Stanje  : " + se.getSQLState()  ) ;
-				System.out.println( "Poruka: " + se.getMessage()   ) ;
-				System.out.println( "Greška  : " + se.getErrorCode() ) ;
-				se = se.getNextException() ;
-			}
+			prikaziSqlIznimke(se);
 		} 
 	}
 
@@ -129,42 +109,50 @@ public class TestBaza	{
 			// Postavlja se konkretna vrijednost id-ja
 			pstmt.setInt(1, id);
 			// Upit koji čita iz tablica (vraća retke) se izvodi pomoću executeQuery
-			ResultSet res = pstmt.executeQuery();
-			// Ako je upit vratio barem jedan slog, već postoji takav zapis
-			if (res.next()) {
-				return true;
+			try(ResultSet res = pstmt.executeQuery()){
+				// 	Ako je upit vratio barem jedan slog, već postoji takav zapis
+				if (res.next()) {
+					return true;
+				}
 			}
 			return false;
 		} catch(SQLException se) {
-			while(se != null) {
-				System.out.println( "Stanje  : " + se.getSQLState()  ) ;
-				System.out.println( "Poruka: " + se.getMessage()   ) ;
-				System.out.println( "Greška  : " + se.getErrorCode() ) ;
-				se = se.getNextException() ;
-			}
+			prikaziSqlIznimke(se);
 			return false;
 		}
 		
 	}
 	
 	private void provjeriTablicu() throws SQLException{
-		// Provjera postopji li tablica KNJIGE u bazi
+		// Provjera postoji li tablica KNJIGE u bazi
 		DatabaseMetaData metadata = conn.getMetaData();
-		ResultSet resultSet;
-		resultSet = metadata.getTables(null, null, "KNJIGE", null);
-		if(resultSet.next())
-		    return; // tablica KNJIGE postoji
-		
-		String upit = "create table KNJIGE (ID INTEGER PRIMARY KEY, NAZIV TEXT, AUTOR TEKST)";
-		Statement stmt = conn.createStatement();
-		// Postavljaju se konkretna vrijednost id-ja
-		int i = stmt.executeUpdate(upit);	
-		stmt.close();
-		System.out.println("Tablica KNJIGE je stvorena!");		 
+		try(ResultSet resultSet = metadata.getTables(null, null, "KNJIGE", null)){
+			if(resultSet.next())
+			    return; // tablica KNJIGE postoji
+			
+			String upit = "create table KNJIGE (ID INTEGER PRIMARY KEY, NAZIV TEXT, AUTOR TEKST)";
+			Statement stmt = conn.createStatement();
+			// Postavljaju se konkretna vrijednost id-ja
+			stmt.executeUpdate(upit);	
+			stmt.close();
+			System.out.println("Tablica KNJIGE je stvorena!");	
+		}catch(SQLException se) {
+			prikaziSqlIznimke(se);
+		}
+	}
+	
+	// Može biti više SQL iznimaka - proći kroz sve!
+	private void prikaziSqlIznimke(SQLException se) {
+		while(se != null) {
+			System.out.println( "Stanje: " + se.getSQLState()  ) ;
+			System.out.println( "Poruka: " + se.getMessage()   ) ;
+			System.out.println( "Greška: " + se.getErrorCode() ) ;
+			se = se.getNextException() ;
+		}
 	}
 
 	public static void main(String[] args){
-		TestBaza t = new TestBaza();;
+		TestBaza t = new TestBaza();
 		// Spaja se na bazu
 		try(Connection co = DriverManager.getConnection(spojniURL)) {
 			t.conn = co;
@@ -189,14 +177,8 @@ public class TestBaza	{
 			t.citanjeSvih();
 			// Veza na bazu se zatvara automatski jer je konekcija stvorena unutar try bloka.
 		} catch(SQLException se ) {
-			System.out.println( "Greška SQL-a:" ) ;
 			// Može biti više SQL iznimaka - proći kroz sve!
-			while(se != null) {
-				System.out.println( "Stanje  : " + se.getSQLState()  ) ;
-				System.out.println( "Poruka: " + se.getMessage()   ) ;
-				System.out.println( "Greška  : " + se.getErrorCode() ) ;
-				se = se.getNextException() ;
-			}
+			t.prikaziSqlIznimke(se);
 		}
 		catch(Exception e) {
 			System.out.println(e) ;
