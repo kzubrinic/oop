@@ -1,5 +1,4 @@
 package hr.unidu.oop.p01;
-
 /**
  * Različiti načini formatiranog i neformatiranog ispisa.
  */
@@ -19,7 +18,7 @@ public class Ispis{
         System.out.print("sunčan dan.\n");
     }
     /**
-	 * Metoda ispisuje neformatiranu poruku u prvom retku metodom println,
+	 * Metoda ispisuje neformatiranu poruku u prvom retku metodom println,,
 	 * a u drugom formatiranu poruku metodom printf.
 	 */
     public void output3(){
@@ -27,14 +26,14 @@ public class Ispis{
         System.out.printf("PI na 3 decimale je %.3f\n",Math.PI);
     }
     /**
-	 * Metoda ispisuje poruku u dva retka metodom print umetanjem
-	 * posebnog znaka za prijelaz u novi readak \n
+	 * Metoda ispisuje poruku u dva retka metodom print. Prijelaz u novi
+	 * redak ostvaruje se umetanjem posebnog znaka za prijelaz u novi 
+	 * redak \n
 	 */
     public void output4(){
         System.out.print("Danas je tako \"sunčan\" dan!\n");
         System.out.print("Stvarno \\je sunčano\\\t STVARNO!\n");
     }
-    
     public static void main(String[] args){
         Ispis i = new Ispis();
         i.output1();

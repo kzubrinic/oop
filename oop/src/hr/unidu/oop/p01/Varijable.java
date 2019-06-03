@@ -1,32 +1,28 @@
 package hr.unidu.oop.p01;
- 
-
 /**
  * Primjer pridruživanja vrijednosti varijablama
  * ispravne i neispravne metode
  */ 
-
 public class Varijable{
 	/**
 	 * Prikaz greške gdje varijabla prije korištenja nije inicijalizirana
 	 */
     public void koristenjeVarijablePogresno(){
         int suma;
-        // Ako bi se redci
-        //    suma = suma + 2;
-        //    i
-        // 	  System.out.println(suma);
-        // odkomentirali, program se ne bi mogao prevesti i izvesti jer
-        // varijabla "suma" prije korištenja nije inicijalizirana!
-        //suma = suma + 2;
-        //System.out.println(suma);
+        // Program se ne može prevesti i izvesti jer varijabla "suma" 
+        // prije korištenja nije inicijalizirana!
+        // Varijabla se prije prvog korištenja na desnoj strani izraza 
+    	// mora inicijalizirati
+        // Kod inicijalizacije, vrijednost je trebala biti postavljena 
+        // na početnu vrijednost (primjerice 0) naredbom 
+        //   int suma = 0;
+        suma = suma + 2;
+        System.out.println(suma);
     }
     /**
      * Korištenje varijable koja je prije korištenja inicijalizirana
      */
     public void koristenjeVarijableIspravno(){
-        // Varijabla se prije prvog korištenja na desnoj strani izraza 
-    	//  mora inicijalizirati
         int suma = 0;
         suma = suma + 2;
         System.out.println(suma);
@@ -38,12 +34,11 @@ public class Varijable{
     public void gubitakPreciznostiPogresno(){
         int x = 24;
         // Greška - mogući gubitak podataka
-        // Program se ne može prevesti!
-        // Ako bi se sljedeća 2 retka odkomentirala, program se ne bi mogao
-        // prevesti jer se veći podatak (int) pokušava spremiti u polje 
-        // manjeg tipa (byte)
-        //byte y = x;
-        //System.out.println(y);
+        // Program se ne može prevesti jer se veći 32-bitni podatak 
+        // tipa int pokušava spremiti u manji 8-bitni prostor rezerviran 
+        // za podatak tipa byte.
+        byte y = x;
+        System.out.println(y);
     }
     /**
      * Spremanje vrijednosti iz podatka "većeg" tipa u podatak "manjeg" tipa
@@ -51,7 +46,8 @@ public class Varijable{
      */
     public void gubitakPreciznostiIspravno(){
         int x = 24;
-        // Svjesni smo mogućeg gubitka i vršimo pretvorbu podataka
+        // Svjesni smo mogućeg gubitka i svjesno vršimo pretvorbu 
+        // iz 32-bitnog u 8-bitni tip podatka.
         byte y = (byte)x;
         System.out.println(y);
     }

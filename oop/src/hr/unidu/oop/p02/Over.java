@@ -1,6 +1,6 @@
 package hr.unidu.oop.p02;
 /**
- * Primjer preoterećenja (overloadinga)
+ * Primjer preopterećenja (overloadinga)
  */
 public class Over {
 	// metoda koja prihvaća i ispisuje integer	
@@ -20,6 +20,6 @@ public class Over {
 	    Over o = new Over();
 		o.ispis("Dobar dan"); // ispisuje "Ovo je string Dobar dan"
 		o.ispis(7); // ispisuje "Ovo je integer 7"
-		o.ispis(2.0f,3.3f); // ispisuje "Produkt je 6.6"
+		o.ispis(2.0f, 3.3f); // ispisuje "Produkt je 6.6"
 	}
 }

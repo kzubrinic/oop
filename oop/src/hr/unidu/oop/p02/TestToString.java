@@ -1,9 +1,5 @@
 package hr.unidu.oop.p02;
-
-import hr.unidu.oop.p01.Osoba;
-
-public class TestToString
-{
+public class TestToString{
     public static void main(String[] args){
         // razred Osoba nema implementiranu metodu toString()
         // dok je ona implementirana u razredu Osoba2

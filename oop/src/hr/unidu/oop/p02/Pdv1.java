@@ -1,20 +1,20 @@
 package hr.unidu.oop.p02;
 /**
- * Klasa koja služi kao primjer varijabli klase.
- * 
+ * Klasa koja služi kao primjer korištenja varijabli klase.
  */
 public class Pdv1 {
     /**
      * pdv je varijabla klase - svi objekti tipa Pdv1 dijele istu kopiju varijable
      * pdv. Promjena njezine vrijednosti iz bilo kojeg objekta, odmah je vidljiva
-     * u svim objektima tipa Pdv1.
+     * u svim objektima tipa Pdv1. Koristi se navođenjem imena klase, a
+     * ne pojedine instance: Pdv1.pdv
      */
     private static double pdv = 0;
 
     public void racPdv(double osn) {
         double iznosPdva;
-        iznosPdva = osn * pdv / 100;
-        System.out.println("Stopa je " + pdv + " PDV na osnovicu "+ osn + " je " + iznosPdva);
+        iznosPdva = osn * Pdv1.pdv / 100;
+        System.out.println("Stopa je " + Pdv1.pdv + " PDV na osnovicu "+ osn + " je " + iznosPdva);
     }
     public boolean postaviStopu(double ns){
     	if (ns < 0) {
@@ -29,7 +29,6 @@ public class Pdv1 {
     	if (!p1.postaviStopu(25)) return;
     	Pdv1 p2 = new Pdv1();
     	if (!p2.postaviStopu(10)) return;
-    	
     	p1.racPdv(100);
     	p2.racPdv(100);
     }

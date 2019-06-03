@@ -1,5 +1,4 @@
 package hr.unidu.oop.p01;
- 
 /**
  * Primjer različitih vidljivosti varijable (klasa, metoda i blok naredbi)
  */

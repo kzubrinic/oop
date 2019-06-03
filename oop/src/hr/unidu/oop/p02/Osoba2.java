@@ -38,12 +38,11 @@ public class Osoba2{
     	Osoba2 o1 = new Osoba2("Ana");
     	// Stvaranje osobe pomoću konstruktora s imenom i starosti
     	Osoba2 o2 = new Osoba2("Ivo", 27);
-    	// Stvaranje osobe s "dafualutnim" konstruktorom
+    	// Stvaranje osobe s "defaultnim" konstruktorom
     	Osoba2 o3 = new Osoba2();
     	// Pristup varijablama stvorenog objekta
     	o3.setIme("Pero");
     	o3.setStarost(34);
-    	
     	// ispis objekta - ispisne metode koriste metodu toString
     	System.out.println(o1);
     	System.out.println(o2);

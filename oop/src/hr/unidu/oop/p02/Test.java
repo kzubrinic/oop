@@ -1,9 +1,11 @@
 package hr.unidu.oop.p02;
-// Primjer konstanti
+/**
+ * Primjer konstanti u Javi
+ */
 public class Test{
     /** Konstanta na nivou klase. Kod deklaracije pridružuje joj se
       * vrijednost i ta vrijednost se naknadno ne može promijeniti.
-      * Konstante se uobičajno označavaju velikim slovima s podcrtom 
+      * Konstante se uobičajeno označavaju velikim slovima s podcrtom 
       * (ako se naziv sastoji od više riječi).
       */
     private static final double MOJ_PI = 3.141;

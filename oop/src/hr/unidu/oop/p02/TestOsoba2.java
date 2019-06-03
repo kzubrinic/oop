@@ -1,6 +1,5 @@
 package hr.unidu.oop.p02;
-public class TestOsoba2
-{
+public class TestOsoba2{
     public static void main(String[] args) {
         Osoba2 p1 = new Osoba2();
         p1.setIme("Pero");

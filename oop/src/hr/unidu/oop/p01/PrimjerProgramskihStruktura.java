@@ -1,6 +1,6 @@
 package hr.unidu.oop.p01;
 /**
- * Primjer programskih struktura (grananja i petlji)
+ * Primjer programskih struktura (grananja i petlji).
  */
 public class PrimjerProgramskihStruktura{
 	/**
@@ -32,7 +32,7 @@ public class PrimjerProgramskihStruktura{
         }
     }
     /**
-     * Prikaz kretanja for-each petljom kroz kolekciju (polje)
+     * Prikaz kretanja "for-each" petljom kroz kolekciju (polje)
      */
     public void forEachPetlja(){
         int[] brojevi = {2, 7, 3, 8, 6, 4, 1, 5, 9, 12, 11};
@@ -99,7 +99,9 @@ public class PrimjerProgramskihStruktura{
         switch (mjesec) {
         case 3:  
         	System.out.print("Ožujak");
-        	break;    
+        	break;   // break je OBAVEZNA naredba u svakoj grani. 
+        	// Ako se ne navede izvest će se SVE naredbe do sljedeće
+        	// naredbe break (ili kraja grananja).
         case 4:  
         	System.out.print("Travanj");
         	break;
@@ -109,6 +111,20 @@ public class PrimjerProgramskihStruktura{
         default:  
         	System.out.print("Nije proljetni mjesec!");
         }
+    }
+    /**
+     * Svako switch-case grananje može se zamijeniti if-else strukturom.
+     * Obrat NE vrijedi.
+     */
+    public void switchCasePomocuIfova(int mjesec){
+        if(mjesec == 3)  
+        	System.out.print("Ožujak");
+        else if (mjesec == 4)  
+        	System.out.print("Travanj");
+        else if (mjesec == 5)  
+        	System.out.print("Svibanj");
+        else  
+        	System.out.print("Nije proljetni mjesec!");
     }
     
     public static void main(String[] args){
@@ -120,6 +136,7 @@ public class PrimjerProgramskihStruktura{
         p.doWhilePetlja();
         p.breakContinue();
         p.switchCase(4);
+        p.switchCasePomocuIfova(4);
     }
 }
 

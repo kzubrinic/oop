@@ -25,7 +25,7 @@ public class Krug{
     public static void main(String[] args) {
     	// Stvaranje objekta pomoću konstruktora s parametrom
     	Krug o1 = new Krug(10);
-    	// Stvaranje objekta s "dafualutnim" konstruktorom
+    	// Stvaranje objekta s "defaultnim" konstruktorom
     	Krug o2 = new Krug();
     	// Pristup metodama stvorenog objekta
     	o2.setPolumjer(5);
