@@ -1,16 +1,8 @@
 package hr.unidu.oop.p10.tablica;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JList;
-import javax.swing.SwingUtilities;
-import javax.swing.table.TableModel;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import javax.swing.*;
+import javax.swing.table.TableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -34,6 +26,7 @@ public class JednostavnaTablica extends JFrame {
 		        	JednostavnaTablica frame = new JednostavnaTablica("Jednostavna tablica");
 		        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 					frame.pack();
 		         }
 		       });
@@ -72,11 +65,14 @@ public class JednostavnaTablica extends JFrame {
 		cp.add(pp);
 		getContentPane().add(cp,BorderLayout.NORTH);
 		JButton doh = new JButton("Obradi");
-		doh.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+//		doh.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				obradiTablicu(t);
+//			}
+//		});
+		doh.addActionListener(e -> {
 				obradiTablicu(t);
-			}
 		});
 		cp1.add(doh);
 		getContentPane().add(cp1,BorderLayout.SOUTH);

@@ -25,6 +25,7 @@ public class ObradaViseDogadjajaJava8 extends JFrame{
                 public void run() {
                     ObradaViseDogadjajaJava8 window = new ObradaViseDogadjajaJava8();
                     window.pack();
+                    window.setLocationRelativeTo(null);
                     window.setVisible(true);
                 }
             });

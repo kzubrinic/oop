@@ -98,6 +98,7 @@ public class TreciProzorGrid extends JFrame {
                         TreciProzorGrid p = new TreciProzorGrid("Prijave");
                         // Prilagodi vel�i�inu prozora komponentama
                         p.pack();
+                        p.setLocationRelativeTo(null);
                         // Prika�i prozor
                         p.setVisible(true);
                     }

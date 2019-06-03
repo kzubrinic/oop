@@ -32,6 +32,7 @@ public class RazniLayouti {
       // panel se dodaje na prozor
       f.add(p);  
       f.pack();
+      f.setLocationRelativeTo(null);
       f.setVisible(true);
   }
   public void boxY(){

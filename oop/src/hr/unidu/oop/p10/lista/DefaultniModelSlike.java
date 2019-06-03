@@ -34,6 +34,7 @@ public class DefaultniModelSlike extends JFrame {
                     DefaultniModelSlike frame = new DefaultniModelSlike("Defaultni model osoba");
                     frame.setVisible(true);
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setLocationRelativeTo(null);
                     frame.pack();
                  }
                });
@@ -58,40 +59,60 @@ public class DefaultniModelSlike extends JFrame {
         getContentPane().add(pp,BorderLayout.NORTH);
         getContentPane().add(cp,BorderLayout.SOUTH);
         JButton dod = new JButton("Dodaj na kraj");
-        dod.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+//        dod.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Osoba s = new Osoba("Mara", "Marić", MARA, 43);
+//                mod.addElement(s);
+//                l1.setSelectedValue(s, true);
+//            }
+//        });
+        dod.addActionListener(e ->{
                 Osoba s = new Osoba("Mara", "Marić", MARA, 43);
                 mod.addElement(s);
                 l1.setSelectedValue(s, true);
-            }
         });
         JButton dod1 = new JButton("Dodaj iza");
-        dod1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+//        dod1.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Osoba s = new Osoba("Iva", "Ivić", IVA, 26);
+//                int p = l1.getSelectedIndex();
+//                mod.add(p+1,s);
+//                l1.setSelectedIndex(p+1);
+//            }
+//        });
+        dod1.addActionListener(e -> {
                 Osoba s = new Osoba("Iva", "Ivić", IVA, 26);
                 int p = l1.getSelectedIndex();
                 mod.add(p+1,s);
                 l1.setSelectedIndex(p+1);
-            }
         });
         JButton dod2 = new JButton("Obriši");
-        dod2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+//        dod2.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                if (l1.getSelectedIndex() > -1)
+//                    mod.remove(l1.getSelectedIndex());
+//            }
+//        });
+        dod2.addActionListener(e -> {
                 if (l1.getSelectedIndex() > -1)
                     mod.remove(l1.getSelectedIndex());
-            }
         });
         JButton dod3 = new JButton("Izmjeni");
-        dod3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+//        dod3.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Osoba s = new Osoba("Vedrana", "Vedrić", VEDRANA, 35);
+//                if (l1.getSelectedIndex() > -1)
+//                    mod.set(l1.getSelectedIndex(), s);
+//            }
+//        });
+        dod3.addActionListener(e -> {
                 Osoba s = new Osoba("Vedrana", "Vedrić", VEDRANA, 35);
                 if (l1.getSelectedIndex() > -1)
                     mod.set(l1.getSelectedIndex(), s);
-            }
         });
         cp.add(dod);
         cp.add(dod1);

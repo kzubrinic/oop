@@ -31,6 +31,7 @@ public class PrimjerLabela extends JFrame {
                         p.add(label2, BorderLayout.EAST);
                         p.add(label3, BorderLayout.SOUTH);
                         p.pack();
+                        p.setLocationRelativeTo(null);
                         p.setVisible(true);
                     }
                 });

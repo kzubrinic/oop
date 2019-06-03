@@ -24,6 +24,7 @@ public class Peti extends JFrame {
 			public void run() {
 				try {
 					Peti frame = new Peti();
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 					//frame.pack();
 				} catch (Exception e) {
@@ -56,7 +57,7 @@ public class Peti extends JFrame {
 				} catch (NumberFormatException e1){
 					r = 0;
 				} finally{
-					idRez.setText(new Float(r).toString());
+					idRez.setText(Float.toString(r));
 				}
 				
 			}

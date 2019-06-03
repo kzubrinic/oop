@@ -7,8 +7,8 @@ public class Pjesma2 {
 	// Obratno je dozvoljeno (Metoda koja nije static može
 	// koristiti static)
 	public static void sviranje(String novi) {
-		autor = novi;
-		System.out.println("Svira " + autor);
+		//autor = novi;
+		//System.out.println("Svira " + autor);
 	}
 	public static void main(String[] args) {
      	Pjesma2.sviranje("Mozart");

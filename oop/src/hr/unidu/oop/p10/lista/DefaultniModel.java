@@ -24,6 +24,7 @@ public class DefaultniModel extends JFrame {
 		        	DefaultniModel frame = new DefaultniModel("Defaultni model");
 					frame.setVisible(true);
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setLocationRelativeTo(null);
 					frame.pack();
 		         }
 		       });
@@ -47,36 +48,52 @@ public class DefaultniModel extends JFrame {
 		getContentPane().add(pp,BorderLayout.NORTH);
 		getContentPane().add(cp,BorderLayout.SOUTH);
 		JButton dod = new JButton("Dodaj na kraj");
-		dod.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+//		dod.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				String s = "Osmi dan";
+//				mod.addElement(s);
+//				l1.setSelectedValue(s, true);
+//			}
+//		});
+		dod.addActionListener(e -> {
 				String s = "Osmi dan";
 				mod.addElement(s);
 				l1.setSelectedValue(s, true);
-			}
 		});
 		JButton dod1 = new JButton("Dodaj u sredinu");
-		dod1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+//		dod1.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				String s = "Deveti dan";
+//				mod.add(1,s);
+//				l1.setSelectedValue(s, true);
+//			}
+//		});
+		dod1.addActionListener(e -> {
 				String s = "Deveti dan";
 				mod.add(1,s);
 				l1.setSelectedValue(s, true);
-			}
 		});
 		JButton dod2 = new JButton("Obriši");
-		dod2.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+//		dod2.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				mod.remove(1);
+//			}
+//		});
+		dod2.addActionListener(e -> {
 				mod.remove(1);
-			}
 		});
 		JButton dod3 = new JButton("Izmjeni");
-		dod3.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+//		dod3.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				mod.set(0, "Prvi element");
+//			}
+//		});
+		dod3.addActionListener(e -> {
 				mod.set(0, "Prvi element");
-			}
 		});
 		cp.add(dod);
 		cp.add(dod1);

@@ -25,6 +25,7 @@ public class TreciProzor extends JFrame {
                         TreciProzor p = new TreciProzor("Prijave");
                         // Prilagodi vel�i�inu prozora komponentama
                         p.pack();
+                        p.setLocationRelativeTo(null);
                         // Prika�i prozor
                         p.setVisible(true);
                     }

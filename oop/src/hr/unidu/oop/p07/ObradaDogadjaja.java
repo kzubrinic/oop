@@ -24,6 +24,7 @@ public class ObradaDogadjaja extends JFrame{
 				public void run() {
 					ObradaDogadjaja window = new ObradaDogadjaja();
 					window.pack();
+					window.setLocationRelativeTo(null);
 					window.setVisible(true);
 				}
 			});

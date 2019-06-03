@@ -22,6 +22,7 @@ public class DrugiProzorPoboljsani extends JFrame {
            p.add(l, BorderLayout.WEST);
            p.add(f, BorderLayout.EAST);
            p.add(pan, BorderLayout.SOUTH);
+           p.setLocationRelativeTo(null);
            p.pack();
            p.setVisible(true);
          }

@@ -24,6 +24,7 @@ public class JednostavnoStablo extends JFrame{
 					JednostavnoStablo frame = new JednostavnoStablo("Jednostavno stablo");
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 					frame.pack();
 				}
 			});

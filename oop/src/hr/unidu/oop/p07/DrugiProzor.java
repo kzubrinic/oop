@@ -19,6 +19,7 @@ public class DrugiProzor extends JFrame {
            p.add(f, BorderLayout.EAST);
            p.add(b, BorderLayout.SOUTH);
            p.pack();
+           p.setLocationRelativeTo(null);
            p.setVisible(true);
          }
        });

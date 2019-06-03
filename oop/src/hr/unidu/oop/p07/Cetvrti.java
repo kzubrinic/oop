@@ -20,6 +20,7 @@ public class Cetvrti extends JFrame {
 				try {
 					Cetvrti frame = new Cetvrti();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 					frame.pack();
 				} catch (Exception e) {
 					e.printStackTrace();

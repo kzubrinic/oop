@@ -119,6 +119,7 @@ public class TreciProzorBox extends JFrame {
                         TreciProzorBox p = new TreciProzorBox("Prijave");
                         // Prilagodi vel�i�inu prozora komponentama
                         p.pack();
+                        p.setLocationRelativeTo(null);
                         // Prika�i prozor
                         p.setVisible(true);
                     }

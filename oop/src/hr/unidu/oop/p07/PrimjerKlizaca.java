@@ -27,6 +27,7 @@ public class PrimjerKlizaca extends JFrame {
 				try {
 					PrimjerKlizaca frame = new PrimjerKlizaca();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 					frame.pack();
 				} catch (Exception e) {
 					e.printStackTrace();

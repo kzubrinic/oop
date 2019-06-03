@@ -41,6 +41,7 @@ public class Stablo extends JFrame {
 					Stablo frame = new Stablo("Stablo");
 					frame.setVisible(true);
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setLocationRelativeTo(null);
 					frame.pack();
 				}
 			});

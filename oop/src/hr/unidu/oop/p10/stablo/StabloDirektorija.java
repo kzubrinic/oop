@@ -21,6 +21,7 @@ public class StabloDirektorija extends JFrame{
 					StabloDirektorija frame = new StabloDirektorija("Stablo direktorija");
 					frame.setVisible(true);
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setLocationRelativeTo(null);
 					frame.pack();
 				}
 			});

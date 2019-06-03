@@ -44,7 +44,7 @@ public class Cestitanje {
 		// Naredba 
 		//   ivo.cestitajRodjendan();
 		// bi uzrokovala grešku kod izvođenja jer prvi stvoreni objekt 
-		// tipa Osoba viuše ne postoji.
+		// tipa Osoba više ne postoji.
 	}
 	/**
 	 * Ispisuje pozdravnu poruku osobe

@@ -111,6 +111,7 @@ public class Izbori extends JFrame {
         tekst.setText("Ovo je probni tekst za oblikovanje");
         add(tekst, BorderLayout.CENTER);
         pack();
+        setLocationRelativeTo(null);
     }                                      
 
     private void promijeniFont(){

@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @author Krunoslav �ubrini�
+ * @author Krunoslav Žubrinić
  * 28. tra 2015.
  */
 public class Slusac1 implements ActionListener {

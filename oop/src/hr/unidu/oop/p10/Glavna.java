@@ -77,60 +77,81 @@ public class Glavna extends JFrame {
 	}
 	private void napuniMenuListe(){
 	JMenuItem mntmJednostavnaLista = new JMenuItem("Jednostavna lista");
-		mntmJednostavnaLista.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+//		mntmJednostavnaLista.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniJednostavnu();
+//			}
+//		});
+		mntmJednostavnaLista.addActionListener(e -> {
 				pokreniJednostavnu();
-			}
 		});
 		mnListe.add(mntmJednostavnaLista);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Prvi primjer s defaultnim modelom");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+//		mntmNewMenuItem.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniPrvi();
+//			}
+//		});
+		mntmNewMenuItem.addActionListener(e -> {
 				pokreniPrvi();
-			}
 		});
 		mnListe.add(mntmNewMenuItem);
 		
 		JMenuItem mntmDrugiPrimjerS = new JMenuItem("Drugi primjer s defaultnim modelom");
-		mntmDrugiPrimjerS.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+//		mntmDrugiPrimjerS.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniDrugi();
+//			}
+//		});
+		mntmDrugiPrimjerS.addActionListener(e -> {
 				pokreniDrugi();
-			}
 		});
 		mnListe.add(mntmDrugiPrimjerS);
 		
 		JMenuItem mntmPrimjerSaSpecifinim = new JMenuItem("Primjer sa specifičnim iscrtavanjem retka");
-		mntmPrimjerSaSpecifinim.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+//		mntmPrimjerSaSpecifinim.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniSlike();
+//			}
+//		});
+		mntmPrimjerSaSpecifinim.addActionListener(e-> {
 				pokreniSlike();
-			}
 		});
 		mnListe.add(mntmPrimjerSaSpecifinim);
 	   }
 	   
 	private void napuniMenuTablice(){
 	JMenuItem mntmJednostavna = new JMenuItem("Jednostavna tablica");
-		mntmJednostavna.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+//		mntmJednostavna.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniJednostavnuTab();
+//			}
+//		});
+		mntmJednostavna.addActionListener(e -> {
 				pokreniJednostavnuTab();
-			}
 		});
 		mnTab.add(mntmJednostavna);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Prvi primjer s vlastitim modelom");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+//		mntmNewMenuItem.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniPrviVlast();
+//			}
+//		});
+		mntmNewMenuItem.addActionListener(e -> {
 				pokreniPrviVlast();
-			}
 		});
 		mnTab.add(mntmNewMenuItem);
 		
 		JMenuItem mntmDrugiPrimjerS = new JMenuItem("Drugi primjer s vlastitim modelom");
-		mntmDrugiPrimjerS.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+//		mntmDrugiPrimjerS.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniDrugiVlast();
+//			}
+//		});
+		mntmDrugiPrimjerS.addActionListener(e -> {
 				pokreniDrugiVlast();
-			}
 		});
 		mnTab.add(mntmDrugiPrimjerS);
 
@@ -138,82 +159,100 @@ public class Glavna extends JFrame {
 	   
 	   private void napuniMenuStabla(){
 	JMenuItem mntmJednostavna = new JMenuItem("Jednostavno stablo");
-		mntmJednostavna.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pokreniJednostavnoStab();
-			}
-		});
+//		mntmJednostavna.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniJednostavnoStab();
+//			}
+//		});
+		   mntmJednostavna.addActionListener(e -> {
+				   pokreniJednostavnoStab();
+		   });
 		mnStab.add(mntmJednostavna);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Stablo direktorija/mapa");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pokreniStabloDir();
-			}
-		});
+//		mntmNewMenuItem.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniStabloDir();
+//			}
+//		});
+		   mntmNewMenuItem.addActionListener(e -> {
+				   pokreniStabloDir();
+		   });
 		mnStab.add(mntmNewMenuItem);
 		
 		JMenuItem mntmDrugiPrimjerS = new JMenuItem("Stablo osoba");
-		mntmDrugiPrimjerS.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pokreniStabloStud();
-			}
-		});
+//		mntmDrugiPrimjerS.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				pokreniStabloStud();
+//			}
+//		});
+		   mntmDrugiPrimjerS.addActionListener(e -> {
+				   pokreniStabloStud();
+		   });
 		mnStab.add(mntmDrugiPrimjerS);
-
-	   }   
+	   }
 	   
 	   
 	private void pokreniJednostavnu(){
 		JednostavnaLista frame = new JednostavnaLista("Jednostavna lista");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 	private void pokreniPrvi(){
 		DefaultniModel frame = new DefaultniModel("Defaultni model");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 	private void pokreniDrugi(){
 		DefaultniModel2 frame = new DefaultniModel2("Defaultni model studenata");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 	private void pokreniSlike(){
 		DefaultniModelSlike frame = new DefaultniModelSlike("Model studenata s prikazom slike");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 	
 	private void pokreniJednostavnuTab(){
 		JednostavnaTablica frame = new JednostavnaTablica("Jednostavna tablica");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 	private void pokreniPrviVlast(){
 		TablicaSVlastitimModelom frame = new TablicaSVlastitimModelom("Tablica s vlastitim modelom");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 	private void pokreniDrugiVlast(){
 		TablicaSVlastitimModelom2 frame = new TablicaSVlastitimModelom2("Tablica s vlastitim modelom 2");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 	
 	private void pokreniJednostavnoStab(){
 		JednostavnoStablo frame = new JednostavnoStablo("Jednostavno stablo");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 	private void pokreniStabloDir(){
 		StabloDirektorija frame = new StabloDirektorija("Stablo direktorija/mapa");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 	private void pokreniStabloStud(){
 		Stablo frame = new Stablo("Stablo studenata");
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 	}
 }

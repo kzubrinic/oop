@@ -7,7 +7,8 @@ public class Pjesma2 {
 	// Obratno je dozvoljeno (Metoda koja nije static mo�e
 	// koristiti static)
 	public static void sviranje(String novi) {
-		autor = novi;
-		System.out.println("Svira " + autor);
+		// Non-static varijabla autor ne može se pozvati iz static metode
+		// autor = novi;
+		//System.out.println("Svira " + autor);
 	}
 }

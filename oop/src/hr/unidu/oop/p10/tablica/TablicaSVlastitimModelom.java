@@ -37,6 +37,7 @@ public class TablicaSVlastitimModelom extends JFrame {
 		        	TablicaSVlastitimModelom frame = new TablicaSVlastitimModelom("Tablica s vlastitim modelom");
 		        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 					frame.pack();
 		         }
 		       });
@@ -69,11 +70,14 @@ public class TablicaSVlastitimModelom extends JFrame {
 		cp.add(pp);
 		getContentPane().add(cp,BorderLayout.NORTH);
 		JButton doh = new JButton("Obradi");
-		doh.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+//		doh.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				obradiTablicu(t);
+//			}
+//		});
+		doh.addActionListener(e -> {
 				obradiTablicu(t);
-			}
 		});
 		cp1.add(doh);
 		getContentPane().add(cp1,BorderLayout.SOUTH);
@@ -97,11 +101,13 @@ public class TablicaSVlastitimModelom extends JFrame {
         int brRed = model.getRowCount();
         int brStup = model.getColumnCount();
         // Povezuje indeks retka tablice s indeksom retka u modelu
-        // Ako podaci nisu sortirani, indeksi su jednaki!
+        // Ako su podaci sortirani, indeksi nisu jednaki!
 		int brSr = t.convertRowIndexToModel(t.getSelectedRow());
-		int brSs = t.getSelectedColumn();
+		// Povezuje indeks stupca tablice s indeksom stupca u modelu
+		// Indeksi su različiti ako im j epromijenjen redosljed!
+		int brSs = t.convertColumnIndexToModel(t.getSelectedColumn());
         System.out.println("Dohvaćanje podataka iz retka " + brSr);
-        for (int j=0; j < brStup; j++) {
+        for (int j=0; j < brSs; j++) {
             System.out.print("  " + model.getValueAt(brSr, j));
         }
         System.out.println();
