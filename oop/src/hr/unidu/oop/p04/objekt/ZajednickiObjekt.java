@@ -1,14 +1,14 @@
 package hr.unidu.oop.p04.objekt;
 /**
- * Primjer kori�tenja metoda krovnog razreda Object
+ * Primjer korištenja metoda krovnog razreda Object
  * 
- * @author Krunoslav �ubrini�
- * @version o�ujak 2015.
+ * @author Krunoslav Žubrinić
+ * @version ožujak 2015.
  */
 public class ZajednickiObjekt {
      public void prikaziRezultat() {
         String objekt1 = "Pero Peri�";
-        Integer objekt2 = new Integer(127);
+        Integer objekt2 = 127;
         Trokut objekt3 = new Trokut();
         Trokut objekt4 = new Trokut(3, 4, 5);
         System.out.println("Jednakost objekata objekt3 i objekt4 je: "+objekt3.equals(objekt4));

@@ -3,10 +3,10 @@
  */
 package hr.unidu.oop.p04.sucelje;
 public interface Konstante {
-	public static final int DULJINA = 5;
-	public static final String NERADNI_DAN = "NEDJELJA";
-	public static final String TEKUCA_GODINA = "2008";
-	public void ispisTeksta();
+	int DULJINA = 5;
+	String NERADNI_DAN = "NEDJELJA";
+	String TEKUCA_GODINA = "2008";
+	void ispisTeksta();
 	// Od Jave 8 - static metoda na sučelju - poziva se navođenjem sučelja
 	static void ispis() {
 		System.out.println("Static Ispis");

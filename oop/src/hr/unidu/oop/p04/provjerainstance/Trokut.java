@@ -18,9 +18,7 @@ public class Trokut extends Lik
             return false;
         if (t == this)
             return true;
-        if ((a==t.a)&&(b==t.b)&&(c==t.c))    
-            return true;
-        return false;    
+        return (a == t.a) && (b == t.b) && (c == t.c);
     }
     public String toString()
     {

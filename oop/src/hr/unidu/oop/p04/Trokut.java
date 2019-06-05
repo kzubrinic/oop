@@ -26,10 +26,9 @@ public class Trokut implements Comparable<Trokut>{
         if (this == t) {
             return true;
         }
-        if ((t == null) || !(t instanceof Trokut)){
+        if (!(t instanceof Trokut)){
             return false;
         }
-        Trokut drugi = (Trokut) t;
         return (a == t.getA() && b == t.getB() && c == t.getC());
     }
     public int hashCode(){
@@ -45,11 +44,13 @@ public class Trokut implements Comparable<Trokut>{
     }
     
     public int compareTo(Trokut t){
-        if (a+b+c < t.getA()+t.getB()+t.getC())
-            return -1;
-        else if (a+b+c > t.getA()+t.getB()+t.getC()) 
-            return 1;
-        else
-            return 0;
+        return Integer.compare(a + b + c, t.getA() + t.getB() + t.getC());
+        // Stari način
+//        if (a+b+c < t.getA()+t.getB()+t.getC())
+//            return -1;
+//        else if (a+b+c > t.getA()+t.getB()+t.getC())
+//            return 1;
+//        else
+//            return 0;
     }
 }

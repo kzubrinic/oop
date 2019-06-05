@@ -28,10 +28,9 @@ public class Trokut
         if (this == t) {
             return true;
         }
-        if ((t == null) || !(t instanceof Trokut)){
+        if (!(t instanceof Trokut)){
             return false;
         }
-        Trokut drugi = (Trokut) t;
         return (a == t.getA() && b == t.getB() && c == t.getC());
     }
     public int hashCode(){

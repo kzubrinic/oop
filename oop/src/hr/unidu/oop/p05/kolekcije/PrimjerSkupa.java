@@ -12,19 +12,19 @@ public class PrimjerSkupa {
     
     
     System.out.println("Stvorena ArrayLista s 5 elemenata (2 jednaka)");  
-    list = new ArrayList<String>();
+    list = new ArrayList<>();
     list.add("Ivo");
     list.add("Ana");
     list.add("Vlaho");
     list.add("Ana");
     list.add("Kate");
     System.out.println(list);
-    set = new HashSet<String>(list);
+    set = new HashSet<>(list);
     System.out.println("Ovo je implementacija hash seta iz liste"); 
     System.out.println(set);
     // implementation of sorted set!
     System.out.println("Ovo je (sortirana) implementacija TreeSet"); 
-    sortedSet = new TreeSet<String>(set);
+    sortedSet = new TreeSet<>(set);
     System.out.println(sortedSet);  
   }    
 }

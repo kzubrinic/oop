@@ -24,23 +24,23 @@ public class PrimjerListe
     private void listaCijelih(){
         Integer broj;
         // implementacija liste stati�kim poljem
-        lista1 = new ArrayList<Integer>(3);
+        lista1 = new ArrayList<>(3);
         u = new Enter();
 
         // dodaj element na kraj liste
         addBroj();
         // dodaj element na zadanu poziciju liste 
-        lista1.add(1,new Integer(9999));
+        lista1.add(1,9999);
         // �itaj sve elemente liste (klasi�an for)        
         for (int i=0; i<lista1.size();i++) {
-            broj=(Integer)lista1.get(i);
+            broj=lista1.get(i);
             System.out.println("Na poziciji "+i+" je broj: "+broj);
         }
         // brisanje podatka sa zadane pozicije
         broj=lista1.remove(0);
         System.out.println("Izbrisan broj "+broj + " s prve pozicije.");
         // brisanje zadanog elementa
-        broj = new Integer(9999);
+        broj = 9999;
         if (lista1.contains(broj)){
             lista1.remove(broj);
             System.out.println("Obrisan broj "+broj);
@@ -60,12 +60,12 @@ public class PrimjerListe
         String niz;
         Object o;
         // implementacija liste vezanom listom
-        lista2 = new LinkedList<Object>();
+        lista2 = new LinkedList<>();
         u = new Enter();
 
         // dodaj element na kraj liste
         addNiz();
-        lista2.add(1,new Integer(9999));
+        lista2.add(1,9999);
         // �itaj sve elemente liste (klasi�an for)        
         for (int i=0; i<lista2.size();i++) {
             if (lista2.get(i) instanceof Integer){
@@ -83,7 +83,7 @@ public class PrimjerListe
         o=lista2.remove(0);
         System.out.println("Izbrisan podatak "+o + " s prve pozicije.");
         // brisanje zadanog elementa
-        broj = new Integer(9999);
+        broj = 9999;
         if (lista2.contains(broj)){
             lista2.remove(broj);
             System.out.println("Obrisan broj "+broj);
@@ -102,7 +102,7 @@ public class PrimjerListe
             a=u.addInt("Unesi cijeli broj (0 za kraj):");
             if (a==0)
                 break;
-            lista1.add(new Integer(a));
+            lista1.add(a);
         }
     }
     private void addNiz()
@@ -113,7 +113,7 @@ public class PrimjerListe
             a=u.addInt("Unesi cijeli broj (0 za kraj):");
             if (a==0)
                 break;
-            lista2.add(new Integer(a));
+            lista2.add(a);
         }
         while(true) {
             s=u.addString("Unesi niz znakova (\"x\" za kraj):");

@@ -15,7 +15,7 @@ public class KoristenjeKonstantiSucelja implements Konstante {
     public void ispis3() {
 		System.out.println("Promijenjeni Ispis 3");
 	}
-    public static void main(String args[]) {
+    public static void main(String[] args) {
     	// Od Jave 8 - static metoda na sučelju - poziva se navođenjem sučelja
     	Konstante.ispis();
     	KoristenjeKonstantiSucelja k = new KoristenjeKonstantiSucelja();

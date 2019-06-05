@@ -4,8 +4,8 @@ public class PrimjerOmotaca {
     Number a,b;
     double c;
     public void primjerInt(int prvi, String drugi) {
-        a = new Integer(prvi);
-        b = new Float(drugi);
+        a = prvi; // auto boxing int -> Integer
+        b = Float.parseFloat(drugi);
 
         c = a.doubleValue() + b.doubleValue(); 
 
