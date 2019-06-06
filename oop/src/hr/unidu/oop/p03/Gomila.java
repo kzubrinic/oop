@@ -32,9 +32,9 @@ public class Gomila {
 		kolegicaIzSkole.starost = 20;
 		// Poziva se metoda na stvorenom objektu. Sintaksa je ista
 		// kao kod pristupa varijablama (pomo�u operatora "to�ka").
-		kolegicaIzSkole.rodjendan();
+		kolegicaIzSkole.cestitajRodjendan();
 		
-		// Stvara se jo� jedan novi objekt tipa Osoba i postavlja
+		// Stvara se još jedan novi objekt tipa Osoba i postavlja
 		// ime i starost
 		Osoba prijateljicaIzVrtica = new Osoba();
 		prijateljicaIzVrtica.ime = "Kate";

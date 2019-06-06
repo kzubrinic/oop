@@ -23,16 +23,40 @@ public class NizZnakova {
 		System.out.println("toLowerCase(): Niz ispisan malim slovima: " + s.toLowerCase());
 		System.out.println("toUpperCase(): Niz ispisan velikim slovima: " + s.toUpperCase());
 	}
-	
-	public String[] podijeliNiz(String niz){
-		String[] rez = niz.split(","); // razbija niz po zarezu
-		return rez;
 
+	public int traziSlovo(String niz, char slovo, boolean zadnje){
+		if (zadnje)
+			return niz.lastIndexOf(slovo);
+		return niz.indexOf(slovo);
 	}
 	
+	public String[] podijeliNiz(String niz){
+		return niz.split(","); // razbija niz po zarezu i vraća razbijeniniz
+	}
+
+	public void podijeliNizScanner(String niz){
+		Scanner s = new Scanner(niz);
+		s.useDelimiter(",");
+
+		while(s.hasNext()){
+			String n = "";
+			int i = 0;
+			double d = 0.0;
+			if (s.hasNextInt()) 	// Je li podatak int?
+				i = s.nextInt(); 	// dohvati int
+			else if (s.hasNextDouble())	// Je li podatak double?
+				d = s.nextDouble();
+			else
+				n = s.next();  		// Ako nije broj, dohvati String
+			System.out.printf("NIZ %s INT %d DOUBLE %.2f\n", n, i, d);
+		}
+		s.close();
+	}
+
+	
 	public void ispisiNiz(String[] niz){
-		for (int i = 0; i < niz.length; i++)
-			System.out.println(niz[i]);
+		for (String s : niz)
+			System.out.println(s);
 	}
 
 	public static void main(String[] args) {
@@ -61,6 +85,9 @@ public class NizZnakova {
 		else
 			System.out.println("equals(): Nizovi (" + niz + ") i (" + niz2 + ") su različiti!");
 
+		// Ispisuje prva 3 znaka prvog niza i posljednja 3 znaka drugog niza
+		System.out.println("Prva 3 znaka prvog niza: " + niz.substring(0,3));
+		System.out.println("Posljednja 3 znaka drugog niza: " + niz2.substring(niz2.length()-3,niz2.length()));
 		// Uspoređuje sadržaj niza "leksikografski" - po abecedi 
 		// Razlikuje mala i velika slova (PERO != Pero)
 		if (niz.compareTo(niz2) > 0)
@@ -80,10 +107,24 @@ public class NizZnakova {
 			System.out.println("compareToIgnoreCase(): Oba niza (" + niz + ") i (" + niz2 + ") su jednakog sadržaja");
 		
 		// Niz znakova se dijeli po delimiteru i sprema u polje
-		String n3 = "Pero,Perić,12.2.2015.,Dubrovnik,178";
+		String n3 = "Pero,Perić,12.2,2015,Dubrovnik,178";
 		String[] polje = n.podijeliNiz(n3);
+
+		n.podijeliNizScanner(n3);
 		// dobiveno polje se ispisuje
 		n.ispisiNiz(polje);
+
+		int poz1 = n.traziSlovo(n3, 'o', false);
+		int poz2 = n.traziSlovo(n3, 'o', true);
+		if (poz1 < 0)
+			System.out.println("Slovo o ne postoji u nizu: " + n3);
+		else if (poz1 == poz2)
+			System.out.println("Slova o se u nizu nalazi samo jednom na " +
+					"poziciji " + poz1);
+		else
+			System.out.println("Prva pozicija slova o je " + poz1 + " , a " +
+					"posljednja " + poz2);
+
 	}
 
 }

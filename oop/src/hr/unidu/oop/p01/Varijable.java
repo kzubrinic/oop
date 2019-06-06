@@ -16,8 +16,8 @@ public class Varijable{
         // Kod inicijalizacije, vrijednost je trebala biti postavljena 
         // na početnu vrijednost (primjerice 0) naredbom 
         //   int suma = 0;
-        suma = suma + 2;
-        System.out.println(suma);
+        //suma = suma + 2;
+        //System.out.println(suma);
     }
     /**
      * Korištenje varijable koja je prije korištenja inicijalizirana
@@ -37,8 +37,8 @@ public class Varijable{
         // Program se ne može prevesti jer se veći 32-bitni podatak 
         // tipa int pokušava spremiti u manji 8-bitni prostor rezerviran 
         // za podatak tipa byte.
-        byte y = x;
-        System.out.println(y);
+        //byte y = x;
+        //System.out.println(y);
     }
     /**
      * Spremanje vrijednosti iz podatka "većeg" tipa u podatak "manjeg" tipa

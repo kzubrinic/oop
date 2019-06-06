@@ -42,20 +42,16 @@ public class Osoba {
 	public boolean equals(Object obj) {
 		if (this == obj)
  			return true;
-		if ((obj == null) || (!(obj instanceof Osoba)))
+		if (!(obj instanceof Osoba))
 			return false;
 		Osoba other = (Osoba) obj;
 		if (ime == null) {
 			if (other.ime != null)
 				return false;
-		} else if (!ime.equals(other.ime))
+		} else if (!ime.equals(other.ime)) {
 			return false;
-		if (prezime == null) {
-			if (other.prezime != null)
-				return false;
-		} else if (!prezime.equals(other.prezime))
-			return false;
-		return true;
+		}
+		return (prezime != null || other.prezime == null) && (prezime.equals(other.prezime));
 	}
 	
 	public String toString(){

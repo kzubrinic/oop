@@ -3,7 +3,7 @@ package hr.unidu.oop.p03;
 public class Test{
     // Konstanta na nivou klase. Kod deklaracije pridru�uje joj se
     // vrijednost i ta vrijednost se naknadno ne mo�e promijeniti.
-    // Konstante se uobi�ajno ozna�avaju velikim slovima s podcrtom 
+    // Sucelje se uobi�ajno ozna�avaju velikim slovima s podcrtom
     // (ako se naziv sastoji od vi�e rije�i).
     public static final double PI = 3.141;
     // parametar ozna�en s final je na�in na koji se osiguravamo da

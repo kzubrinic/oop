@@ -3,35 +3,20 @@ package hr.unidu.oop.p10.tablica;
 import javax.swing.*;
 import javax.swing.table.TableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.lang.reflect.InvocationTargetException;
 
 public class JednostavnaTablica extends JFrame {
 
-	private JPanel cp, cp1;
-	private final String PERO = "slike/pero.jpg";
-    private final String BERO = "slike/bero.jpg";
-    private final String VLAHO = "slike/vlaho.jpg";
-    private final String IVO = "slike/ivo.jpg";
-    private final String IVA = "slike/iva.jpg";
-    private final String ANA = "slike/ana.jpg";
-	
 	public static void main(String[] args) {
 		try {
-		       SwingUtilities.invokeAndWait(new Runnable(){
-		         public void run() {
-		        	JednostavnaTablica frame = new JednostavnaTablica("Jednostavna tablica");
-		        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-					frame.pack();
-		         }
-		       });
-		    } catch (InvocationTargetException e) {
-		      e.printStackTrace();
+		       SwingUtilities.invokeAndWait(() -> {
+				  JednostavnaTablica frame = new JednostavnaTablica("Jednostavna tablica");
+				  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				  frame.setVisible(true);
+				  frame.setLocationRelativeTo(null);
+				  frame.pack();
+			   });
 		    } catch (Exception e){
 		    	e.printStackTrace();
 		    }
@@ -39,11 +24,17 @@ public class JednostavnaTablica extends JFrame {
 
 	public JednostavnaTablica(String n) {
 		super(n);
-		
-		cp = new JPanel();
-		cp1 = new JPanel();
+
+		JPanel cp = new JPanel();
+		JPanel cp1 = new JPanel();
 		String[] stupci = {"Ime", "Prezime", "Slika"};
 
+		String ANA = "slike/ana.jpg";
+		String IVA = "slike/iva.jpg";
+		String IVO = "slike/ivo.jpg";
+		String VLAHO = "slike/vlaho.jpg";
+		String BERO = "slike/bero.jpg";
+		String PERO = "slike/pero.jpg";
 		Object[][] podaci = {{"Pero", "Perić", PERO},
 		{"Ana", "Anić", ANA},
 		{"Ivo", "Ivić", IVO},
@@ -71,9 +62,7 @@ public class JednostavnaTablica extends JFrame {
 //				obradiTablicu(t);
 //			}
 //		});
-		doh.addActionListener(e -> {
-				obradiTablicu(t);
-		});
+		doh.addActionListener(e -> obradiTablicu(t));
 		cp1.add(doh);
 		getContentPane().add(cp1,BorderLayout.SOUTH);
 	}

@@ -7,11 +7,11 @@ public class Voznja{
         Automobil punto=new Automobil ("DU 111 A",137);
         boolean end=false;
         System.out.println("Automobil miruje.");
-        while(end == false){
+        while(!end){
           end=punto.ubrzanje(20);
           System.out.print("Automobil " + punto.getRegBroj() );
           System.out.println(" vozi brzinom " + punto.getBrzina());
-          if (end == true)
+          if (end)
             break;
         }
         System.out.print("Automobil miruje.");

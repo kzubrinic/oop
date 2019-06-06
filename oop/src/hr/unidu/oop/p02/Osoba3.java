@@ -1,4 +1,7 @@
 package hr.unidu.oop.p02;
+
+import java.util.Objects;
+
 public class Osoba3{
     private String ime;
     private int starost;
@@ -33,12 +36,15 @@ public class Osoba3{
 		if (this == obj) {
 			return true;
 		}
-		if ((obj == null) || !(obj instanceof Osoba3)){
+		if (!(obj instanceof Osoba3)){
 			return false;
 		}
 		Osoba3 drugi = (Osoba3) obj;
 		return starost == drugi.starost &&
-				(ime == drugi.ime || (ime != null && ime.equals(drugi.ime)));
+				(Objects.equals(ime, drugi.ime));
+		// Stari načlin
+        // return starost == drugi.starost &&
+        //				(ime == drugi.ime || (ime != null && ime.equals(drugi.ime)));
 	}
     public int hashCode() {
 		final int prim = 31;

@@ -5,7 +5,7 @@ package hr.unidu.oop.p02;
 public class Test{
     /** Konstanta na nivou klase. Kod deklaracije pridružuje joj se
       * vrijednost i ta vrijednost se naknadno ne može promijeniti.
-      * Konstante se uobičajeno označavaju velikim slovima s podcrtom 
+      * Sucelje se uobičajeno označavaju velikim slovima s podcrtom
       * (ako se naziv sastoji od više riječi).
       */
     private static final double MOJ_PI = 3.141;

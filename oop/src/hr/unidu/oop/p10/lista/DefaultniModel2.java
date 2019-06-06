@@ -10,28 +10,20 @@ import javax.swing.SwingUtilities;
 import hr.unidu.oop.p10.Osoba;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.lang.reflect.InvocationTargetException;
 
 public class DefaultniModel2 extends JFrame {
 
-    private JPanel cp;
     private DefaultListModel<Osoba> mod;
     
     public static void main(String[] args) {
         try {
-               SwingUtilities.invokeAndWait(new Runnable(){
-                 public void run() {
-                    DefaultniModel2 frame = new DefaultniModel2("Defaultni model osoba - sa slikama");
-                    frame.setVisible(true);
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.setLocationRelativeTo(null);
-                    frame.pack();
-                 }
+               SwingUtilities.invokeAndWait(() -> {
+                  DefaultniModel2 frame = new DefaultniModel2("Defaultni model osoba - sa slikama");
+                  frame.setVisible(true);
+                  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                  frame.setLocationRelativeTo(null);
+                  frame.pack();
                });
-            } catch (InvocationTargetException e) {
-              e.printStackTrace();
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -40,7 +32,7 @@ public class DefaultniModel2 extends JFrame {
     public DefaultniModel2(String n) {
         super(n);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        cp = new JPanel();
+        JPanel cp = new JPanel();
         mod = new DefaultListModel<>();
         napuniModel();
         JList<Osoba> l1 = new JList<>(mod);

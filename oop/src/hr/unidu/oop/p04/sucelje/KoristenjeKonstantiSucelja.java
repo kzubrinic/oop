@@ -1,6 +1,6 @@
 package hr.unidu.oop.p04.sucelje;
 
-public class KoristenjeKonstantiSucelja implements Konstante {
+public class KoristenjeKonstantiSucelja implements Sucelje {
 
 
     public KoristenjeKonstantiSucelja() {
@@ -17,7 +17,7 @@ public class KoristenjeKonstantiSucelja implements Konstante {
 	}
     public static void main(String[] args) {
     	// Od Jave 8 - static metoda na sučelju - poziva se navođenjem sučelja
-    	Konstante.ispis();
+    	Sucelje.ispis();
     	KoristenjeKonstantiSucelja k = new KoristenjeKonstantiSucelja();
     	// Od Jave 8 - default metoda na sučelju - poziva se navođenjem reference
     	//  na objekt klase koja implementira sučelje

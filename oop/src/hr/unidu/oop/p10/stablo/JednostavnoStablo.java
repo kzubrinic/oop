@@ -19,14 +19,12 @@ public class JednostavnoStablo extends JFrame{
 
 	public static void main(String[] args) {
 		try {
-			SwingUtilities.invokeAndWait(new Runnable(){
-				public void run() {
-					JednostavnoStablo frame = new JednostavnoStablo("Jednostavno stablo");
-					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-					frame.pack();
-				}
+			SwingUtilities.invokeAndWait(() -> {
+				JednostavnoStablo frame = new JednostavnoStablo("Jednostavno stablo");
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setVisible(true);
+				frame.setLocationRelativeTo(null);
+				frame.pack();
 			});
 		}catch (Exception e){
 			e.printStackTrace();
@@ -78,12 +76,13 @@ public class JednostavnoStablo extends JFrame{
 		TreePath[] selectedPath = t.getSelectionPaths();
 		if (selectedPath == null)
 			return;
-		String o = new String();
+		StringBuilder o = new StringBuilder();
 		for (TreePath tp: selectedPath){
 			DefaultMutableTreeNode node = ((DefaultMutableTreeNode)tp.getLastPathComponent());
-			o = o + " " + node.getUserObject().toString();
+			o.append(node.getUserObject().toString());
+			o.append("\n");
 		}
-		izabrano.setText("Izabrano je: " + o);
+		izabrano.setText("Izabrano je: " + o.toString());
 	}
 	
 }

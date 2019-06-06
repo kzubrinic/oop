@@ -1,58 +1,40 @@
 package hr.unidu.oop.p10.tablica;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JList;
 import javax.swing.SwingUtilities;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
 import hr.unidu.oop.p10.Osoba;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class TablicaSVlastitimModelom2 extends JFrame {
 
-    private JPanel cp, cp1;
     private JTable t;
     private boolean prva = true;
     private OsobaModel2 sm;
-    private final String PERO = "slike/pero.jpg";
-    private final String BERO = "slike/bero.jpg";
-    private final String VLAHO = "slike/vlaho.jpg";
-    private final String IVO = "slike/ivo.jpg";
-    private final String ANA = "slike/ana.jpg";
     private final String MARA = "slike/mara.jpg";
     private final String IVA = "slike/iva.jpg";
 
     public static void main(String[] args) {
         try {
-            SwingUtilities.invokeAndWait(new Runnable() {
-                public void run() {
-                    TablicaSVlastitimModelom2 frame = new TablicaSVlastitimModelom2("Tablica s vlastitim modelom 2");
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.setVisible(true);
-                    frame.setLocationRelativeTo(null);
-                    frame.pack();
-                }
+            SwingUtilities.invokeAndWait(() -> {
+                TablicaSVlastitimModelom2 frame = new TablicaSVlastitimModelom2("Tablica s vlastitim modelom 2");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
+                frame.pack();
             });
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -60,8 +42,8 @@ public class TablicaSVlastitimModelom2 extends JFrame {
 
     public TablicaSVlastitimModelom2(String n) {
         super(n);
-        cp = new JPanel();
-        cp1 = new JPanel();
+        JPanel cp = new JPanel();
+        JPanel cp1 = new JPanel();
         t = new JTable();
         t.setAutoCreateRowSorter(true);
         t.setRowHeight(120);
@@ -112,9 +94,7 @@ public class TablicaSVlastitimModelom2 extends JFrame {
 //                obradiTablicu(t);
 //            }
 //        });
-        doh.addActionListener(e -> {
-                 obradiTablicu(t);
-        });
+        doh.addActionListener(e -> obradiTablicu(t));
         cp1.add(doh);
         JButton dod = new JButton("Dodaj novi red");
 //        dod.addActionListener(new ActionListener() {
@@ -228,10 +208,15 @@ public class TablicaSVlastitimModelom2 extends JFrame {
     }
 
     private void napuniPolje(List<Osoba> st) {
+        String PERO = "slike/pero.jpg";
         st.add(new Osoba("Pero", "Perić", PERO, 49));
+        String ANA = "slike/ana.jpg";
         st.add(new Osoba("Ana", "Anić", ANA, 19));
+        String BERO = "slike/bero.jpg";
         st.add(new Osoba("Bero", "Berić", BERO, 37));
+        String VLAHO = "slike/vlaho.jpg";
         st.add(new Osoba("Vlaho", "Vlahić", VLAHO, 72));
+        String IVO = "slike/ivo.jpg";
         st.add(new Osoba("Ivo", "Ivić", IVO, 18));
     }
 }

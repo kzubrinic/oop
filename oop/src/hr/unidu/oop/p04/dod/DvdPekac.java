@@ -5,5 +5,5 @@ package hr.unidu.oop.p04.dod;
  */
 
 public interface DvdPekac extends DigitalniPekac {
-	public abstract boolean pecenjeDiska(Dvd medij);
+	boolean pecenjeDiska(Dvd medij);
 }

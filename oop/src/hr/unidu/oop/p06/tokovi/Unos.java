@@ -27,11 +27,6 @@ public class Unos {
 		return sc.nextLine();
 	}
 	public boolean paranBroj(double broj) {
-		if (broj%2 == 0) {
-			return true;
-		}
-		else {
-			return false;
-		}	
+		return broj % 2 == 0;
 	}
 }

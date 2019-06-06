@@ -1,6 +1,5 @@
 package hr.unidu.oop.p10.tablica;
 import java.util.List;
-import javax.swing.ImageIcon;
 
 import javax.swing.table.AbstractTableModel;
 

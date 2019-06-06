@@ -7,7 +7,6 @@ import javax.swing.SwingUtilities;
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTree;
@@ -21,32 +20,22 @@ import javax.swing.JTextField;
 
 public class Stablo extends JFrame {
 
-	private JPanel cp, cp1;
 	private JTree t;
 	private JTextField tPrezime;
 	private JTextField tIme;
 	private JTextField tStarost;
 	private JLabel lblSlika;
-	private final String PERO = "slike/pero.jpg";
-    private final String BERO = "slike/bero.jpg";
-    private final String VLAHO = "slike/vlaho.jpg";
-    private final String IVO = "slike/ivo.jpg";
-    private final String ANA = "slike/ana.jpg";
 
 
 	public static void main(String[] args) {
 		try {
-			SwingUtilities.invokeAndWait(new Runnable(){
-				public void run() {
-					Stablo frame = new Stablo("Stablo");
-					frame.setVisible(true);
-					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setLocationRelativeTo(null);
-					frame.pack();
-				}
+			SwingUtilities.invokeAndWait(() -> {
+				Stablo frame = new Stablo("Stablo");
+				frame.setVisible(true);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setLocationRelativeTo(null);
+				frame.pack();
 			});
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
 		} catch (Exception e){
 			e.printStackTrace();
 		}
@@ -54,8 +43,8 @@ public class Stablo extends JFrame {
 
 	public Stablo(String n) {
 		super(n);
-		cp = new JPanel();
-		cp1 = new JPanel();
+		JPanel cp = new JPanel();
+		JPanel cp1 = new JPanel();
 
 		List<Osoba> studenti = new ArrayList<>();
 		napuniPolje(studenti);
@@ -92,10 +81,15 @@ public class Stablo extends JFrame {
 	}
 
 	private void napuniPolje(List<Osoba> st){
+		String PERO = "slike/pero.jpg";
 		st.add(new Osoba("Pero", "Perić", PERO, 49));
+		String ANA = "slike/ana.jpg";
 		st.add(new Osoba("Ana", "Anić", ANA, 19));
+		String BERO = "slike/bero.jpg";
 		st.add(new Osoba("Bero", "Berić", BERO, 37));
+		String VLAHO = "slike/vlaho.jpg";
 		st.add(new Osoba("Vlaho", "Vlahić", VLAHO, 72));
+		String IVO = "slike/ivo.jpg";
 		st.add(new Osoba("Ivo", "Ivić", IVO, 18));
 	}
 	private DefaultMutableTreeNode napuniModel(List<Osoba> st ){

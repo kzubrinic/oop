@@ -6,6 +6,6 @@ public class Pedijatar extends Lijecnik {
 		System.out.println("Daje savjete");
 	}
 	void piseRecepte() {
-		System.out.println("Pi�e recepte");
+		System.out.println("Piše recepte");
 	}
 }

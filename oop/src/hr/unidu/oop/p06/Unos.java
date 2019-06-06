@@ -18,6 +18,8 @@ public class Unos
         try (Scanner s = new Scanner(System.in)) {
             String n = s.nextLine();
             System.out.println("Unesen je niz: " + n);
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
     

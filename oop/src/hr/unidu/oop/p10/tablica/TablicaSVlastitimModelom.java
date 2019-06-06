@@ -1,11 +1,9 @@
 package hr.unidu.oop.p10.tablica;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JList;
 import javax.swing.SwingUtilities;
 import javax.swing.table.TableModel;
 
@@ -13,36 +11,22 @@ import hr.unidu.oop.p10.Osoba;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TablicaSVlastitimModelom extends JFrame {
 
-	private JPanel cp, cp1;
-	private final String PERO = "slike/pero.jpg";
-    private final String BERO = "slike/bero.jpg";
-    private final String VLAHO = "slike/vlaho.jpg";
-    private final String IVO = "slike/ivo.jpg";
-    private final String ANA = "slike/ana.jpg";
-	
 	public static void main(String[] args) {
 		try {
-		       SwingUtilities.invokeAndWait(new Runnable(){
-		         public void run() {
-		        	TablicaSVlastitimModelom frame = new TablicaSVlastitimModelom("Tablica s vlastitim modelom");
-		        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-					frame.pack();
-		         }
-		       });
-		    } catch (InvocationTargetException e) {
-		      e.printStackTrace();
+		       SwingUtilities.invokeAndWait(() -> {
+				  TablicaSVlastitimModelom frame = new TablicaSVlastitimModelom("Tablica s vlastitim modelom");
+				  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				  frame.setVisible(true);
+				  frame.setLocationRelativeTo(null);
+				  frame.pack();
+			   });
 		    } catch (Exception e){
 		    	e.printStackTrace();
 		    }
@@ -50,8 +34,8 @@ public class TablicaSVlastitimModelom extends JFrame {
 
 	public TablicaSVlastitimModelom(String n) {
 		super(n);
-		cp = new JPanel();
-		cp1 = new JPanel();
+		JPanel cp = new JPanel();
+		JPanel cp1 = new JPanel();
 		JTable t = new JTable();
 		t.setAutoCreateRowSorter(true);
 		List<Osoba> studenti = new ArrayList<>();
@@ -76,9 +60,7 @@ public class TablicaSVlastitimModelom extends JFrame {
 //				obradiTablicu(t);
 //			}
 //		});
-		doh.addActionListener(e -> {
-				obradiTablicu(t);
-		});
+		doh.addActionListener(e -> obradiTablicu(t));
 		cp1.add(doh);
 		getContentPane().add(cp1,BorderLayout.SOUTH);
 	}
@@ -115,10 +97,15 @@ public class TablicaSVlastitimModelom extends JFrame {
         System.out.println("--------------------------");
 	}
 	private void napuniPolje(List<Osoba> st){
+		String PERO = "slike/pero.jpg";
 		st.add(new Osoba("Pero", "Perić", PERO, 49));
+		String ANA = "slike/ana.jpg";
 		st.add(new Osoba("Ana", "Anić", ANA, 19));
+		String BERO = "slike/bero.jpg";
 		st.add(new Osoba("Bero", "Berić", BERO, 37));
+		String VLAHO = "slike/vlaho.jpg";
 		st.add(new Osoba("Vlaho", "Vlahić", VLAHO, 72));
+		String IVO = "slike/ivo.jpg";
 		st.add(new Osoba("Ivo", "Ivić", IVO, 18));
 	}
 }

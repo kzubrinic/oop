@@ -10,36 +10,23 @@ import javax.swing.SwingUtilities;
 import hr.unidu.oop.p10.Osoba;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.lang.reflect.InvocationTargetException;
 
 public class DefaultniModelSlike extends JFrame {
 
-    private JPanel cp;
     private DefaultListModel<Osoba> mod;
-	private final String PERO = "slike/pero.jpg";
-    private final String BERO = "slike/bero.jpg";
-    private final String VLAHO = "slike/vlaho.jpg";
-    private final String IVO = "slike/ivo.jpg";
     private final String IVA = "slike/iva.jpg";
-    private final String ANA = "slike/ana.jpg";
     private final String MARA = "slike/mara.jpg";
     private final String VEDRANA = "slike/vedrana.jpg";
     
     public static void main(String[] args) {
         try {
-               SwingUtilities.invokeAndWait(new Runnable(){
-                 public void run() {
-                    DefaultniModelSlike frame = new DefaultniModelSlike("Defaultni model osoba");
-                    frame.setVisible(true);
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.setLocationRelativeTo(null);
-                    frame.pack();
-                 }
+               SwingUtilities.invokeAndWait(() -> {
+                  DefaultniModelSlike frame = new DefaultniModelSlike("Defaultni model osoba");
+                  frame.setVisible(true);
+                  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                  frame.setLocationRelativeTo(null);
+                  frame.pack();
                });
-            } catch (InvocationTargetException e) {
-              e.printStackTrace();
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -48,7 +35,7 @@ public class DefaultniModelSlike extends JFrame {
     public DefaultniModelSlike(String n) {
         super(n);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        cp = new JPanel();
+        JPanel cp = new JPanel();
         mod = new DefaultListModel<>();
         napuniModel();
         JList<Osoba> l1 = new JList<>(mod);
@@ -120,10 +107,15 @@ public class DefaultniModelSlike extends JFrame {
         cp.add(dod3);
     }
     private void napuniModel(){
-		mod.addElement(new Osoba("Pero", "Perić", PERO, 49));
-		mod.addElement(new Osoba("Ana", "Anić", ANA, 19));
-		mod.addElement(new Osoba("Bero", "Berić", BERO, 37));
-		mod.addElement(new Osoba("Vlaho", "Vlahić", VLAHO, 72));
-		mod.addElement(new Osoba("Ivo", "Ivić", IVO, 18));
+        String PERO = "slike/pero.jpg";
+        mod.addElement(new Osoba("Pero", "Perić", PERO, 49));
+        String ANA = "slike/ana.jpg";
+        mod.addElement(new Osoba("Ana", "Anić", ANA, 19));
+        String BERO = "slike/bero.jpg";
+        mod.addElement(new Osoba("Bero", "Berić", BERO, 37));
+        String VLAHO = "slike/vlaho.jpg";
+        mod.addElement(new Osoba("Vlaho", "Vlahić", VLAHO, 72));
+        String IVO = "slike/ivo.jpg";
+        mod.addElement(new Osoba("Ivo", "Ivić", IVO, 18));
     }
 }

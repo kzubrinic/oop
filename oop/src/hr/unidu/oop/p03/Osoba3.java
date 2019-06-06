@@ -1,7 +1,10 @@
 package hr.unidu.oop.p03;
+
+import java.util.Objects;
+
 public class Osoba3{
-    String ime;
-    int starost;
+    private String ime;
+    private int starost;
     // defaultni konstruktor
     public Osoba3(){
         System.out.println("Nova osoba!");
@@ -30,12 +33,12 @@ public class Osoba3{
 		if (this == obj) {
 			return true;
 		}
-		if ((obj == null) || !(obj instanceof Osoba3)){
+		if (!(obj instanceof Osoba3)){
 			return false;
 		}
 		Osoba3 drugi = (Osoba3) obj;
 		return starost == drugi.starost &&
-				(ime == drugi.ime || (ime != null && ime.equals(drugi.ime)));
+				(Objects.equals(ime, drugi.ime));
 	}
     public int hashCode() {
 		final int prim = 31;

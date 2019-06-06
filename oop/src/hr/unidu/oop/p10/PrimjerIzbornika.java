@@ -8,24 +8,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class PrimjerIzbornika extends JFrame {
 
-	private JPanel contentPane;
-
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PrimjerIzbornika frame = new PrimjerIzbornika("Primjer izbornika");
-					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setLocationRelativeTo(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		EventQueue.invokeLater(() -> {
+			try {
+				PrimjerIzbornika frame = new PrimjerIzbornika("Primjer izbornika");
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setLocationRelativeTo(null);
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		});
 	}
@@ -48,9 +42,7 @@ public class PrimjerIzbornika extends JFrame {
 //				System.out.println("Izabran Prvi 1");
 //			}
 //		});
-		mntmJednostavnaLista.addActionListener(e -> {
-				System.out.println("Izabran Prvi 1");
-		});
+		mntmJednostavnaLista.addActionListener(e -> System.out.println("Izabran Prvi 1"));
 		mPrvi.add(mntmJednostavnaLista);
 		mPrvi.addSeparator();
 
@@ -63,9 +55,7 @@ public class PrimjerIzbornika extends JFrame {
 //				System.out.println("Izabran Prvi 21");
 //			}
 //		});
-		mntmDrugiPrimjerS.addActionListener(e -> {
-				System.out.println("Izabran Prvi 21");
-		});
+		mntmDrugiPrimjerS.addActionListener(e -> System.out.println("Izabran Prvi 21"));
 		mPrvi2.add(mntmDrugiPrimjerS);
 		JMenuItem mntmNewMenuItem = new JMenuItem("Prvi 22");
 //		mntmNewMenuItem.addActionListener(new ActionListener() {
@@ -73,9 +63,7 @@ public class PrimjerIzbornika extends JFrame {
 //				System.out.println("Izabran Prvi 22");
 //			}
 //		});
-		mntmNewMenuItem.addActionListener(e -> {
-				System.out.println("Izabran Prvi 22");
-		});
+		mntmNewMenuItem.addActionListener(e -> System.out.println("Izabran Prvi 22"));
 		mPrvi2.add(mntmNewMenuItem);
 		
 		JMenu mnDrugi = new JMenu("Drugi");
@@ -86,9 +74,7 @@ public class PrimjerIzbornika extends JFrame {
 //				System.out.println("Izabran Drugi 1");
 //			}
 //		});
-		mnD1.addActionListener(e -> {
-				System.out.println("Izabran Drugi 1");
-		});
+		mnD1.addActionListener(e -> System.out.println("Izabran Drugi 1"));
 		mnDrugi.add(mnD1);
 		JMenuItem mnTrei = new JMenuItem("Treći");
 //		mnTrei.addActionListener(new ActionListener() {
@@ -96,11 +82,9 @@ public class PrimjerIzbornika extends JFrame {
 //				System.out.println("Izabran Treći");
 //			}
 //		});
-		mnTrei.addActionListener(e -> {
-				System.out.println("Izabran Treći");
-		});
+		mnTrei.addActionListener(e -> System.out.println("Izabran Treći"));
 		menuBar.add(mnTrei);
-		contentPane = new JPanel();
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);

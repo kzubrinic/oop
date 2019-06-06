@@ -3,7 +3,6 @@ package hr.unidu.oop.p06.tokovi;
  * �itanje podataka iz datoteke pomo�u metoda BufferedReader klase
  */
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;

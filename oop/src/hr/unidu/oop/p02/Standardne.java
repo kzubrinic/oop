@@ -1,5 +1,7 @@
 package hr.unidu.oop.p02;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Random;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -13,7 +15,7 @@ public class Standardne{
 	 * Metoda koristi klase i metode uvedene u Javi verzije 8
 	 */
     public void odrediDatum()    {
-    	System.out.println("");
+    	System.out.println();
     	System.out.println("---- METODA odrediDatum ---- ");
         LocalDateTime datVri = LocalDateTime.now();
         LocalDate danas = datVri.toLocalDate();
@@ -38,9 +40,9 @@ public class Standardne{
 	 * Metoda koristi klase i metode podržane u Javi prije verzije 8
 	 */
     public void odrediDatumStaro()    {
-    	System.out.println("");
+    	System.out.println();
     	System.out.println("---- METODA odrediDatumStaro ---- ");
-    	Date danas = new Date();
+    	Date danas = new Date(); // trenutni datum
     	//System.out.println(danas.toString());
 
     	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
@@ -48,8 +50,13 @@ public class Standardne{
     	df = new SimpleDateFormat("HH:mm:ss.SS"); 
     	System.out.println(df.format(danas));
 
-    	Date dat1 = new Date(2017, 1, 19, 17, 55);
-    	df = new SimpleDateFormat("yyyy-MM-dd"); 
+    	// Klase calendar i Date - zadani datum i vrijeme
+        Calendar calendar = new GregorianCalendar();
+        // mjeseci: siječanj = 0, veljača = 1,... prosinac = 11
+        calendar.set(2017, 1, 19,17, 55);
+    	Date dat1 = calendar.getTime();
+
+    	df = new SimpleDateFormat("dd.MM.yyyy");
     	System.out.println(df.format(dat1));
     	df = new SimpleDateFormat("HH:mm"); 
     	System.out.println(df.format(dat1));
@@ -62,7 +69,7 @@ public class Standardne{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     }
     public void slucajni() {
-    	System.out.println("");
+    	System.out.println();
     	System.out.println("---- METODA slucajni ---- ");
         Random r = new Random();
         boolean b = r.nextBoolean();
@@ -75,7 +82,7 @@ public class Standardne{
         System.out.println("Slučajni cijeli broj u intervalu 10-100: " + (r.nextInt(90)+10));
     }
     public void josNekeMath(){
-    	System.out.println("");
+    	System.out.println();
     	System.out.println("---- METODA josNekeMath ---- ");
         double x = 10, y = 7.671, neg = -12; 
         System.out.println("Modulo broja "+ neg + " je " + Math.abs(neg));
@@ -85,7 +92,7 @@ public class Standardne{
         System.out.println("Kvadratni korijen broja "+ x + " je " + Math.sqrt(x));
     }
     public void formatiraj(){
-    	System.out.println("");
+    	System.out.println();
     	System.out.println("---- METODA formatiraj ---- ");
         float a = 2.7189f, b = 1.122f;
         String novi = String.format("%.2f %.1f %.3f", a, b, Math.PI);

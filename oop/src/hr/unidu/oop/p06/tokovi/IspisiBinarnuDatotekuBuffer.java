@@ -17,7 +17,7 @@ public class IspisiBinarnuDatotekuBuffer {
           System.out.printf("%02x ", buff[i]);
       }
     } catch (IOException ex) {
-      System.err.println(ex);
+      System.err.println(ex.getMessage());
     }
   }
   
@@ -36,7 +36,7 @@ public class IspisiBinarnuDatotekuBuffer {
         }
       }
     } catch (IOException ex) {
-      System.err.println(ex);
+      System.err.println(ex.getMessage());
     }
   }
   

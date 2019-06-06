@@ -10,20 +10,16 @@ import javax.swing.tree.DefaultTreeModel;
 public class StabloDirektorija extends JFrame{
 
 	private DefaultTreeModel model;
-	private  String pocetniDir = "/home/kruno/temp";
 	private File pocetnaDat;
-	private JTree t;
 
 	public static void main(String[] args) {
 		try {
-			SwingUtilities.invokeAndWait(new Runnable(){
-				public void run() {
-					StabloDirektorija frame = new StabloDirektorija("Stablo direktorija");
-					frame.setVisible(true);
-					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setLocationRelativeTo(null);
-					frame.pack();
-				}
+			SwingUtilities.invokeAndWait(() -> {
+				StabloDirektorija frame = new StabloDirektorija("Stablo direktorija");
+				frame.setVisible(true);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setLocationRelativeTo(null);
+				frame.pack();
 			});
 		}catch (Exception e){
 			e.printStackTrace();
@@ -32,9 +28,10 @@ public class StabloDirektorija extends JFrame{
 
 	public StabloDirektorija(String n) {
 		super(n);
+		String pocetniDir = "/home/kruno/temp";
 		pocetnaDat = new File(pocetniDir);
 		citajRekurzivno(pocetnaDat);
-		t = new JTree(model);
+		JTree t = new JTree(model);
 		JScrollPane sp = new JScrollPane(t);
 		getContentPane().add(sp);
 	}
@@ -46,8 +43,10 @@ public class StabloDirektorija extends JFrame{
 		}
 		if(trenutna.isDirectory()){
 			File[] files = trenutna.listFiles();
-			for (int i = 0; i < files.length; i++) {
-				model.insertNodeInto(citajRekurzivno(files[i]),cvor,0);
+			if(files == null)
+				return null;
+			for (File f: files) {
+				model.insertNodeInto(citajRekurzivno(f),cvor,0);
 			}
 		}
 		return(cvor);

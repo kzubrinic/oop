@@ -8,7 +8,7 @@ package hr.unidu.oop.p06;
 import java.util.*;
 public class Kreiranje
 {
-    private String stog[]=new String[5];
+    private String[] stog=new String[5];
     private int vrh=-1;
     public void kreni() {
        try {

@@ -12,21 +12,18 @@ public class JednostavnaDretvaNasljed extends Thread{
         }
         System.out.println("Gotovo brojanje");  
     }   
-    public static void main(String args[]){  
+    public static void main(String[] args){
         JednostavnaDretvaNasljed obj = new JednostavnaDretvaNasljed();  
         obj.start();     
     }
     
     public void pokretanjeDretveAnonimnomKlasom(){
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 10; i++) {
-                    System.out.println("broj " + i);
-                }
-                System.out.println("Gotovo brojanje");
+        Thread thread = new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                System.out.println("broj " + i);
             }
-        };
+            System.out.println("Gotovo brojanje");
+        });
         thread.start();
     }
     

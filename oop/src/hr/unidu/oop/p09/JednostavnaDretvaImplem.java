@@ -13,7 +13,7 @@ public class JednostavnaDretvaImplem implements Runnable{
         }
         System.out.println("Gotovo brojanje");  
     }   
-    public static void main(String args[]){  
+    public static void main(String[] args){
         JednostavnaDretvaImplem obj = new JednostavnaDretvaImplem();  
         Thread t1 = new Thread(obj);  
         t1.start();     

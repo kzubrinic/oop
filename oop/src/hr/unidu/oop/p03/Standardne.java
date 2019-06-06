@@ -1,6 +1,4 @@
 package hr.unidu.oop.p03;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;

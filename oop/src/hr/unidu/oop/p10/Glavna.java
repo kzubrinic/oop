@@ -20,29 +20,23 @@ import hr.unidu.oop.p10.tablica.TablicaSVlastitimModelom2;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Glavna extends JFrame {
 
     private JMenu mnListe;
 	private JMenu mnTab;
 	private JMenu mnStab;
-    private JMenuBar menuBar;
-	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Glavna frame = new Glavna("Primjeri liste, tablice i stabla");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		EventQueue.invokeLater(() -> {
+			try {
+				Glavna frame = new Glavna("Primjeri liste, tablice i stabla");
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		});
 	}
@@ -54,8 +48,8 @@ public class Glavna extends JFrame {
 	    super(n);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		
-		menuBar = new JMenuBar();
+
+		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
 		mnListe = new JMenu("Liste");
@@ -68,9 +62,9 @@ public class Glavna extends JFrame {
 		menuBar.add(mnListe);
 		menuBar.add(mnTab);
 		menuBar.add(mnStab);
-		
-		
-		contentPane = new JPanel();
+
+
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
@@ -82,9 +76,7 @@ public class Glavna extends JFrame {
 //				pokreniJednostavnu();
 //			}
 //		});
-		mntmJednostavnaLista.addActionListener(e -> {
-				pokreniJednostavnu();
-		});
+		mntmJednostavnaLista.addActionListener(e -> pokreniJednostavnu());
 		mnListe.add(mntmJednostavnaLista);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Prvi primjer s defaultnim modelom");
@@ -93,9 +85,7 @@ public class Glavna extends JFrame {
 //				pokreniPrvi();
 //			}
 //		});
-		mntmNewMenuItem.addActionListener(e -> {
-				pokreniPrvi();
-		});
+		mntmNewMenuItem.addActionListener(e -> pokreniPrvi());
 		mnListe.add(mntmNewMenuItem);
 		
 		JMenuItem mntmDrugiPrimjerS = new JMenuItem("Drugi primjer s defaultnim modelom");
@@ -104,9 +94,7 @@ public class Glavna extends JFrame {
 //				pokreniDrugi();
 //			}
 //		});
-		mntmDrugiPrimjerS.addActionListener(e -> {
-				pokreniDrugi();
-		});
+		mntmDrugiPrimjerS.addActionListener(e -> pokreniDrugi());
 		mnListe.add(mntmDrugiPrimjerS);
 		
 		JMenuItem mntmPrimjerSaSpecifinim = new JMenuItem("Primjer sa specifičnim iscrtavanjem retka");
@@ -115,9 +103,7 @@ public class Glavna extends JFrame {
 //				pokreniSlike();
 //			}
 //		});
-		mntmPrimjerSaSpecifinim.addActionListener(e-> {
-				pokreniSlike();
-		});
+		mntmPrimjerSaSpecifinim.addActionListener(e-> pokreniSlike());
 		mnListe.add(mntmPrimjerSaSpecifinim);
 	   }
 	   
@@ -128,9 +114,7 @@ public class Glavna extends JFrame {
 //				pokreniJednostavnuTab();
 //			}
 //		});
-		mntmJednostavna.addActionListener(e -> {
-				pokreniJednostavnuTab();
-		});
+		mntmJednostavna.addActionListener(e -> pokreniJednostavnuTab());
 		mnTab.add(mntmJednostavna);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Prvi primjer s vlastitim modelom");
@@ -139,9 +123,7 @@ public class Glavna extends JFrame {
 //				pokreniPrviVlast();
 //			}
 //		});
-		mntmNewMenuItem.addActionListener(e -> {
-				pokreniPrviVlast();
-		});
+		mntmNewMenuItem.addActionListener(e -> pokreniPrviVlast());
 		mnTab.add(mntmNewMenuItem);
 		
 		JMenuItem mntmDrugiPrimjerS = new JMenuItem("Drugi primjer s vlastitim modelom");
@@ -150,9 +132,7 @@ public class Glavna extends JFrame {
 //				pokreniDrugiVlast();
 //			}
 //		});
-		mntmDrugiPrimjerS.addActionListener(e -> {
-				pokreniDrugiVlast();
-		});
+		mntmDrugiPrimjerS.addActionListener(e -> pokreniDrugiVlast());
 		mnTab.add(mntmDrugiPrimjerS);
 
 	   }   
@@ -164,9 +144,7 @@ public class Glavna extends JFrame {
 //				pokreniJednostavnoStab();
 //			}
 //		});
-		   mntmJednostavna.addActionListener(e -> {
-				   pokreniJednostavnoStab();
-		   });
+		   mntmJednostavna.addActionListener(e -> pokreniJednostavnoStab());
 		mnStab.add(mntmJednostavna);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Stablo direktorija/mapa");
@@ -175,9 +153,7 @@ public class Glavna extends JFrame {
 //				pokreniStabloDir();
 //			}
 //		});
-		   mntmNewMenuItem.addActionListener(e -> {
-				   pokreniStabloDir();
-		   });
+		   mntmNewMenuItem.addActionListener(e -> pokreniStabloDir());
 		mnStab.add(mntmNewMenuItem);
 		
 		JMenuItem mntmDrugiPrimjerS = new JMenuItem("Stablo osoba");
@@ -186,9 +162,7 @@ public class Glavna extends JFrame {
 //				pokreniStabloStud();
 //			}
 //		});
-		   mntmDrugiPrimjerS.addActionListener(e -> {
-				   pokreniStabloStud();
-		   });
+		   mntmDrugiPrimjerS.addActionListener(e -> pokreniStabloStud());
 		mnStab.add(mntmDrugiPrimjerS);
 	   }
 	   

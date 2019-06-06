@@ -1,8 +1,6 @@
 package hr.unidu.oop.p10.lista;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -13,20 +11,17 @@ import java.awt.GridLayout;
 
 public class JednostavnaLista extends JFrame {
 
-	private JPanel contentPane;
 	private JTextArea l1, l2, l3;
 	
 	public static void main(String[] args) {
 		try {
-		       SwingUtilities.invokeAndWait(new Runnable(){
-		         public void run() {
-		        	JednostavnaLista frame = new JednostavnaLista("Jednostavna lista");
-					frame.setVisible(true);
-					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setLocationRelativeTo(null);
-					frame.pack();
-		         }
-		       });
+		       SwingUtilities.invokeAndWait(() -> {
+				  JednostavnaLista frame = new JednostavnaLista("Jednostavna lista");
+				  frame.setVisible(true);
+				  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				  frame.setLocationRelativeTo(null);
+				  frame.pack();
+			   });
 		    } catch (Exception e) {
 		      e.printStackTrace();
 		    }
@@ -35,7 +30,7 @@ public class JednostavnaLista extends JFrame {
 	public JednostavnaLista(String t) {
 	    super(t);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		contentPane = new JPanel();
+		JPanel contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(3,1));
 		String[] model = {"Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota", "Nedjelja"};

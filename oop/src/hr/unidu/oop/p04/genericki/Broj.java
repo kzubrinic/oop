@@ -10,7 +10,7 @@ public class Broj<T extends Number> {
   }
   @Override
   public String toString() {
-    return "Broj s vrijedno��u " + b;
+    return "Broj s vrijednošću " + b;
   }
 }
 

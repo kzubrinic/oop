@@ -16,7 +16,7 @@ public class IspisiBinarnuDatoteku {
           System.out.printf("%02x ", buff[i]);
       }
     } catch (IOException ex) {
-      System.err.println(ex);
+      System.err.println(ex.getMessage());
     }
   }
 }

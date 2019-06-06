@@ -1,44 +1,30 @@
 package hr.unidu.oop.p10.lista;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JList;
-import javax.swing.SwingUtilities;
 
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.lang.reflect.InvocationTargetException;
+import javax.swing.*;
+import java.awt.*;
 
 public class DefaultniModel extends JFrame {
 
-	private JPanel cp;
 	private DefaultListModel<String> mod;
 	
 	public static void main(String[] args) {
 		try {
-		       SwingUtilities.invokeAndWait(new Runnable(){
-		         public void run() {
-		        	DefaultniModel frame = new DefaultniModel("Defaultni model");
-					frame.setVisible(true);
-					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setLocationRelativeTo(null);
-					frame.pack();
-		         }
-		       });
-		    } catch (InvocationTargetException e) {
+		       SwingUtilities.invokeAndWait(() -> {
+				  DefaultniModel frame = new DefaultniModel("Defaultni model");
+				  frame.setVisible(true);
+				  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				  frame.setLocationRelativeTo(null);
+				  frame.pack();
+			   });
+		    } catch (Exception e) {
 		      e.printStackTrace();
-		    } catch (Exception e){
-		    	e.printStackTrace();
 		    }
 	}
 
 	public DefaultniModel(String n) {
 		super(n);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		cp = new JPanel();
+		JPanel cp = new JPanel();
 		mod = new DefaultListModel<>();
 		napuniModel();
 		JList<String> l1 = new JList<>(mod);
@@ -82,9 +68,7 @@ public class DefaultniModel extends JFrame {
 //				mod.remove(1);
 //			}
 //		});
-		dod2.addActionListener(e -> {
-				mod.remove(1);
-		});
+		dod2.addActionListener(e -> mod.remove(1));
 		JButton dod3 = new JButton("Izmjeni");
 //		dod3.addActionListener(new ActionListener() {
 //			@Override
@@ -92,9 +76,7 @@ public class DefaultniModel extends JFrame {
 //				mod.set(0, "Prvi element");
 //			}
 //		});
-		dod3.addActionListener(e -> {
-				mod.set(0, "Prvi element");
-		});
+		dod3.addActionListener(e -> mod.set(0, "Prvi element"));
 		cp.add(dod);
 		cp.add(dod1);
 		cp.add(dod2);

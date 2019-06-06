@@ -10,7 +10,7 @@ package hr.unidu.oop.p06;
 public class NajvecaGreska
 {
     public void ispisiNajgore () { 
-        int z[]={1,7,9};
+        int[] z={1,7,9};
         try {
             System.out.println("Treći element je " + z[3]);
         }
@@ -22,7 +22,7 @@ public class NajvecaGreska
         }
     }
     public void ispisiDobro1 () { 
-        int z[]={1,7,9};
+        int[] z={1,7,9};
         try {
             System.out.println("Treći element je " + z[3]);
         }
@@ -33,7 +33,7 @@ public class NajvecaGreska
     }
     
     public void ispisiDobro2 () { 
-        int z[]={1,7,9};
+        int[] z={1,7,9};
         System.out.println("Treći element je " + z[3]);
     }
     
