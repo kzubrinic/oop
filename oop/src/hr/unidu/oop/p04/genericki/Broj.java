@@ -1,11 +1,11 @@
 package hr.unidu.oop.p04.genericki;
 
-public class Broj<T extends Number> {
-  private T b;
-  public Broj(T b) {
+public class Broj<N extends Number> {
+  private N b;
+  public Broj(N b) {
     this.b = b;
   }
-  public T getB() {
+  public N getB() {
     return b;
   }
   @Override
