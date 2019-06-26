@@ -1,5 +1,5 @@
 package hr.unidu.oop.p04.genericki;
-public class Test{
+public class TestBroj {
   public static void main(String[] args) {
     Broj<Integer> i = new Broj<>(15);
     System.out.println(i);
