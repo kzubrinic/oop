@@ -12,5 +12,6 @@ public class Primjer1 {
 		System.out.print("Unesite broj: ");
 		int b = a.nextInt();
 		System.out.println(b);
+		a.close();
 	}
 }

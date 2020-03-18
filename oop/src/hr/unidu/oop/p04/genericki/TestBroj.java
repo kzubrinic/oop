@@ -10,7 +10,7 @@ public class TestBroj {
     // Može i ovako radi kompatibilnosti sa starijim bibliotekama koje
     // ne znaju raditi s generičkim tipovima podataka (prije jave 5).
     // NIJE preporučljivo koristiti za drugačije namjene!
-    Broj d2 = new Broj(6.28);
+	Broj d2 = new Broj(6.28);
     System.out.println(d2);
   }
 }

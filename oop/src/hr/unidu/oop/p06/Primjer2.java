@@ -22,5 +22,6 @@ public class Primjer2  {
       System.out.println("Opseg kruga je " + 2 * r * Math.PI);
       break;
     }
+    s.close();
   }
 }

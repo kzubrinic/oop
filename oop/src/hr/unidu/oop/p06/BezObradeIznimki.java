@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Primjer obrade iznimki.
  * 
- * @author Krunoslav �ubrini�
+ * @author Krunoslav Žubrinić
  * @version Travanj 2009.
  */
 public class BezObradeIznimki
@@ -22,6 +22,8 @@ public class BezObradeIznimki
     private int metodaGreska() {
        Scanner a = new Scanner(System.in);
        System.out.print("Unesite broj: ");
-       return a.nextInt();
+       int b = a.nextInt();
+       a.close();
+       return b;
     }
 }

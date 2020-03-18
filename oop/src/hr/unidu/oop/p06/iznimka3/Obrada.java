@@ -1,6 +1,6 @@
 package hr.unidu.oop.p06.iznimka3;
 /**
- * Vje�be 7 Primjer izazivanja iznimne situacije
+ * Vježbe 7 Primjer izazivanja iznimne situacije
  * 
  */
 import java.util.*;
@@ -16,7 +16,7 @@ public class Obrada {
                 throw new PolumjerException("Polumjer ["+r+"] mora biti pozitivan!");
           }
           catch (InputMismatchException pogTip) {   
-             s.next();  // presko�i pogre�no unesen podatak
+             s.next();  // preskoči pogrešno unesen podatak
              System.out.println("Pogre�an format! Morate unijeti realan broj!");
              continue;
           }
@@ -26,7 +26,8 @@ public class Obrada {
           }
           System.out.println("Opseg kruga je " + 2 * r * Math.PI);
           break;
-    }
+      }
+      s.close();
     }
 }
 
