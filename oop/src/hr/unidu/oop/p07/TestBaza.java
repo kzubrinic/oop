@@ -6,35 +6,38 @@ package hr.unidu.oop.p07;
 // Sučelja koja sadrže opise apstraktnih metoda koje se koriste pri radu
 // s konkretnom bazom opisana su u paketu java.sql.
 import java.sql.* ;
+import java.util.ArrayList;
+import java.util.List;
 public class TestBaza	{
 	private Connection conn;
 
-    private void citanjeSvih() {
+    private List<Knjiga> citanjeSvih() {
 		// Pripremi upit
 		String upit = "SELECT ID, NAZIV, AUTOR FROM KNJIGE";
+		List<Knjiga> l = new ArrayList<>();
 		try (Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery( upit )){
 			// Izvedi upit - napuni skup rezultata u objekt tipa ResultSet. Svaki redak tablice
 			// je jedan element skupa rezultata.
-			System.out.println("----------------------------------------------------------------") ;
+			ResultSet rs = stmt.executeQuery( upit )){
 			// Prođi kroz sve retke tablice koje je vratio sql - jedan po jedan
 			while(rs.next()){
 				// getter metoda koja dohvaća podatke može kao konstruktor primati ili NAZIV stupca
 				// u tablici iz koje se čita (vidi id i autora!) ili REDNI BROJ (prvi stupac ima
 				// indeks 1, drugi 2, treći 3,... -> vidi NAZIV knjige). Za svaki tip podatka
 				// postoji posebna getter metoda.
-				System.out.println( rs.getInt("ID") + ", " + rs.getString(2)+ ", " + rs.getString("AUTOR") ) ;
+				l.add(new Knjiga(rs.getInt("ID"), rs.getString(2), rs.getString("AUTOR")));
 			}
-			System.out.println("----------------------------------------------------------------") ;
+			return l;
 		}catch(SQLException se) {
 			prikaziSqlIznimke(se);
+			return null;
 		}
 	}
 
-	private void unos(int id, String naziv, String autor){
+	private void unos(Knjiga k){
 		// Ako zapis sa zadanim ID-jem već postoji ne smije se dodavati
-		if (trazi(id)){
-			System.out.println("Podatak s IDjem "+id+ " već postoji u bazi!");
+		if (trazi(k.getId())){
+			System.out.println("Podatak s IDjem "+k.getId()+ " već postoji u bazi!");
 			return;
 		}
 		String upit = "insert into KNJIGE (ID, NAZIV, AUTOR) values (?, ?, ?)";
@@ -42,21 +45,21 @@ public class TestBaza	{
 		// zapisuju konkretne vrijednosti (konkretan id, naziv, autor).
 		try (PreparedStatement pstmt = conn.prepareStatement(upit)){
 			// Postavljaju se konkretne vrijednosti naziva, autora i id-ja.
-			pstmt.setInt(1, id);
-			pstmt.setString(2, naziv);
-			pstmt.setString(3, autor);
+			pstmt.setInt(1, k.getId());
+			pstmt.setString(2, k.getNaziv());
+			pstmt.setString(3, k.getAutor());
 			// Upit koji mijenja tablicu se izvodi pomoću metode executeUpdate
 			pstmt.executeUpdate();
-			System.out.println("Dodavanje zapisa s rednim brojem "+id+" je uspješno!");
+			System.out.println("Dodavanje zapisa s rednim brojem "+k.getId()+" je uspješno!");
 		}catch(SQLException se) {
 			prikaziSqlIznimke(se);
 		} 
 	}
 
-	private void izmjena(int id, String naziv, String autor) {
+	private void izmjena(Knjiga k) {
 		// Ako zapis sa zadanim ID-jem ne postoji ne smije se ažurirati
-		if (!trazi(id)){
-			System.out.println("Podatak s IDjem "+id+ " ne postoji u bazi!");
+		if (!trazi(k.getId())){
+			System.out.println("Podatak s IDjem "+k.getId()+ " ne postoji u bazi!");
 			return;
 		}
 		String upit = "update KNJIGE set NAZIV=?,AUTOR=? where ID=?";
@@ -64,12 +67,12 @@ public class TestBaza	{
 		// zapisuju konkretne vrijednosti (konkretan id, naziv, autor).
 		try (PreparedStatement pstmt = conn.prepareStatement(upit)){
 			// Postavljaju se konkretne vrijednosti naziva, autora i id-ja.
-			pstmt.setString(1, naziv);
-			pstmt.setString(2, autor);
-			pstmt.setInt(3, id);
+			pstmt.setString(1, k.getNaziv());
+			pstmt.setString(2, k.getAutor());
+			pstmt.setInt(3, k.getId());
 			// Upit se izvodi
 			pstmt.executeUpdate();
-			System.out.println("Izmjena zapisa s rednim brojem "+id+" je uspješna!");
+			System.out.println("Izmjena zapisa s rednim brojem "+k.getId()+" je uspješna!");
 		}catch(SQLException se) {
 			prikaziSqlIznimke(se);
 		} 	
@@ -146,43 +149,64 @@ public class TestBaza	{
 			se = se.getNextException() ;
 		}
 	}
-
-	public static void main(String[] args){
-		TestBaza t = new TestBaza();
+	private void obrada() {
 		// Spaja se na bazu
         // URL za spajanje na "embedded" bazu knjiznica.db koja je stvorena u mapi baza/
         // U projekt mora biti uključen JAR koji sadrži konkretnu implementaciju programa
         // za rad s konkretnom bazom (u ovoj verziji korišten je sqlite-jdbc-3.21.0.jar ).
-        String spojniURL = "jdbc:sqlite:baza/knjiznica.db";
+		String spojniURL = "jdbc:sqlite:baza/knjiznica1.db";
         try(Connection co = DriverManager.getConnection(spojniURL)) {
-			t.conn = co;
-			t.provjeriTablicu();
+			conn = co;
+			provjeriTablicu();
 			// čita sve iz tablice knjige i prikazuje na zaslonu
-			t.citanjeSvih();
+			List<Knjiga> l = citanjeSvih();
+			if(l!=null) {
+				System.out.println("DOHVAĆENE KNJIGE:");
+				for(Knjiga k : l)
+					System.out.println(k);
+				System.out.println("---------------------------------");
+			}
 			// Dodaje novi zapis s id-jem 200
-			t.unos(200,"Nova knjiga", "Novi autor");
-			t.unos(201,"Druga knjiga", "Novi autor");
-			t.unos(202,"Treća knjiga", "Treći autor");
+			unos(new Knjiga(101, "Head First Java", "Kathy Sierra"));
+			unos(new Knjiga(102, "JAVA in 8 Hours", "Ray Yao"));
+			unos(new Knjiga(103, "Java: A Beginner's Guide", "Herbert Schildt"));
+			unos(new Knjiga(104, "Effective Java", "Joshua Block"));
 			// čita sve iz tablice knjige i prikazuje na zaslonu. 
 			// sada se prikazuje i novo dodani zapis s id-jem 200
-			t.citanjeSvih();
-			// Mijenja se naziv knjige s id-jem 200
-			t.izmjena(200,"Najnovija izmjenjena knjiga", "Novi autor");
+			citanjeSvih();
+			// Mijenja se naziv knjige s id-jem 103
+			izmjena(new Knjiga(102, "JAVA in 8 Hours 2nd updated ed", "Ray Yao"));
 			// čita sve iz tablice knjige i prikazuje na zaslonu.
-			t.citanjeSvih();
-			// Briše se redak s id-jem 200
-			t.brisanje(200);
+			l = citanjeSvih();
+			if(l!=null) {
+				System.out.println("DOHVAĆENE KNJIGE:");
+				for(Knjiga k : l)
+					System.out.println(k);
+				System.out.println("---------------------------------");
+			}
+			// Briše se redak s id-jem 201
+			brisanje(102);
 			// čita sve iz tablice knjige i prikazuje na zaslonu.
 			// Stanje bi trebalo biti jednako početnom.
-			t.citanjeSvih();
+			l = citanjeSvih();
+			if(l!=null) {
+				System.out.println("DOHVAĆENE KNJIGE:");
+				for(Knjiga k : l)
+					System.out.println(k);
+				System.out.println("---------------------------------");
+			}
 			// Veza na bazu se zatvara automatski jer je konekcija stvorena unutar try bloka.
 		} catch(SQLException se ) {
 			// Može biti više SQL iznimaka - proći kroz sve!
-			t.prikaziSqlIznimke(se);
+			prikaziSqlIznimke(se);
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage()) ;
 			e.getStackTrace();
 		}
+	}
+	public static void main(String[] args){
+		TestBaza t = new TestBaza();
+		t.obrada();
 	}
 }
