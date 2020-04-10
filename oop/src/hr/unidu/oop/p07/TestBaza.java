@@ -196,7 +196,7 @@ public class TestBaza	{
 			// Stanje bi trebalo biti jednako početnom.
 			l = citanjeSvih();
 			if(l!=null) {
-				System.out.println("DOHVAĆENE KNJIGE:");
+				System.out.println("DOHVAĆENE KNJIGE NAKON BRISANJA:");
 				for(Knjiga k : l)
 					System.out.println(k);
 				System.out.println("---------------------------------");
