@@ -9,31 +9,21 @@ import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 
-/**
- * @author Krunoslav �ubrini�
- * 28. tra 2015.
+/*
+ * Listeneri se nalaze u vanjskim klasama. Slusac1 i Slusac2
+ * Ovo je dobar način za razdvajanje obrade od operacija po grafičkom sučelju.
+ * Nedostatak je što za svaki Listener treba praviti posebnu klasu.
  */
 public class ObradaViseDogadjaja2 extends JFrame{
 	private JLabel l;
 	private JButton t1, t2;
-	// getter i setter metode za pristuip private varijablama
-	public JLabel getL(){
-		return l;
+	// metode za pristup i promjenu vrijednosti labela.
+	// Koriste ih vanjske klase kada žele promijeniti labelu.
+	public int getLabelValue(){
+		return Integer.valueOf(l.getText());
 	}
-	public void setL(JLabel l1){
-		l = l1;
-	}
-	public JButton getT1(){
-		return t1;
-	}
-	public JButton getT2(){
-		return t2;
-	}
-	public void setT1(JButton t){
-		t1 = t;
-	}
-	public void setT2(JButton t){
-		t2 = t;
+	public void setLabelValue(int v){
+		l.setText(Integer.toString(v));
 	}
 	
 	public static void main(String[] args) {
@@ -50,32 +40,33 @@ public class ObradaViseDogadjaja2 extends JFrame{
 	}
 
 	public ObradaViseDogadjaja2() {
+		super("Brojač");
 		initialize();
 	}
 
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		l = new JLabel("0");
-		// JPanel komponente centrira pa je to najjednostavniji na�in
+		// JPanel komponente centrira pa je to najjednostavniji način
 		// da se ova labela pozicionira centrirano.
 		JPanel p1 = new JPanel();
 		p1.add(l);
-		// Ako nam centriranje nije va�no moglobi izravno: add(l,BorderLayout.NORTH);
+		// Ako nam centriranje nije važno moglo bi izravno: add(l,BorderLayout.NORTH);
 		add(p1, BorderLayout.NORTH);
 
-		t1 = new JButton("Pove�aj");
+		t1 = new JButton("Povećaj");
 		t2 = new JButton("Smanji");
 		JPanel p2 = new JPanel();
 		p2.add(t1);
 		p2.add(t2);
 		add(p2, BorderLayout.SOUTH);
-		// Obrada tipke Pove�aj
-		// Razred Slusac1 implementira su�elje ActionListener. Razredu se �alje
+		// Obrada tipke Povećaj
+		// Razred Slusac1 implementira sučelje ActionListener. Razredu se šalje
 		// referenca na ovaj razred da bi se moglo pristupiti ekranskim poljima.
 		t1.addActionListener(new Slusac1(this));
 
 		// Obrada tipke Smanji
-		// Razred Slusac2 implementira su�elje ActionListener. Razredu se �alje
+		// Razred Slusac2 implementira sučelje ActionListener. Razredu se šalje
 		// referenca na ovaj razred da bi se moglo pristupiti ekranskim poljima.
 		t2.addActionListener(new Slusac2(this));
 	}

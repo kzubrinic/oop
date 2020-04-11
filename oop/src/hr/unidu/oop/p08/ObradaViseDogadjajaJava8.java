@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 
 /**
- * @author Krunoslav �ubrini�
+ * @author Krunoslav Žubrinić
  * 28. tra 2015.
  */
 public class ObradaViseDogadjajaJava8 extends JFrame{
@@ -36,20 +36,20 @@ public class ObradaViseDogadjajaJava8 extends JFrame{
     private void initialize() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         l = new JLabel("0");
-        // JPanel komponente centrira pa je to najjednostavniji na�in
+        // JPanel komponente centrira pa je to najjednostavniji način
         // da se ova labela pozicionira centrirano.
         JPanel p1 = new JPanel();
         p1.add(l);
-        // Ako nam centriranje nije va�no moglobi izravno: add(l,BorderLayout.NORTH);
+        // Ako nam centriranje nije važno moglo bi izravno: add(l,BorderLayout.NORTH);
         add(p1, BorderLayout.NORTH);
 
-        JButton t1 = new JButton("Pove�aj");
+        JButton t1 = new JButton("Povećaj");
         JButton t2 = new JButton("Smanji");
         JPanel p2 = new JPanel();
         p2.add(t1);
         p2.add(t2);
         add(p2, BorderLayout.SOUTH);
-        // Java 8 - lambda izraz - Obrada tipke Pove�aj
+        // Java 8 - lambda izraz - Obrada tipke Povećaj
         t1.addActionListener(e -> {
             int v = Integer.valueOf(l.getText())+1;
 			l.setText(Integer.toString(v));

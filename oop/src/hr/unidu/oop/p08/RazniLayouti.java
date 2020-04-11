@@ -7,7 +7,7 @@ public class RazniLayouti {
       b = napuni();
   }
   public void border(){
-      // BorderLayout je defaultni za kontejnere najvi�e razine
+      // BorderLayout je defaultni za kontejnere najviše razine
       JFrame f = new JFrame("Border Layout");
       // omogućuje smještanje više komponenti
       JPanel p = new JPanel();
@@ -24,7 +24,7 @@ public class RazniLayouti {
   }
   public void flow(){
       JFrame f = new JFrame("Flow Layout");
-      // omogu�uje smje�tanje vi�e komponenti
+      // omogućuje smještanje više komponenti
       JPanel p = new JPanel();
       p.setLayout(new FlowLayout());
       for (JButton t : b)
@@ -37,7 +37,7 @@ public class RazniLayouti {
   }
   public void boxY(){
       JFrame f = new JFrame("Box Layout Y-os");
-      // omogu�uje smje�tanje vi�e komponenti
+      // omogućuje smještanje više komponenti
       JPanel p = new JPanel();
       p.setLayout(new BoxLayout(p,BoxLayout.Y_AXIS));
       for (JButton t : b)
@@ -49,7 +49,7 @@ public class RazniLayouti {
   }
   public void boxX(){
       JFrame f = new JFrame("Box Layout X-os");
-      // omogu�uje smje�tanje vi�e komponenti
+      // omogućuje smještanje više komponenti
       JPanel p = new JPanel();
       p.setLayout(new BoxLayout(p,BoxLayout.X_AXIS));
       for (JButton t : b)
@@ -61,7 +61,7 @@ public class RazniLayouti {
   }
   public void grid(){
       JFrame f = new JFrame("Grid Layout");
-      // omogu�uje smje�tanje vi�e komponenti
+      // omogućuje smještanje više komponenti
       JPanel p = new JPanel();
       p.setLayout(new GridLayout(2,3));
       for (JButton t : b)

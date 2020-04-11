@@ -13,8 +13,8 @@ public class PrimjerLabela extends JFrame {
                 p.setLocation(100, 100);
                 p.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 JLabel label1, label2, label3;
-                ImageIcon slika = new ImageIcon("slike/oblak.jpg", "Obla�i�");
-                //labela koja sadr�i tekst i sliku
+                ImageIcon slika = new ImageIcon("slike/oblak.jpg", "Oblačić");
+                //labela koja sadrži tekst i sliku
                 label1 = new JLabel("Slika i tekst", slika, JLabel.CENTER);
                 //pozicija teksta u odnosu na sliku
                 label1.setVerticalTextPosition(JLabel.BOTTOM);
@@ -23,9 +23,9 @@ public class PrimjerLabela extends JFrame {
                 label2 = new JLabel("Sami tekst");
                 label3 = new JLabel(slika);
                 //tool tipovi
-                label1.setToolTipText("Labela koja sadr�i tekst i sliku");
-                label2.setToolTipText("Labela koja sadr�i samo tekst");
-                label3.setToolTipText("Labela koja sadr�i samo sliku");
+                label1.setToolTipText("Labela koja sadrži tekst i sliku");
+                label2.setToolTipText("Labela koja sadrži samo tekst");
+                label3.setToolTipText("Labela koja sadrži samo sliku");
                 p.add(label1, BorderLayout.WEST);
                 p.add(label2, BorderLayout.EAST);
                 p.add(label3, BorderLayout.SOUTH);
@@ -38,4 +38,3 @@ public class PrimjerLabela extends JFrame {
         }
     }
 } 
-

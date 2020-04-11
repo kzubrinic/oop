@@ -3,7 +3,7 @@ import javax.swing.*;
 
 import net.miginfocom.swing.MigLayout;
 public class TreciProzor extends JFrame {
-    String[] s = {"Pojedina�ne poruke", "Poruke u paketu"}; 
+    String[] s = {"Pojedinačne poruke", "Poruke u paketu"}; 
     private JLabel l1, l2;
     private JTextField f1;
     private JCheckBox b1;
@@ -21,10 +21,10 @@ public class TreciProzor extends JFrame {
             SwingUtilities.invokeAndWait(() -> {
                 // Stvori novi prozor (izvedi konstruktor)
                 TreciProzor p = new TreciProzor("Prijave");
-                // Prilagodi vel�i�inu prozora komponentama
+                // Prilagodi veličinu prozora komponentama
                 p.pack();
                 p.setLocationRelativeTo(null);
-                // Prika�i prozor
+                // Prikaži prozor
                 p.setVisible(true);
             });
         } catch (Exception e) {
@@ -39,30 +39,30 @@ public class TreciProzor extends JFrame {
         // Stvori polje z aunos teksta (e-mail)
         f1 = new JTextField(20);
         // Stvori checkBox
-        b1 =  new JCheckBox("�elim primati poruke");
+        b1 =  new JCheckBox("Želim primati poruke");
         // Stvori grupu radioButtona i 2 radioButtona
         ButtonGroup grupa = new ButtonGroup();
         JRadioButton rb1 = new JRadioButton("Jednom dnevno");
         JRadioButton rb2 = new JRadioButton("Jednom tjedno");
         // Dodaj stvorene buttone u grupu. Grupa upravlja buttonima
-        // primjerice osigurava da samo 1 button mo�e u jednom trenutku
-        // biti izabran. Grupa NIJE grafi�ka komponenta!
+        // primjerice osigurava da samo 1 button može u jednom trenutku
+        // biti izabran. Grupa NIJE grafička komponenta!
         grupa.add(rb1);
         grupa.add(rb2); 
-        // Stvori kontejner u koji �emo staviti sve radioButtone
+        // Stvori kontejner u koji ćemo staviti sve radioButtone
         buttoni = new JPanel();
-        // Staviti �emo ih jedna ispod drugoga pa mijenjamo layout
+        // Staviti ćemo ih jedna ispod drugoga pa mijenjamo layout
         // u "okomiti" (BoxLayout po Y osi)
         buttoni.setLayout(new BoxLayout(buttoni,BoxLayout.Y_AXIS));
         // Iscrtavaamo okvir oko grupe buttona sa zadanim naslovom
-        buttoni.setBorder(BorderFactory.createTitledBorder("Koliko �esto?"));
+        buttoni.setBorder(BorderFactory.createTitledBorder("Koliko često?"));
         //buttoni.setBorder(BorderFactory.createLineBorder(Color.black));
-        // Ume�emo buttone u stvoreni kontejner
+        // Umećemo buttone u stvoreni kontejner
         buttoni.add(rb1);
         buttoni.add(rb2);
-        // Stvaramo padaju�i izbornik i popunjavamo ga Stringovima iz polja.
+        // Stvaramo padajući izbornik i popunjavamo ga Stringovima iz polja.
         cb = new JComboBox<>(s);
-        // Ozna�avmo prvi element polja aktivnim.
+        // Označavmo prvi element polja aktivnim.
         cb.setSelectedIndex(0);
         // Stvaramo novu tipku.
         b = new JButton("U redu");
@@ -70,24 +70,24 @@ public class TreciProzor extends JFrame {
     private void napuniKontejner(){
         // Postavi ovaj prozor na zadanu lokaciju
         setLocation(100, 100);
-        // Nakon �to zavtvorimo prozor, neka program zavr�i.
+        // Nakon što zavtvorimo prozor, neka program završi.
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         // Postavljamo Miglayout (nije standardni layout. da bi se mogao
         // koristiti moramo skinuti jar paket s adrese http://www.migcalendar.com/miglayout/versions/4.0/miglayout-4.0-swing.jar
-        // nakon toga uklju�iti paket zajedno s drugim importima na po�etku programa
+        // nakon toga uključiti paket zajedno s drugim importima na početku programa
         //   import net.miginfocom.swing.MigLayout;
         setLayout(new MigLayout());
-        // Na prozor ume�mo prvu labelu
+        // Na prozor umećmo prvu labelu
         add(l1);
-        // Ume�emo polje za unos teksta, pa prelazimo u novi red (wrap)
+        // Umećemo polje za unos teksta, pa prelazimo u novi red (wrap)
         add(f1, "wrap");
-        // Preska�emo 1. stupac (skip 1), pa u drugi ume�emo CheckBox. Nakon toga prelazimo u novi red.
+        // Preskačemo 1. stupac (skip 1), pa u drugi umećemo CheckBox. Nakon toga prelazimo u novi red.
         add(b1, "skip 1, wrap");
-        // Preska�emo 1. stupac (skip 1), pa u drugi ume�emo panale sa svim RadioButtonima. Nakon toga prelazimo u novi red.
+        // Preskačemo 1. stupac (skip 1), pa u drugi umećemo panale sa svim RadioButtonima. Nakon toga prelazimo u novi red.
         add(buttoni, "skip 1, wrap");
-        // Ume�emo drugu labelu
+        // Umećemo drugu labelu
         add(l2);
-        // Ume�emo padaju�i izbornik pa prelazimo u novi red.
+        // Umećemo padajući izbornik pa prelazimo u novi red.
         add(cb, "wrap ");
         // Centiramo tipku.
         add(b, "spanx 2, align center");

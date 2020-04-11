@@ -15,7 +15,7 @@ import javax.swing.WindowConstants;
 import java.awt.GridLayout;
 
 public class TreciProzorGrid extends JFrame {
-	String[] s = {"Pojedina�ne poruke", "Poruke u paketu"}; 
+	String[] s = {"Pojedinačne poruke", "Poruke u paketu"}; 
     private JLabel l1, l2;
     private JTextField f1;
     private JCheckBox b1;
@@ -36,30 +36,30 @@ public class TreciProzorGrid extends JFrame {
         // Stvori polje za unos teksta (e-mail)
         f1 = new JTextField(20);
         // Stvori checkBox
-        b1 =  new JCheckBox("�elim primati poruke");
+        b1 =  new JCheckBox("Želim primati poruke");
         // Stvori grupu radioButtona i 2 radioButtona
         ButtonGroup grupa = new ButtonGroup();
         rb1 = new JRadioButton("Jednom dnevno");
         rb2 = new JRadioButton("Jednom tjedno");
         // Dodaj stvorene buttone u grupu. Grupa upravlja buttonima
-        // primjerice osigurava da samo 1 button mo�e u jednom trenutku
-        // biti izabran. Grupa NIJE grafi�ka komponenta!
+        // primjerice osigurava da samo 1 button može u jednom trenutku
+        // biti izabran. Grupa NIJE grafička komponenta!
         grupa.add(rb1);
         grupa.add(rb2); 
-        // Stvori kontejner u koji �emo staviti sve radioButtone
+        // Stvori kontejner u koji ćemo staviti sve radioButtone
         buttoni = new JPanel();
-        // Staviti �emo ih jedna ispod drugoga pa mijenjamo layout
+        // Stavit ćemo ih jedna ispod drugoga pa mijenjamo layout
         // u "okomiti" (BoxLayout po Y osi)
         buttoni.setLayout(new BoxLayout(buttoni,BoxLayout.Y_AXIS));
         // Iscrtavaamo okvir oko grupe buttona sa zadanim naslovom
-        buttoni.setBorder(BorderFactory.createTitledBorder("Koliko �esto?"));
+        buttoni.setBorder(BorderFactory.createTitledBorder("Koliko često?"));
         //buttoni.setBorder(BorderFactory.createLineBorder(Color.black));
-        // Ume�emo buttone u stvoreni kontejner
+        // Umećemo buttone u stvoreni kontejner
         buttoni.add(rb1);
         buttoni.add(rb2);
-        // Stvaramo padaju�i izbornik i popunjavamo ga Stringovima iz polja.
+        // Stvaramo padajući izbornik i popunjavamo ga Stringovima iz polja.
         cb = new JComboBox<>(s);
-        // Ozna�avmo prvi element polja aktivnim.
+        // Označavamo prvi element polja aktivnim.
         cb.setSelectedIndex(0);
         // Stvaramo novu tipku.
         b = new JButton("U redu");
@@ -67,23 +67,23 @@ public class TreciProzorGrid extends JFrame {
 	private void napuniKontejner(){
 		// Postavi ovaj prozor na zadanu lokaciju
         setLocation(100, 100);
-        // Nakon �to zavtvorimo prozor, neka program zavr�i.
+        // Nakon što zatvorimo prozor, neka program završi.
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         // Postavljamo GridLayout
         getContentPane().setLayout(new GridLayout(5, 2));
-        // Na prozor ume�mo prvu labelu
+        // Na prozor umećmo prvu labelu
         add(l1);
-        // Ume�emo polje za unos teksta, pa ume�emo praznu labelu da presko�imo na sljede�i element
+        // Umećemo polje za unos teksta, pa umećemo praznu labelu da preskočimo na sljedeći element
         add(f1);
         add(new JLabel());
-        // Ume�emo CheckBox. Nakon toga preska�emo �eliju.
+        // Umećemo CheckBox. Nakon toga preskačemo ćeliju.
         add(b1);
         add(new JLabel());
-        // Ume�emo panale sa svim RadioButtonima. 
+        // Umećemo panale sa svim RadioButtonima. 
         add(buttoni);
-        // Ume�emo drugu labelu
+        // Umećemo drugu labelu
         add(l2);
-        // Ume�emo padaju�i izbornik pa preska�emo �eliju.
+        // Umećemo padajući izbornik pa preskačemo ćeliju.
         add(cb);
         add(new JLabel());
         // Centiramo tipku.
@@ -95,10 +95,10 @@ public class TreciProzorGrid extends JFrame {
             SwingUtilities.invokeAndWait(() -> {
                 // Stvori novi prozor (izvedi konstruktor)
                 TreciProzorGrid p = new TreciProzorGrid("Prijave");
-                // Prilagodi vel�i�inu prozora komponentama
+                // Prilagodi veličinu prozora komponentama
                 p.pack();
                 p.setLocationRelativeTo(null);
-                // Prika�i prozor
+                // Prikaži prozor
                 p.setVisible(true);
             });
         } catch (Exception e) {
