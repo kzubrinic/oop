@@ -27,7 +27,7 @@ public class PrviKomponente extends JFrame {
         p.setLocation(100, 100); // smješta prozor na zadanu poziciju (x,y) uodnosu na gornji lijevi kut ekrana
         p.setLocationRelativeTo(null); // centrira prozor na ekranu
         p.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // kod zatvaranja prozora izlazi iz aplikacije
-        p.pack(); // "podešavamo veličinu prozora veličini komponenti u njemu
+        p.pack(); // podešavamo veličinu prozora veličini komponenti u njemu
         p.setVisible(true); // prozor postaje vidljiv na ekranu
     }
 }

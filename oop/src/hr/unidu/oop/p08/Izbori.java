@@ -19,7 +19,7 @@ public class Izbori extends JFrame {
         jDa = new JRadioButton();
         jNe = new JRadioButton();
         JPanel jPanel3 = new JPanel();
-        JLabel jLabel1 = new JLabel("Veli�ina");
+        JLabel jLabel1 = new JLabel("Veličina");
         JLabel jLabel2 = new JLabel();
         jSlider1 = new JSlider(4, 40, 12);
         String[] m = { "Crna", "Crvena", "Plava", "Zelena" };
@@ -41,7 +41,7 @@ public class Izbori extends JFrame {
         jPanel1.add(jItalic);
         add(jPanel1, BorderLayout.PAGE_START);
         jPanel1.add(jLabel1);
-        // slider za izbor veli�ine slova
+        // slider za izbor veličine slova
         jSlider1.addChangeListener(evt -> {
             float vrij = (float)jSlider1.getValue();
             Font f = tekst.getFont();
@@ -68,11 +68,11 @@ public class Izbori extends JFrame {
         
         jPanel2.add(jNe);
         add(jPanel2, BorderLayout.PAGE_END);
-        // box layout u vi�e redaka
+        // box layout u više redaka
         jPanel3.setLayout(new BoxLayout(jPanel3, BoxLayout.Y_AXIS));
         jLabel2.setText("Boja");
         jPanel3.add(jLabel2);
-        // padaju�a lista s vi�e izbora
+        // padajuća lista s više izbora
         jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "Crna", "Crvena", "Plava", "Zelena" }));
         jComboBox1.addActionListener(evt -> {
             String izab = (String)jComboBox1.getSelectedItem();
@@ -103,7 +103,7 @@ public class Izbori extends JFrame {
             f = f.deriveFont(Font.ITALIC);
         else
             f = f.deriveFont(Font.PLAIN);
-        //f = new Font(ime, stil, velicina);
+        //f = new Font(ime, stil, veličina);
         tekst.setFont(f);
     }
 
