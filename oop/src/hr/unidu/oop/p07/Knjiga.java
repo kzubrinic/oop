@@ -37,6 +37,7 @@ public class Knjiga {
 		result = prime * result + id;
 		return result;
 	}
+	// Dvije knjige su jednake ako imaju jednak id
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
