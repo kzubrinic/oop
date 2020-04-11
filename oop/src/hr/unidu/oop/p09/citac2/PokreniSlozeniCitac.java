@@ -57,8 +57,8 @@ public class PokreniSlozeniCitac extends JFrame {
         setVisible(true);
     }
     private void ucitaj(){
-    	if (mapa.getText().length() > 0) {
-			cs = new SlozeniCitacDatoteka(mapa.getText(), this);
+    	if (mapa.getText().trim().length() > 0) {
+			cs = new SlozeniCitacDatoteka(mapa.getText().trim(), this);
 			cs.execute();
 		}
     }

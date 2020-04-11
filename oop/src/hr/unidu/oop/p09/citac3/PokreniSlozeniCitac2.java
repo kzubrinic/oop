@@ -49,15 +49,14 @@ public class PokreniSlozeniCitac2 extends JFrame {
         gornji.add(BorderLayout.WEST, l);
         gornji.add(BorderLayout.EAST, mapa);
         gornji.add(BorderLayout.NORTH, progressBar);
-        cs = new SlozeniCitacDatoteka2(mapa.getText(), this);
         btnUitaj.addActionListener(e -> ucitaj());
         getContentPane().add(btnUitaj, BorderLayout.SOUTH);
         getContentPane().add(gornji, BorderLayout.NORTH);
         setVisible(true);
     }
     private void ucitaj(){
-    	if (mapa.getText().length() > 0) {
-			cs = new SlozeniCitacDatoteka2(mapa.getText(), this);
+    	if (mapa.getText().trim().length() > 0) {
+			cs = new SlozeniCitacDatoteka2(mapa.getText().trim(), this);
 			cs.execute();
 		}
     }

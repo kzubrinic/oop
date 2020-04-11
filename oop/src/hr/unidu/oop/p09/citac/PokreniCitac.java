@@ -20,8 +20,8 @@ public class PokreniCitac extends JFrame{
 		JScrollPane sp = new JScrollPane(rez);
 		JButton b = new JButton("Čitaj");
 		b.addActionListener((e)->{
-			if (mapa.getText().length() > 0) {
-				SwingWorker<List<String>, Void> cs = new CitacDatoteka(mapa.getText(), this);  
+			if (mapa.getText().trim().length() > 0) {
+				SwingWorker<List<String>, Void> cs = new CitacDatoteka(mapa.getText().trim(), this);  
 				cs.execute();
 			}
 		});
