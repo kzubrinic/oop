@@ -1,20 +1,22 @@
 package hr.unidu.oop.p09.citac3;
 import java.io.File;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import javax.swing.JTextArea;
 import javax.swing.SwingWorker;
+
+import hr.unidu.oop.p09.citac2.PokreniSlozeniCitac;
+
 import javax.swing.JProgressBar;
 
 public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
     private File dir;
     private List<String> list;
-    private JTextArea polje;
-    private JProgressBar progressBar;
-    public SlozeniCitacDatoteka2(String dir, JTextArea polje, JProgressBar progressBar){
+    private PokreniSlozeniCitac2 pozvani;
+    public SlozeniCitacDatoteka2(String dir, PokreniSlozeniCitac2 p){
         this.dir = new File(dir);
-        this.polje=polje;
-        this.progressBar = progressBar;
+        pozvani = p;
     }
     @Override
     // Obrada koja se vrši u pozadini
@@ -37,9 +39,18 @@ public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
     // dohvaćanje i obrada međurezultata
     protected void process(List<Pomocna> pom) {
         for (Pomocna p : pom){
-                polje.append(p.getNaziv()+"\n"); // ažurira GUI nazivom datoteke
-                progressBar.setValue(p.getBr()); // ažurira progressbar
+            pozvani.napuniTekst(p.getNaziv()); // ažurira GUI nazivom datoteke
+            pozvani.napuniProgressBar(p.getBr());
         }
+    }
+    @Override
+    // obrada konačnih rezultata
+    public void done() {
+        try {
+            pozvani.napuniProgressBar(100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
     }
 
 

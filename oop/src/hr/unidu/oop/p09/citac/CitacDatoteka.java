@@ -8,10 +8,13 @@ import javax.swing.SwingWorker;
 public class CitacDatoteka extends SwingWorker<List<String>, Void> {
    private File dir;
    private List<String> list;
-   // u konstruktoru se vrši inicijalizacija radnika
-   public CitacDatoteka(String d){
+   // referenca na GUI klasu kako bismo mogli ažurirati GUI komponentu
+   private PokreniCitac polazni; 
+   // u konstruktoru se vrši inicijalizacija "radnika"
+   public CitacDatoteka(String d, PokreniCitac p){
        dir = new File(d);
        list = new ArrayList<>();
+       polazni = p;
    }
    @Override
    // Obrada koja se vrši u pozadini
@@ -27,8 +30,7 @@ public class CitacDatoteka extends SwingWorker<List<String>, Void> {
    public void done() {
        try {
            List<String> rez = get();
-           for (String s : rez)
-               System.out.println(s);
+           polazni.napuniTekst(rez); // ažurira GUI polje pozivom metode iz GUI klase
        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
        } 

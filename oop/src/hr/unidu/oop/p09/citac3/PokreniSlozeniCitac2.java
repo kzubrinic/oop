@@ -2,57 +2,71 @@ package hr.unidu.oop.p09.citac3;
  
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.JScrollPane;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
+@SuppressWarnings("serial")
 public class PokreniSlozeniCitac2 extends JFrame {
 
-    private JPanel cp;
     private JProgressBar progressBar;
-    private SwingWorker cs;
+    private SwingWorker<Void, Pomocna> cs;
+    private JTextField mapa;
+    private JTextArea polje;
 
-    /**
-     * Launch the application.
-     */
     public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
+    	SwingUtilities.invokeLater(() -> {
             try {
-                PokreniSlozeniCitac2 frame = new PokreniSlozeniCitac2();
-                frame.setVisible(true);
+                new PokreniSlozeniCitac2("Složeni čitač 2");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
     }
 
-    public PokreniSlozeniCitac2() {
-        String mapa = "/bin";
+    public PokreniSlozeniCitac2(String naslov) {
+    	super(naslov);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
-        JTextArea polje = new JTextArea("");
+        polje = new JTextArea("");
         polje.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(polje);
         getContentPane().add(scrollPane);
         JButton btnUitaj = new JButton("U\u010Ditaj");
         progressBar = new JProgressBar(0,100);
         progressBar.setStringPainted(true);
-        cs = new SlozeniCitacDatoteka2(mapa, polje, progressBar);
-        progressBar.addChangeListener(e -> progressBar.setValue(cs.getProgress()));
-        
-        
+        JPanel gornji = new JPanel();
+        JLabel l = new JLabel("Mapa:");
+		mapa = new JTextField(30);
+        gornji.setLayout(new BorderLayout());
+        gornji.add(BorderLayout.WEST, l);
+        gornji.add(BorderLayout.EAST, mapa);
+        gornji.add(BorderLayout.NORTH, progressBar);
+        cs = new SlozeniCitacDatoteka2(mapa.getText(), this);
         btnUitaj.addActionListener(e -> ucitaj());
         getContentPane().add(btnUitaj, BorderLayout.SOUTH);
-        getContentPane().add(progressBar, BorderLayout.NORTH);
+        getContentPane().add(gornji, BorderLayout.NORTH);
+        setVisible(true);
     }
     private void ucitaj(){
-        cs.execute();
+    	if (mapa.getText().length() > 0) {
+			cs = new SlozeniCitacDatoteka2(mapa.getText(), this);
+			cs.execute();
+		}
+    }
+    public void napuniTekst(String l) {
+		polje.append(l);
+		polje.append("\n");
+	}
+    public void napuniProgressBar(int vrij) {
+    	progressBar.setValue(vrij);
     }
     
 }
