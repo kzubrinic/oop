@@ -1,18 +1,10 @@
 package hr.unidu.oop.p09.citac3;
 import java.io.File;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-
-import javax.swing.JTextArea;
 import javax.swing.SwingWorker;
-
-import hr.unidu.oop.p09.citac2.PokreniSlozeniCitac;
-
-import javax.swing.JProgressBar;
 
 public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
     private File dir;
-    private List<String> list;
     private PokreniSlozeniCitac2 pozvani;
     public SlozeniCitacDatoteka2(String dir, PokreniSlozeniCitac2 p){
         this.dir = new File(dir);
