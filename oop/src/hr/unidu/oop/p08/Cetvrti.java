@@ -30,6 +30,7 @@ public class Cetvrti extends JFrame {
 		
 		JButton buttonOk = new JButton("OK");
 		buttonOk.setBackground(Color.LIGHT_GRAY);
+		// Java ver. < 8
 //		buttonOk.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				if (!plavo){
@@ -44,6 +45,7 @@ public class Cetvrti extends JFrame {
 //				}
 //			}
 //		});
+		// Java ver. <= 8
 		buttonOk.addActionListener(e -> {
 				if (!plavo){
 					buttonOk.setBackground(Color.BLUE);

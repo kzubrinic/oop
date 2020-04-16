@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 
 /**
- * @author Krunoslav �ubrini�
+ * @author Krunoslav Žubrinić
  * 28. tra 2015.
  */
 public class ObradaDogadjaja extends JFrame {
@@ -36,7 +36,7 @@ public class ObradaDogadjaja extends JFrame {
     private void initialize() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         l = new JLabel("0");
-        // JPanel komponente centrira pa je to najjednostavniji na�in
+        // JPanel komponente centrira pa je to najjednostavniji način
         // da se ova labela pozicionira centrirano.
         JPanel p = new JPanel();
         p.add(l);
@@ -44,7 +44,7 @@ public class ObradaDogadjaja extends JFrame {
         // BorderLayout.NORTH);
         add(p, BorderLayout.NORTH);
 
-        JButton t = new JButton("Pove�aj");
+        JButton t = new JButton("Povećaj");
         add(t, BorderLayout.SOUTH);
         // Neimenovani razred koji implementira sučelje ActionListener
 //		t.addActionListener(new ActionListener() {

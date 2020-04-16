@@ -8,7 +8,7 @@ public class Sinhronizacija implements Runnable {
 
     // Posao koji se obavlja u dretvi stavlja se u metodu run
     public void run() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 8; i++) {
 
             //smanjiNesinhronizirano();
 
@@ -17,8 +17,7 @@ public class Sinhronizacija implements Runnable {
             smanjiSinhronizirano();
 
             String naziv = Thread.currentThread().getName();
-            //System.out.print("Dretva " + naziv + " radi. ");
-            System.out.println("Iznos je " + iznos);
+            System.out.println("Iznos je " + iznos+ " : " + naziv);
         }
     }
 

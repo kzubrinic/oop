@@ -29,6 +29,26 @@ public class Knjiga {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+	// Dvije knjige su jednake ako imaju jednak id
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Knjiga))
+			return false;
+		Knjiga other = (Knjiga) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
 	@Override
 	public String toString() {
 		return "Knjiga [id=" + id + ", naziv=" + naziv + ", autor=" + autor + "]";

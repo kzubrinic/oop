@@ -11,13 +11,11 @@ import javax.swing.JProgressBar;
 public class SlozeniCitacDatoteka extends SwingWorker<List<String>, Integer> {
     private File dir;
     private List<String> list;
-    private JTextArea polje;
-    private JProgressBar progressBar;
-    public SlozeniCitacDatoteka(String dir, JTextArea polje, JProgressBar progressBar){
+    private PokreniSlozeniCitac pozvani;
+    public SlozeniCitacDatoteka(String dir, PokreniSlozeniCitac poz){
         this.dir = new File(dir);
         list = new ArrayList<>();
-        this.polje=polje;
-        this.progressBar = progressBar;
+        pozvani = poz;
     }
     @Override
     // Obrada koja se vrši u pozadini
@@ -40,7 +38,7 @@ public class SlozeniCitacDatoteka extends SwingWorker<List<String>, Integer> {
     // dohvaćanje i obrada međurezultata
     protected void process(List<Integer> brojevi) {
         for (int b : brojevi) {
-             progressBar.setValue(b);
+             pozvani.napuniProgressBar(b);
         }
     }
 
@@ -49,12 +47,11 @@ public class SlozeniCitacDatoteka extends SwingWorker<List<String>, Integer> {
     public void done() {
         try {
             List<String> rez = get();
-            for (String s : rez)
-                polje.append(s+"\n");
+            pozvani.napuniTekst(rez); // ažurira GUI polje pozivom metode iz GUI klase
+            pozvani.napuniProgressBar(100);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         } 
-        progressBar.setValue(100);
     }
     
     private void pauziraj(int ms){
