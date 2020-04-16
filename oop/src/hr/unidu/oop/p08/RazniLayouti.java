@@ -33,6 +33,8 @@ public class RazniLayouti {
       f.add(p);  
       f.pack();
       f.setLocationRelativeTo(null);
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
       f.setVisible(true);
   }
   public void boxY(){
@@ -45,6 +47,8 @@ public class RazniLayouti {
       // panel se dodaje na prozor
       f.add(p);
       f.pack();
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
       f.setVisible(true);
   }
   public void boxX(){
@@ -57,6 +61,8 @@ public class RazniLayouti {
       // panel se dodaje na prozor
       f.add(p);
       f.pack();
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
       f.setVisible(true);
   }
   public void grid(){
@@ -69,11 +75,17 @@ public class RazniLayouti {
       // panel se dodaje na prozor
       f.add(p);
       f.pack();
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
       f.setVisible(true);
   }
 
   
-
+  public static void main(String[] a) {
+	  RazniLayouti r = new RazniLayouti();
+	  r.boxY();
+  }
+  
 
   private JButton[] napuni(){
       JButton[] t = new JButton[5];

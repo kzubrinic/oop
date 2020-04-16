@@ -32,17 +32,22 @@ public class PrimjerViseRedaka extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 200, 120);
         polje = new JTextArea("");
-        polje.setEditable(false);
+        //polje.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(polje);
-        getContentPane().add(scrollPane);
+        add(scrollPane);
+        //add(polje);
         JButton btnUitaj = new JButton("Učitaj");
-
+        
 //        btnUitaj.addActionListener(new ActionListener() {
 //            public void actionPerformed(ActionEvent e) {
 //                ucitaj();
 //            }
 //        });
-        btnUitaj.addActionListener(e -> ucitaj());
+        btnUitaj.addActionListener(e ->  {
+        	System.out.println(e.getActionCommand());
+        	ucitaj();
+        });
+
         getContentPane().add(btnUitaj, BorderLayout.SOUTH);
         setLocationRelativeTo(null);
     }
