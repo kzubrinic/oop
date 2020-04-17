@@ -37,9 +37,9 @@ public class SlozeniCitacDatoteka extends SwingWorker<List<String>, Integer> {
     @Override
     // dohvaćanje i obrada međurezultata
     protected void process(List<Integer> brojevi) {
-        for (int b : brojevi) {
-             pozvani.napuniProgressBar(b);
-        }
+    	// Priksaži zadnji primljeni međurezultat iz liste
+    	Integer b = brojevi.get(brojevi.size()-1);
+        pozvani.napuniProgressBar(b);
     }
 
     @Override

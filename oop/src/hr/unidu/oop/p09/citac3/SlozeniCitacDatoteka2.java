@@ -30,10 +30,9 @@ public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
     @Override
     // dohvaćanje i obrada međurezultata
     protected void process(List<Pomocna> pom) {
-        for (Pomocna p : pom){
-            pozvani.napuniTekst(p.getNaziv()); // ažurira GUI nazivom datoteke
-            pozvani.napuniProgressBar(p.getBr());
-        }
+    	Pomocna p = pom.get(pom.size()-1); // dohvati posljednji poslani međurezultat
+        pozvani.napuniTekst(p.getNaziv()); // ažurira GUI nazivom datoteke
+        pozvani.napuniProgressBar(p.getBr()); // ažuriraj progress bar
     }
     @Override
     // obrada konačnih rezultata
