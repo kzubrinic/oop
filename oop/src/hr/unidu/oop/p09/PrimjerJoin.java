@@ -47,5 +47,13 @@ class PrimjerJoin implements Runnable{
         }
         // 3. dretva neće početi s izvođenjem sve dok 2. ne završi
         t3.start();
+        try {
+            // Nakon što obradu završi posljednja dretva ispisuje se poruka.
+            // ne završi
+            t3.join();
+        } catch(Exception ex)  {
+            ex.printStackTrace();
+        }
+        System.out.println("Sve dretve su završile obradu!");
     }
 }
