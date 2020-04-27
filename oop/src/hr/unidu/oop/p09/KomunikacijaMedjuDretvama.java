@@ -5,7 +5,7 @@ public class KomunikacijaMedjuDretvama {
 		final Klijent c = new Klijent();  
 		new Thread(){  
 			public void run(){
-				c.skini(15000);
+				c.skini(15000); // pokušava skinuti više nego što ima na stanju (ima 10000)
 			}  
 		}.start();  
 		new Thread(){  
@@ -23,7 +23,7 @@ class Klijent{
 		if(this.iznos < iznos){  
 				System.out.println("Nedovoljno novca na stanju. Čeka se uplata...");  
 				try{
-					wait(); // čekaj jer nema dovoljno na stanju
+					wait(); // čekaj jer nema dovoljno na stanju dok se ne probudi metodom notify()/notifyAll()
 				}catch(Exception e){
 					e.printStackTrace();
 				}  
@@ -36,6 +36,6 @@ class Klijent{
 		System.out.println("Uplata na račun...");  
 		this.iznos += iznos;  
 		System.out.println("Iznos uplaćen na račun... ");  
-		notify();  // obavijesti o uplati zaintersirane dretve
+		notify();  // probudi jednu od dretva koje su zaustavljene metodom wait()
 	}  
 }  
