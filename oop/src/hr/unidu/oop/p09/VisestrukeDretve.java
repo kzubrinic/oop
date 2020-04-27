@@ -14,12 +14,14 @@ public class VisestrukeDretve implements Runnable{
 		catch (InterruptedException ex) {
 			ex.printStackTrace();
 		}
-
+		// "Važan" posao je završen, pa izvođenje može preuzeti sljedeća dretva
+		Thread.yield();
 		for (int i = 0; i<10; i++){
 			// dohvaća naziv trenutne dretve
 			String naziv = Thread.currentThread().getName();
 			System.out.println("Dretva " + naziv + " radi.");  
 		}
+		 
 	}   
 	public static void main(String[] args){
 		VisestrukeDretve obj = new VisestrukeDretve();  
