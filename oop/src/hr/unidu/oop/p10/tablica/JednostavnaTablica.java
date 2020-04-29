@@ -11,15 +11,15 @@ public class JednostavnaTablica extends JFrame {
 	public static void main(String[] args) {
 		try {
 		       SwingUtilities.invokeAndWait(() -> {
-				  JednostavnaTablica frame = new JednostavnaTablica("Jednostavna tablica");
-				  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				  frame.setVisible(true);
-				  frame.setLocationRelativeTo(null);
-				  frame.pack();
+				  JednostavnaTablica frame = new JednostavnaTablica("Jednostavna tablica", true);
 			   });
 		    } catch (Exception e){
 		    	e.printStackTrace();
 		    }
+	}
+	public JednostavnaTablica(String n, boolean zatvori) {
+		this(n);
+		if (zatvori) setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	public JednostavnaTablica(String n) {
@@ -56,15 +56,14 @@ public class JednostavnaTablica extends JFrame {
 		cp.add(pp);
 		getContentPane().add(cp,BorderLayout.NORTH);
 		JButton doh = new JButton("Obradi");
-//		doh.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				obradiTablicu(t);
-//			}
-//		});
+
 		doh.addActionListener(e -> obradiTablicu(t));
 		cp1.add(doh);
 		getContentPane().add(cp1,BorderLayout.SOUTH);
+		
+		setVisible(true);
+		setLocationRelativeTo(null);
+		pack();
 	}
 	private void obradiTablicu(JTable t){
 		int brRed = t.getRowCount();
@@ -81,12 +80,12 @@ public class JednostavnaTablica extends JFrame {
         System.out.println("--------------------------");
 	}
 	private void obradiCeliju(JTable t){
-	    // Pretvara indeks retka u tablicu u indeks retka u modelu.
-	    // Ako podaci nisu sortirani, indeksi su jednaki.
-		int brSr = t.convertRowIndexToModel(t.getSelectedRow());
-		int brSs = t.getSelectedColumn();
-        int brRed = t.getRowCount();
-        int brStup = t.getColumnCount();
+	    // Pretvara indeks retka i stupca u tablicu u indeks retka u modelu.
+	    // Ako podaci nisu sortirani, odnosno stupci premještani, indeksi su jednaki.
+		int brSr = t.convertRowIndexToModel(t.getSelectedRow()); // indeks retka za pristup
+		int brSs = t.convertColumnIndexToModel(t.getSelectedColumn()); // indeks stupca za pristup
+        int brRed = t.getRowCount(); // ukupan broj redaka
+        int brStup = t.getColumnCount(); // ukupan broj stupaca
         TableModel model = t.getModel();
         System.out.println("Dohvaćanje podataka iz retka " + brSr);
         for (int j=0; j < brStup; j++) {

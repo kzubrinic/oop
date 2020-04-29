@@ -20,15 +20,15 @@ public class JednostavnoStablo extends JFrame{
 	public static void main(String[] args) {
 		try {
 			SwingUtilities.invokeAndWait(() -> {
-				JednostavnoStablo frame = new JednostavnoStablo("Jednostavno stablo");
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
-				frame.setLocationRelativeTo(null);
-				frame.pack();
+				JednostavnoStablo frame = new JednostavnoStablo("Jednostavno stablo", true);
 			});
 		}catch (Exception e){
 			e.printStackTrace();
 		}
+	}
+	public JednostavnoStablo(String n, boolean zatvori) {
+		this(n);
+		if (zatvori) setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	public JednostavnoStablo(String n) {
@@ -44,6 +44,10 @@ public class JednostavnoStablo extends JFrame{
 		getContentPane().add(sp);
 		izabrano = new JLabel();
 		getContentPane().add(izabrano, BorderLayout.SOUTH);
+		
+		setVisible(true);
+		setLocationRelativeTo(null);
+		pack();
 	}
 	private void napuniModel(){
 	    DefaultMutableTreeNode korijen = new DefaultMutableTreeNode("Stabla");

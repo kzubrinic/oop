@@ -9,8 +9,7 @@ import javax.swing.ListCellRenderer;
 import hr.unidu.oop.p10.Osoba;
 
 public class CrtacRetka extends JLabel implements ListCellRenderer<Object>{
-	     // This is the only method defined by ListCellRenderer.
-	     // We just reconfigure the JLabel each time we're called.
+	     // Kod svakog pristupa ovoj labeli mijenja se njezin sadržaj i izgled
 		@Override
 		public Component getListCellRendererComponent(JList<?> list, Object value, int index,
 			 boolean isSelected, boolean cellHasFocus) {

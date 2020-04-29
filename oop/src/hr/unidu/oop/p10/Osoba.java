@@ -5,6 +5,7 @@ public class Osoba {
 	private String prezime;
 	private int starost;
 	private String slika;
+	public Osoba() {}
 	public Osoba(String i, String p, String s, int t){
 		ime = i;
 		prezime = p;
@@ -16,6 +17,12 @@ public class Osoba {
 		prezime = p;
 		slika = "slike/noimage.jpg";
 		starost = 0;
+	}
+	public Osoba(String[] podaci){
+		ime = podaci[0];
+		prezime = podaci[1];
+		slika = podaci[2];
+		starost = Integer.valueOf(podaci[3]);
 	}
 	public String getIme() {
 		return ime;
@@ -30,6 +37,18 @@ public class Osoba {
 		return starost;
 	}
 	
+	public void setIme(String ime) {
+		this.ime = ime;
+	}
+	public void setPrezime(String prezime) {
+		this.prezime = prezime;
+	}
+	public void setStarost(int starost) {
+		this.starost = starost;
+	}
+	public void setSlika(String slika) {
+		this.slika = slika;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

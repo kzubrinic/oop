@@ -15,25 +15,30 @@ public class StabloDirektorija extends JFrame{
 	public static void main(String[] args) {
 		try {
 			SwingUtilities.invokeAndWait(() -> {
-				StabloDirektorija frame = new StabloDirektorija("Stablo direktorija");
-				frame.setVisible(true);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setLocationRelativeTo(null);
-				frame.pack();
+				StabloDirektorija frame = new StabloDirektorija("Stablo direktorija", true);
 			});
 		}catch (Exception e){
 			e.printStackTrace();
 		}
 	}
+	
+	public StabloDirektorija(String n, boolean zatvori) {
+		this(n);
+		if (zatvori) setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 
 	public StabloDirektorija(String n) {
 		super(n);
-		String pocetniDir = "/home/kruno/temp";
+		String pocetniDir = ".";
 		pocetnaDat = new File(pocetniDir);
 		citajRekurzivno(pocetnaDat);
 		JTree t = new JTree(model);
 		JScrollPane sp = new JScrollPane(t);
 		getContentPane().add(sp);
+		
+		setVisible(true);
+		setLocationRelativeTo(null);
+		pack();
 	}
 
 	public DefaultMutableTreeNode citajRekurzivno(File trenutna) {

@@ -21,15 +21,15 @@ public class TablicaSVlastitimModelom extends JFrame {
 	public static void main(String[] args) {
 		try {
 		       SwingUtilities.invokeAndWait(() -> {
-				  TablicaSVlastitimModelom frame = new TablicaSVlastitimModelom("Tablica s vlastitim modelom");
-				  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				  frame.setVisible(true);
-				  frame.setLocationRelativeTo(null);
-				  frame.pack();
+				  TablicaSVlastitimModelom frame = new TablicaSVlastitimModelom("Tablica s vlastitim modelom", true);
 			   });
 		    } catch (Exception e){
 		    	e.printStackTrace();
 		    }
+	}
+	public TablicaSVlastitimModelom(String n, boolean zatvori) {
+		this(n);
+		if (zatvori) setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	public TablicaSVlastitimModelom(String n) {
@@ -54,15 +54,14 @@ public class TablicaSVlastitimModelom extends JFrame {
 		cp.add(pp);
 		getContentPane().add(cp,BorderLayout.NORTH);
 		JButton doh = new JButton("Obradi");
-//		doh.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				obradiTablicu(t);
-//			}
-//		});
+
 		doh.addActionListener(e -> obradiTablicu(t));
 		cp1.add(doh);
 		getContentPane().add(cp1,BorderLayout.SOUTH);
+		
+		setVisible(true);
+		setLocationRelativeTo(null);
+		pack();
 	}
 	private void obradiTablicu(JTable t){
 		int brRed = t.getRowCount();
@@ -86,7 +85,7 @@ public class TablicaSVlastitimModelom extends JFrame {
         // Ako su podaci sortirani, indeksi nisu jednaki!
 		int brSr = t.convertRowIndexToModel(t.getSelectedRow());
 		// Povezuje indeks stupca tablice s indeksom stupca u modelu
-		// Indeksi su različiti ako im j epromijenjen redosljed!
+		// Indeksi su različiti ako im je promijenjen redosljed!
 		int brSs = t.convertColumnIndexToModel(t.getSelectedColumn());
         System.out.println("Dohvaćanje podataka iz retka " + brSr);
         for (int j=0; j < brSs; j++) {

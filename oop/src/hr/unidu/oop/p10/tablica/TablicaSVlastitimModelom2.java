@@ -29,16 +29,16 @@ public class TablicaSVlastitimModelom2 extends JFrame {
     public static void main(String[] args) {
         try {
             SwingUtilities.invokeAndWait(() -> {
-                TablicaSVlastitimModelom2 frame = new TablicaSVlastitimModelom2("Tablica s vlastitim modelom 2");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-                frame.setLocationRelativeTo(null);
-                frame.pack();
+                TablicaSVlastitimModelom2 frame = new TablicaSVlastitimModelom2("Tablica s vlastitim modelom 2", true);
             });
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    public TablicaSVlastitimModelom2(String n, boolean zatvori) {
+		this(n);
+		if (zatvori) setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 
     public TablicaSVlastitimModelom2(String n) {
         super(n);
@@ -50,20 +50,7 @@ public class TablicaSVlastitimModelom2 extends JFrame {
         List<Osoba> studenti = new ArrayList<>();
         napuniPolje(studenti);
         sm = new OsobaModel2(studenti);
-//        sm.addTableModelListener(new TableModelListener() {
-//            @Override
-//            public void tableChanged(TableModelEvent e) {
-//                if (t.getSelectedRow() < 0)
-//                    return;
-//                System.out.println("TR: " + t.getSelectedRow());
-//                 // Povezuje indeks retka tablice s indeksom retka u modelu
-//                // Ako su podaci sortirani, indeksi nisu jednaki!
-//                int brSr = t.convertRowIndexToModel(t.getSelectedRow());
-//                // Povezuje indeks stupca tablice s indeksom stupca u modelu
-//                // Indeksi su različiti ako im j epromijenjen redosljed!
-//                int brSs = t.convertColumnIndexToModel(t.getSelectedColumn());
-//           }
-//        });
+
         sm.addTableModelListener(e -> {
                 if (t.getSelectedRow() < 0)
                     return;
@@ -88,28 +75,11 @@ public class TablicaSVlastitimModelom2 extends JFrame {
         cp.add(pp);
         getContentPane().add(cp, BorderLayout.NORTH);
         JButton doh = new JButton("Obradi");
-//        doh.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                obradiTablicu(t);
-//            }
-//        });
+
         doh.addActionListener(e -> obradiTablicu(t));
         cp1.add(doh);
         JButton dod = new JButton("Dodaj novi red");
-//        dod.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                if (prva) {
-//                    sm.addRow(new Osoba("Mara", "Marić", MARA, 43));
-//                } else {
-//                    sm.addRow(new Osoba("Iva", "Ivić", IVA, 26));
-//                }
-//                prva = !prva;
-//                // Ažuriraj tablicu nakon promjene modela
-//                sm.fireTableDataChanged();
-//            }
-//        });
+
         dod.addActionListener(e -> {
                 if (prva) {
                     sm.addRow(new Osoba("Mara", "Marić", MARA, 43));
@@ -121,27 +91,7 @@ public class TablicaSVlastitimModelom2 extends JFrame {
                 sm.fireTableDataChanged();
         });
         JButton obr = new JButton("Obriši izabrane");
-//        obr.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                // Brišemo sve izabrane retke
-//                int[] izabrani = t.getSelectedRows();
-//                // indekse moramo sortirati u silaznom redosljedu jer sa svakim brisanjem
-//                //	kolekcija ima jedan element manje. Jedini ispravan rezultat je ako se
-//                //	elementi brišu jednapo jedan počevši od zadnjeg prema prvom.
-//                List<Integer> selection = new ArrayList<>(izabrani.length);
-//                for (int row : izabrani) {
-//                    selection.add(t.convertRowIndexToModel(row));
-//                }
-//                Collections.sort(selection);
-//                Collections.reverse(selection);
-//                // Brišemo jedan po jedan element
-//                for (Integer i : selection)
-//                    sm.removeRow(i);
-//                // Ažuriraj tablicu nakon promjene modela
-//                sm.fireTableDataChanged();
-//            }
-//        });
+
         obr.addActionListener(e -> {
                 // Brišemo sve izabrane retke
                 int[] izabrani = t.getSelectedRows();
@@ -164,6 +114,10 @@ public class TablicaSVlastitimModelom2 extends JFrame {
         cp1.add(dod);
         cp1.add(obr);
         getContentPane().add(cp1, BorderLayout.SOUTH);
+        
+        setVisible(true);
+		setLocationRelativeTo(null);
+		pack();
     }
 
     private void obradiTablicu(JTable t) {

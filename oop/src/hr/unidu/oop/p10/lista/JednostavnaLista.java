@@ -16,20 +16,23 @@ public class JednostavnaLista extends JFrame {
 	public static void main(String[] args) {
 		try {
 		       SwingUtilities.invokeAndWait(() -> {
-				  JednostavnaLista frame = new JednostavnaLista("Jednostavna lista");
-				  frame.setVisible(true);
-				  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				  frame.setLocationRelativeTo(null);
-				  frame.pack();
+				  JednostavnaLista frame = new JednostavnaLista("Jednostavna lista", true);
+				  
 			   });
 		    } catch (Exception e) {
 		      e.printStackTrace();
 		    }
 	}
+	// Kada se poziva samostalno, po zatvaranju prozora treba prekinuti aplikaciju
+	public JednostavnaLista(String t, boolean zatvori) {
+		this(t);
+		if (zatvori)
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 
 	public JednostavnaLista(String t) {
 	    super(t);
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		JPanel contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(3,1));
@@ -38,30 +41,16 @@ public class JednostavnaLista extends JFrame {
 		list1.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 		list1.setVisibleRowCount(4);
 		list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//		list1.addListSelectionListener(new ListSelectionListener(){
-//			public void valueChanged(ListSelectionEvent e){
-//				// Akcija izbora mišem stvara DVA događaja:
-//				//	- prvi je pritisak tipke miša kod izbora (prepoznaje se tako što je e.getValueIsAdjusting() = true)
-//				//  - drugi je otpuštanje tipke kod izbora (prepoznaje se tako što je e.getValueIsAdjusting() = false)
-//				// Obično nas zanima samo jedan od  ta dva događaja pa ih filtriramo provjerom povratne
-//				//  vrijednosti metode e.getValueIsAdjusting()
-//				if (e.getValueIsAdjusting())
-//					return;
-//				// Obrada izabranih elemenata liste
-//				izbor(list1, l1);
-//			}
-//		});
-
 		list1.addListSelectionListener(e -> {
-				// Akcija izbora mišem stvara DVA događaja:
-				//	- prvi je pritisak tipke miša kod izbora (prepoznaje se tako što je e.getValueIsAdjusting() = true)
-				//  - drugi je otpuštanje tipke kod izbora (prepoznaje se tako što je e.getValueIsAdjusting() = false)
-				// Obično nas zanima samo jedan od  ta dva događaja pa ih filtriramo provjerom povratne
-				//  vrijednosti metode e.getValueIsAdjusting()
-				if (e.getValueIsAdjusting())
-					return;
-				// Obrada izabranih elemenata liste
-				izbor(list1, l1);
+			// Akcija izbora mišem stvara DVA događaja:
+			//	- prvi je pritisak tipke miša kod izbora (prepoznaje se tako što je e.getValueIsAdjusting() = true)
+			//  - drugi je otpuštanje tipke kod izbora (prepoznaje se tako što je e.getValueIsAdjusting() = false)
+			// Obično nas zanima samo jedan od  ta dva događaja pa ih filtriramo provjerom povratne
+			//  vrijednosti metode e.getValueIsAdjusting()
+			if (e.getValueIsAdjusting())
+				return;
+			// Obrada izabranih elemenata liste
+			izbor(list1, l1);
 		});
 
 		JScrollPane scrollPane = new JScrollPane(list1);
@@ -74,21 +63,13 @@ public class JednostavnaLista extends JFrame {
 		JList<String> list2 = new JList<>(model);
 		list2.setVisibleRowCount(4);
 		list2.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-//		list2.addListSelectionListener(new ListSelectionListener(){
-//			public void valueChanged(ListSelectionEvent e){
-//				// Vidi komentar kod poziva ove metode na komponenti list1!
-//				if (e.getValueIsAdjusting())
-//					return;
-//				izbor(list2, l2);
-//			}
-//		});
 		list2.addListSelectionListener(e -> {
-					// Vidi komentar kod poziva ove metode na komponenti list1!
-					if (e.getValueIsAdjusting())
-						return;
-					izbor(list2, l2);
+			// Vidi komentar kod poziva ove metode na komponenti list1!
+			if (e.getValueIsAdjusting())
+				return;
+			izbor(list2, l2);
 		});
-				JScrollPane scrollPane_1 = new JScrollPane(list2);
+		JScrollPane scrollPane_1 = new JScrollPane(list2);
 		contentPane.add(scrollPane_1);
 		
 		l2 = new JTextArea(4,20);
@@ -99,19 +80,11 @@ public class JednostavnaLista extends JFrame {
 		list3.setVisibleRowCount(4);
 		list3.setLayoutOrientation(JList.VERTICAL_WRAP);
 		list3.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-//		list3.addListSelectionListener(new ListSelectionListener(){
-//			public void valueChanged(ListSelectionEvent e){
-//				// Vidi komentar kod poziva ove metode na komponenti list1!
-//				if (e.getValueIsAdjusting())
-//					return;
-//				izbor(list3, l3);
-//			}
-//		});
 		list3.addListSelectionListener(e -> {
-				// Vidi komentar kod poziva ove metode na komponenti list1!
-				if (e.getValueIsAdjusting())
-					return;
-				izbor(list3, l3);
+			// Vidi komentar kod poziva ove metode na komponenti list1!
+			if (e.getValueIsAdjusting())
+				return;
+			izbor(list3, l3);
 		});
 		JScrollPane scrollPane_2 = new JScrollPane(list3);
 		contentPane.add(scrollPane_2);
@@ -119,7 +92,9 @@ public class JednostavnaLista extends JFrame {
 		l3 = new JTextArea(4,20);
 		l3.setLineWrap(true);
 		contentPane.add(l3);
-		
+		setVisible(true);
+		setLocationRelativeTo(null);
+		pack();
 	}
 	private void izbor(JList<String> s, JTextArea l){
 		if (s.getSelectedIndex() == -1){

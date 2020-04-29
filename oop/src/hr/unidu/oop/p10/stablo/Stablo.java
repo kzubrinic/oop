@@ -30,15 +30,16 @@ public class Stablo extends JFrame {
 	public static void main(String[] args) {
 		try {
 			SwingUtilities.invokeAndWait(() -> {
-				Stablo frame = new Stablo("Stablo");
-				frame.setVisible(true);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setLocationRelativeTo(null);
-				frame.pack();
+				Stablo frame = new Stablo("Stablo", true);
 			});
 		} catch (Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	public Stablo(String n, boolean zatvori) {
+		this(n);
+		if (zatvori) setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	public Stablo(String n) {
@@ -77,6 +78,10 @@ public class Stablo extends JFrame {
 		cp.add(tStarost);
 		lblSlika = new JLabel();
 		cp.add(lblSlika);
+		
+		setVisible(true);
+		setLocationRelativeTo(null);
+		pack();
 
 	}
 
