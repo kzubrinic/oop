@@ -39,7 +39,7 @@ public class JednostavnaLista extends JFrame {
 		String[] model = {"Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota", "Nedjelja"};
 		JList<String> list1 = new JList<>(model);
 		list1.setLayoutOrientation(JList.HORIZONTAL_WRAP);
-		list1.setVisibleRowCount(4);
+		list1.setVisibleRowCount(2);
 		list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list1.addListSelectionListener(e -> {
 			// Akcija izbora mišem stvara DVA događaja:
@@ -77,7 +77,7 @@ public class JednostavnaLista extends JFrame {
 		contentPane.add(l2);
 
 		JList<String> list3 = new JList<>(model);
-		list3.setVisibleRowCount(4);
+		list3.setVisibleRowCount(2);
 		list3.setLayoutOrientation(JList.VERTICAL_WRAP);
 		list3.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		list3.addListSelectionListener(e -> {

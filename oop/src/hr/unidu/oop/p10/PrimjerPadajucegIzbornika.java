@@ -40,13 +40,7 @@ public class PrimjerPadajucegIzbornika extends JFrame {
 		mPrvi.setMnemonic(KeyEvent.VK_P);
 		
 		JMenuItem mntmJednostavnaLista = new JMenuItem("Prvi 1");
-//		Anonimna klasa		
-//		mntmJednostavnaLista.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				System.out.println("Izabran Prvi 1");
-//			}
-//		});
-		// Lambda izraz
+
 		mntmJednostavnaLista.addActionListener(e -> System.out.println("Izabran Prvi 1"));
 		mPrvi.add(mntmJednostavnaLista);
 		mPrvi.addSeparator();
@@ -54,22 +48,11 @@ public class PrimjerPadajucegIzbornika extends JFrame {
 		JMenu mPrvi2 = new JMenu("Prvi 2");
 		mPrvi.add(mPrvi2);
 		JMenuItem mntmDrugiPrimjerS = new JMenuItem("Prvi 21");
-//		Anonimna klasa
-//		mntmDrugiPrimjerS.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				System.out.println("Izabran Prvi 21");
-//			}
-//		});
-		// Lambda izraz
+
 		mntmDrugiPrimjerS.addActionListener(e -> System.out.println("Izabran Prvi 21"));
 		mPrvi2.add(mntmDrugiPrimjerS);
 		JCheckBoxMenuItem mntmNewMenuItem = new JCheckBoxMenuItem("Prvi 22");
 
-//		mntmNewMenuItem.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				System.out.println("Prvi 22: " + mntmNewMenuItem.getState());
-//			}
-//		});
 		mntmNewMenuItem.addActionListener(e -> {
 			// Ispisuje stanje menu check boxa - označen (true) ili neoznačen (false)
 			// Metoda getState vraća logičku vrijednost stanja menua check boxa
@@ -95,12 +78,6 @@ public class PrimjerPadajucegIzbornika extends JFrame {
 
 //		Izlaz iz aplikacije izborom izbornika Izlaz
 		JMenuItem mnIzlaz = new JMenuItem("Izlaz");
-//		mnTrei.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				System.exit(0);
-//			}
-//		});
-		// Lambda izraz - izlaz iz aplikacije
 		mnIzlaz.addActionListener(e -> System.exit(0));
 		menuBar.add(mnIzlaz);
 		
