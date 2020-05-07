@@ -1,0 +1,10 @@
+stol
+televizor
+telefon
+automobil
+ograda
+monitor
+tepih
+čaša
+zdjela
+vaza

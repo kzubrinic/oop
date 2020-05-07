@@ -49,12 +49,11 @@ public class TablicaIzDatoteke extends JFrame {
 		napuniDesniPanel(desni);
 		t = new JTable();
 		t.setAutoCreateRowSorter(true);
-		
 		t.setPreferredScrollableViewportSize(new Dimension(300, 100));
         t.setFillsViewportHeight(true);
         t.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                izaberiRedak(t);
+                izaberiRedak();
             }
         });
     
@@ -90,15 +89,15 @@ public class TablicaIzDatoteke extends JFrame {
 		fslika = new JTextField(20);
 		JButton bInsert = new JButton("Dodaj");
 		bInsert.addActionListener(e -> {
-			dodaj(t);
+			dodaj();
 		});
 		JButton bAzur = new JButton("Spremi");
 		bAzur.addActionListener(e -> {
-			azuriraj(t);
+			azuriraj();
 		});
 		JButton bBrisi = new JButton("Briši");
 		bBrisi.addActionListener(e -> {
-			brisi(t);
+			brisi();
 		});
 		JButton bOci = new JButton("Očisti");
 		bOci.addActionListener(e -> {
@@ -129,20 +128,20 @@ public class TablicaIzDatoteke extends JFrame {
 		JOptionPane.showMessageDialog(this,poruka);  
 	}
 
-	private void izaberiRedak(JTable t){
+	private void izaberiRedak(){
         Osoba o = to.izaberiRedak(t);
         fime.setText(o.getIme());
         fprezime.setText(o.getPrezime());
    		fslika.setText(o.getSlika());
 	}
-	private void azuriraj(JTable t) {
+	private void azuriraj() {
 		Osoba nova = new Osoba();
         nova.setIme(fime.getText());
         nova.setPrezime(fprezime.getText());
         nova.setSlika(fslika.getText());
         to.azuriraj(t, nova);
 	}
-	private void dodaj(JTable t) {
+	private void dodaj() {
 		Osoba nova = new Osoba();
         nova.setIme(fime.getText());
         nova.setPrezime(fprezime.getText());
@@ -150,7 +149,7 @@ public class TablicaIzDatoteke extends JFrame {
         to.dodaj(t, nova);
 
 	}
-	private void brisi(JTable t) {
+	private void brisi() {
 		to.brisi(t);
 	}
 	private void ucitaj() {
