@@ -1,6 +1,6 @@
 package hr.unidu.oop.p06.tokovi;
 /**
- * �itanje podataka iz datoteke pomo�u metoda BufferedReader klase
+ * Čitanje podataka iz datoteke pomoću metoda BufferedReader klase
  */
 
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class Primjer7 {
                 System.out.println(c);
             }
         } catch (IOException e) {
-            System.out.println("Gre�ka �itanja datoteke " + ime + " !");
+            System.out.println("Greška čitanja datoteke " + ime + " !");
             e.printStackTrace();
         }
     }
@@ -44,7 +44,7 @@ public class Primjer7 {
                 System.out.println(c);
             }
         } catch (IOException e) {
-            System.out.println("Gre�ka �itanja datoteke " + ime + " !");
+            System.out.println("Greška čitanja datoteke " + ime + " !");
             e.printStackTrace();
         }
     }
@@ -55,12 +55,12 @@ public class Primjer7 {
         try(Scanner s = new Scanner(new BufferedReader(new FileReader(ime)))) {
             s.useDelimiter("o"); // razbijamo na slovu 'o'
             while ((s.hasNext())) {
-                // metoda hasNext() provjerava da li postoji sljede�i token
+                // metoda hasNext() provjerava da li postoji sljedeći token
                 // metoda next() pristupa nizu znakova
                 System.out.println(s.next());
             }
         } catch (IOException e) {
-            System.out.println("Gre�ka �itanja datoteke " + ime + " !");
+            System.out.println("Greška čitanja datoteke " + ime + " !");
             e.printStackTrace();
         }
     }
@@ -75,12 +75,12 @@ public class Primjer7 {
                     new FileInputStream(ime)), ks)))) {
             s.useDelimiter("o"); // razbijamo na slovu 'o'
             while ((s.hasNext())) {
-                // metoda hasNext() provjerava da li postoji sljede�i token
+                // metoda hasNext() provjerava da li postoji sljedeći token
                 // metoda next() pristupa nizu znakova
                 System.out.println(s.next());
             }
         } catch (IOException e) {
-            System.out.println("Gre�ka �itanja datoteke " + ime + " !");
+            System.out.println("Greška čitanja datoteke " + ime + " !");
             e.printStackTrace();
         }
     }

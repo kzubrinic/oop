@@ -1,7 +1,7 @@
 package hr.unidu.oop.p06.tokovi;
 
 /**
- * Primjer kori�tenja PrintWritera za ispis
+ * Primjer korištenja PrintWritera za ispis
  * @author kruno
  *
  */
@@ -23,14 +23,14 @@ public class Primjer8 {
 
     public void unosPodataka() {
         File d = stvaranjeDatoteke();
-            // drugi parametar konstruktora FileWriter true zna�i da se podaci dodaju
-            //  u datoteku (sli�no kao append u C-u)
-            // Ina�e je "normalno" pona�anje da se stara datioteka gazi novom!
+            // drugi parametar konstruktora FileWriter true znači da se podaci dodaju
+            //  u datoteku (slično kao append u C-u)
+            // Inače je "normalno" ponašanje da se stara datioteka gazi novom!
         try(PrintWriter datoteka = new PrintWriter(new FileWriter(d,true))) {
             // unos podataka
             datoteka.println("Ovo ide u prvi red");
             datoteka.println("Ovo ide u drugi red "+175);
-            datoteka.println("Primjeri na�ih �estih �ukastih �alosnih �onovskih slova");
+            datoteka.println("Primjeri naših čestih ćukastih žalosnih đonovskih slova");
             datoteka.print("Ovo ide u posljednji red "+3.76);
             datoteka.close();
             prikazi(d);
@@ -38,7 +38,7 @@ public class Primjer8 {
             System.out.println(e.getMessage());
             e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Gre�ka rada s datotekom");
+            System.out.println("Greška rada s datotekom");
             e.printStackTrace();
         }
 
@@ -48,9 +48,9 @@ public class Primjer8 {
     public void unosPodataka2() {
         File d = stvaranjeDatoteke();
         Charset ks = Charset.forName("windows-1250");
-            // drugi parametar konstruktora FileWriter true zna�i da se podaci dodaju
-            //  u datoteku (sli�no kao append u C-u)
-            // Ina�e je "normalno" pona�anje da se stara datioteka gazi novom!
+            // drugi parametar konstruktora FileWriter true znači da se podaci dodaju
+            //  u datoteku (slično kao append u C-u)
+            // Inače je "normalno" ponašanje da se stara datioteka gazi novom!
         try(PrintWriter datoteka = new PrintWriter(
             new OutputStreamWriter(
                 new BufferedOutputStream(
@@ -58,7 +58,7 @@ public class Primjer8 {
             // unos podataka
             datoteka.println("Ovo ide u prvi red");
             datoteka.println("Ovo ide u drugi red "+175);
-            datoteka.println("Primjeri na�ih �estih �ukastih �alosnih �onovskih slova");
+            datoteka.println("Primjeri naših čestih ćukastih žalosnih đonovskih slova");
             datoteka.print("Ovo ide u posljednji red "+3.76);
             datoteka.close();
             prikazi(d,ks);
@@ -66,7 +66,7 @@ public class Primjer8 {
             System.out.println(e.getMessage());
             e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Gre�ka rada s datotekom");
+            System.out.println("Greška rada s datotekom");
             e.printStackTrace();
         }
     }
@@ -102,7 +102,7 @@ public class Primjer8 {
             try{
                 d.createNewFile();
             } catch (IOException e) {
-                System.out.println("Gre�ka stvaranja datoteke");
+                System.out.println("Greška stvaranja datoteke");
                 e.printStackTrace();
             }
         }
