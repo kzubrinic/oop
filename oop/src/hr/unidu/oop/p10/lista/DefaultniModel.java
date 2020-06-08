@@ -30,6 +30,7 @@ public class DefaultniModel extends JFrame {
 		napuniModel();
 		JList<String> l1 = new JList<>(mod);
 		l1.setVisibleRowCount(4);
+		l1.setPrototypeCellValue("Ovo je najveća širina liste");
 		JScrollPane pp = new JScrollPane(l1);
 
 		getContentPane().add(pp,BorderLayout.NORTH);
