@@ -26,7 +26,7 @@ public class FunkcijePolja {
 		ispisi(polje2);
 		ispisi(polje3);
 		System.out.println();
-		// sortoiranje prvog polja - sortirani sadrćžaj dostupan je pomoću reference polje1 ili polje2
+		// sortoiranje prvog polja - sortirani sadržaj dostupan je pomoću reference polje1 ili polje2
 		Arrays.sort(polje1);
 		ispisi(polje1);
 		ispisi(polje2);
