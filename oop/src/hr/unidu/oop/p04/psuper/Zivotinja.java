@@ -15,6 +15,10 @@ public class Zivotinja {
 	public void hranjenje() {
 		System.out.println("Hranjenje ŽIVOTINJE!");
 	}
+	
+	public void lutanje() {
+		System.out.println("Lutanje ŽIVOTINJE!");
+	}
 
 	public static void spavanje() {
 		System.out.println("STATIC spavanje ŽIVOTINJE!");
