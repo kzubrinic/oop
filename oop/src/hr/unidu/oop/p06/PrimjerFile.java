@@ -66,5 +66,11 @@ public class PrimjerFile {
         }
     }
 
+    public static void main(String[] args) {
+        PrimjerFile o = new PrimjerFile();
+        o.osnovneMetode();
+        o.ispisDatoteka();
+        o.stvoriNovu();
+    }
 
 }

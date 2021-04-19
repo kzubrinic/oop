@@ -108,4 +108,10 @@ public class Primjer8 {
         }
         return d;
     }
+    
+    public static void main(String[] args) {
+    	  Primjer8 o = new Primjer8();
+    	  o.unosPodataka();
+    	  o.unosPodataka2();
+      }
 }

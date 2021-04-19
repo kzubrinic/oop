@@ -84,6 +84,12 @@ public class Primjer7 {
             e.printStackTrace();
         }
     }
-
+    public static void main(String[] args) {
+  	  Primjer7 o = new Primjer7();
+  	  o.citajRetke();
+  	  o.citajRetke2();
+  	  o.citajTokene();
+  	  o.citajTokene2();
+    }
 
 }

@@ -34,4 +34,9 @@ public class Unos
         s.close();
     }
 
+    public static void main(String[] args) {
+        Unos o = new Unos();
+        o.unosAutomatskoZatvaranje();
+        o.unosRucnoZatvaranje();
+    }
 }

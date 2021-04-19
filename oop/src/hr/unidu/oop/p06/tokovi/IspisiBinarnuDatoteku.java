@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.IOException;
 public class IspisiBinarnuDatoteku {
   public void kreni(){
-    Path p = Paths.get("duke.png");
+    Path p = Paths.get("oop/slike/DukeMask-mala.png");
     try (InputStream is = Files.newInputStream (p)) {
       byte[] buff = new byte[1024];
       while (true) {
@@ -16,7 +16,12 @@ public class IspisiBinarnuDatoteku {
           System.out.printf("%02x ", buff[i]);
       }
     } catch (IOException ex) {
+    	ex.printStackTrace();
       System.err.println(ex.getMessage());
     }
+  }
+  public static void main(String[] args) {
+	  IspisiBinarnuDatoteku o = new IspisiBinarnuDatoteku();
+	  o.kreni();
   }
 }
