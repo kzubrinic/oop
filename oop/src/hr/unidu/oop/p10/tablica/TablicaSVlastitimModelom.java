@@ -8,6 +8,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.TableModel;
 
 import hr.unidu.oop.p10.Osoba;
+import hr.unidu.oop.p10.PunjacSlika;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -38,9 +39,7 @@ public class TablicaSVlastitimModelom extends JFrame {
 		JPanel cp1 = new JPanel();
 		JTable t = new JTable();
 		t.setAutoCreateRowSorter(true);
-		List<Osoba> studenti = new ArrayList<>();
-		napuniPolje(studenti);
-		OsobaModel sm = new OsobaModel(studenti);
+		OsobaModel sm = new OsobaModel(PunjacSlika.napuniListuOsoba());
 		t.setModel(sm);
 		t.setPreferredScrollableViewportSize(new Dimension(300, 80));
         t.setFillsViewportHeight(true);
@@ -95,16 +94,5 @@ public class TablicaSVlastitimModelom extends JFrame {
         System.out.println("Dohvaćanje podataka iz izabrane ćelije: " + model.getValueAt(brSr, brSs));
         System.out.println("--------------------------");
 	}
-	private void napuniPolje(List<Osoba> st){
-		String PERO = "slike/pero.jpg";
-		st.add(new Osoba("Pero", "Perić", PERO, 49));
-		String ANA = "slike/ana.jpg";
-		st.add(new Osoba("Ana", "Anić", ANA, 19));
-		String BERO = "slike/bero.jpg";
-		st.add(new Osoba("Bero", "Berić", BERO, 37));
-		String VLAHO = "slike/vlaho.jpg";
-		st.add(new Osoba("Vlaho", "Vlahić", VLAHO, 72));
-		String IVO = "slike/ivo.jpg";
-		st.add(new Osoba("Ivo", "Ivić", IVO, 18));
-	}
+
 }

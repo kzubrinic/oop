@@ -1,6 +1,6 @@
 package hr.unidu.oop.razniprimjeri.guianagram;
 /*
- * Pomoćna POJO klasa koja čuva podatke jednog
+ * Pomoćna POJO klasa koja čuva podatke jednog pojma
  */
 public class Anagram {
 	private String anagram;

@@ -9,6 +9,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.TableModel;
 
 import hr.unidu.oop.p10.Osoba;
+import hr.unidu.oop.p10.PunjacSlika;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -23,8 +24,7 @@ public class TablicaSVlastitimModelom2 extends JFrame {
     private JTable t;
     private boolean prva = true;
     private OsobaModel2 sm;
-    private final String MARA = "slike/mara.jpg";
-    private final String IVA = "slike/iva.jpg";
+
 
     public static void main(String[] args) {
         try {
@@ -47,9 +47,7 @@ public class TablicaSVlastitimModelom2 extends JFrame {
         t = new JTable();
         t.setAutoCreateRowSorter(true);
         t.setRowHeight(120);
-        List<Osoba> studenti = new ArrayList<>();
-        napuniPolje(studenti);
-        sm = new OsobaModel2(studenti);
+        sm = new OsobaModel2(PunjacSlika.napuniListuOsoba());
 
         sm.addTableModelListener(e -> {
                 if (t.getSelectedRow() < 0)
@@ -82,9 +80,9 @@ public class TablicaSVlastitimModelom2 extends JFrame {
 
         dod.addActionListener(e -> {
                 if (prva) {
-                    sm.addRow(new Osoba("Mara", "Marić", MARA, 43));
+                    sm.addRow(new Osoba("Mara", "Marić", PunjacSlika.OSOBA1, 43));
                 } else {
-                    sm.addRow(new Osoba("Iva", "Ivić", IVA, 26));
+                    sm.addRow(new Osoba("Iva", "Ivić", PunjacSlika.OSOBA2, 26));
                 }
                 prva = !prva;
                 // Ažuriraj tablicu nakon promjene modela
@@ -161,16 +159,4 @@ public class TablicaSVlastitimModelom2 extends JFrame {
         System.out.println("--------------------------");
     }
 
-    private void napuniPolje(List<Osoba> st) {
-        String PERO = "slike/pero.jpg";
-        st.add(new Osoba("Pero", "Perić", PERO, 49));
-        String ANA = "slike/ana.jpg";
-        st.add(new Osoba("Ana", "Anić", ANA, 19));
-        String BERO = "slike/bero.jpg";
-        st.add(new Osoba("Bero", "Berić", BERO, 37));
-        String VLAHO = "slike/vlaho.jpg";
-        st.add(new Osoba("Vlaho", "Vlahić", VLAHO, 72));
-        String IVO = "slike/ivo.jpg";
-        st.add(new Osoba("Ivo", "Ivić", IVO, 18));
-    }
 }

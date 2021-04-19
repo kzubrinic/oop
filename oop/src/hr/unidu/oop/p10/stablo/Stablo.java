@@ -13,6 +13,7 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import hr.unidu.oop.p10.Osoba;
+import hr.unidu.oop.p10.PunjacSlika;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -47,8 +48,7 @@ public class Stablo extends JFrame {
 		JPanel cp = new JPanel();
 		JPanel cp1 = new JPanel();
 
-		List<Osoba> studenti = new ArrayList<>();
-		napuniPolje(studenti);
+		List<Osoba> studenti = PunjacSlika.napuniListuOsoba();
 		DefaultMutableTreeNode m = napuniModel(studenti);
 		t = new JTree(m);
 		t.addMouseListener(new MouseAdapter() {
@@ -85,18 +85,7 @@ public class Stablo extends JFrame {
 
 	}
 
-	private void napuniPolje(List<Osoba> st){
-		String PERO = "slike/pero.jpg";
-		st.add(new Osoba("Pero", "Perić", PERO, 49));
-		String ANA = "slike/ana.jpg";
-		st.add(new Osoba("Ana", "Anić", ANA, 19));
-		String BERO = "slike/bero.jpg";
-		st.add(new Osoba("Bero", "Berić", BERO, 37));
-		String VLAHO = "slike/vlaho.jpg";
-		st.add(new Osoba("Vlaho", "Vlahić", VLAHO, 72));
-		String IVO = "slike/ivo.jpg";
-		st.add(new Osoba("Ivo", "Ivić", IVO, 18));
-	}
+	
 	private DefaultMutableTreeNode napuniModel(List<Osoba> st ){
 		DefaultMutableTreeNode korijen = new DefaultMutableTreeNode("Studenti");
 		for (Osoba s: st){
