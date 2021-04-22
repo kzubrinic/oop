@@ -1,12 +1,12 @@
 package hr.unidu.oop.p07;
 
-public class Knjiga {
+public class Korisnik {
 	private int id;
 	private String naziv;
 	private String autor;
-	public Knjiga() {
+	public Korisnik() {
 	}
-	public Knjiga(int id, String naziv, String autor) {
+	public Korisnik(int id, String naziv, String autor) {
 		this.id = id;
 		this.naziv = naziv;
 		this.autor = autor;
@@ -42,9 +42,9 @@ public class Knjiga {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!(obj instanceof Knjiga))
+		if (!(obj instanceof Korisnik))
 			return false;
-		Knjiga other = (Knjiga) obj;
+		Korisnik other = (Korisnik) obj;
 		if (id != other.id)
 			return false;
 		return true;

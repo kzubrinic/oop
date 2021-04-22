@@ -11,10 +11,10 @@ import java.util.List;
 public class TestBaza	{
 	private Connection conn;
 
-    private List<Knjiga> citanjeSvih() {
+    private List<Korisnik> citanjeSvih() {
 		// Pripremi upit
 		String upit = "SELECT ID, NAZIV, AUTOR FROM KNJIGE";
-		List<Knjiga> l = new ArrayList<>();
+		List<Korisnik> l = new ArrayList<>();
 		try (Statement stmt = conn.createStatement();
 			// Izvedi upit - napuni skup rezultata u objekt tipa ResultSet. Svaki redak tablice
 			// je jedan element skupa rezultata.
@@ -25,7 +25,7 @@ public class TestBaza	{
 				// u tablici iz koje se čita (vidi id i autora!) ili REDNI BROJ (prvi stupac ima
 				// indeks 1, drugi 2, treći 3,... -> vidi NAZIV knjige). Za svaki tip podatka
 				// postoji posebna getter metoda.
-				l.add(new Knjiga(rs.getInt("ID"), rs.getString(2), rs.getString("AUTOR")));
+				l.add(new Korisnik(rs.getInt("ID"), rs.getString(2), rs.getString("AUTOR")));
 			}
 			return l;
 		}catch(SQLException se) {
@@ -34,7 +34,7 @@ public class TestBaza	{
 		}
 	}
 
-	private void unos(Knjiga k){
+	private void unos(Korisnik k){
 		// Ako zapis sa zadanim ID-jem već postoji ne smije se dodavati
 		if (trazi(k.getId())){
 			System.out.println("Podatak s IDjem "+k.getId()+ " već postoji u bazi!");
@@ -56,7 +56,7 @@ public class TestBaza	{
 		} 
 	}
 
-	private void izmjena(Knjiga k) {
+	private void izmjena(Korisnik k) {
 		// Ako zapis sa zadanim ID-jem ne postoji ne smije se ažurirati
 		if (!trazi(k.getId())){
 			System.out.println("Podatak s IDjem "+k.getId()+ " ne postoji u bazi!");
@@ -159,34 +159,34 @@ public class TestBaza	{
 			conn = co;
 			provjeriTablicu();
 			// čita sve iz tablice knjige i prikazuje na zaslonu
-			List<Knjiga> l = citanjeSvih();
+			List<Korisnik> l = citanjeSvih();
 			if(l!=null) {
 				System.out.println("DOHVAĆENE KNJIGE:");
-				for(Knjiga k : l)
+				for(Korisnik k : l)
 					System.out.println(k);
 				System.out.println("---------------------------------");
 			}
 			// Dodaje novi zapis s id-jem 200
-			unos(new Knjiga(101, "Head First Java", "Kathy Sierra"));
-			unos(new Knjiga(102, "JAVA in 8 Hours", "Ray Yao"));
-			unos(new Knjiga(103, "Java: A Beginner's Guide", "Herbert Schildt"));
-			unos(new Knjiga(104, "Effective Java", "Joshua Block"));
+			unos(new Korisnik(101, "Head First Java", "Kathy Sierra"));
+			unos(new Korisnik(102, "JAVA in 8 Hours", "Ray Yao"));
+			unos(new Korisnik(103, "Java: A Beginner's Guide", "Herbert Schildt"));
+			unos(new Korisnik(104, "Effective Java", "Joshua Block"));
 			// čita sve iz tablice knjige i prikazuje na zaslonu. 
 			// sada se prikazuje i novo dodani zapis s id-jem 200
 			l = citanjeSvih();
 			if(l!=null) {
 				System.out.println("DOHVAĆENE KNJIGE NAKON INSERTA:");
-				for(Knjiga k : l)
+				for(Korisnik k : l)
 					System.out.println(k);
 				System.out.println("---------------------------------");
 			}
 			// Mijenja se naziv knjige s id-jem 103
-			izmjena(new Knjiga(102, "JAVA in 8 Hours 2nd updated ed", "Ray Yao"));
+			izmjena(new Korisnik(102, "JAVA in 8 Hours 2nd updated ed", "Ray Yao"));
 			// čita sve iz tablice knjige i prikazuje na zaslonu.
 			l = citanjeSvih();
 			if(l!=null) {
 				System.out.println("DOHVAĆENE KNJIGE NAKON IZMJENA:");
-				for(Knjiga k : l)
+				for(Korisnik k : l)
 					System.out.println(k);
 				System.out.println("---------------------------------");
 			}
@@ -197,7 +197,7 @@ public class TestBaza	{
 			l = citanjeSvih();
 			if(l!=null) {
 				System.out.println("DOHVAĆENE KNJIGE:");
-				for(Knjiga k : l)
+				for(Korisnik k : l)
 					System.out.println(k);
 				System.out.println("---------------------------------");
 			}
