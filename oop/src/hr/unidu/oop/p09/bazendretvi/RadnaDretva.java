@@ -2,10 +2,8 @@ package hr.unidu.oop.p09.bazendretvi;
 
 public class RadnaDretva implements Runnable {
     private int nazivDretve;
-    private boolean brza;
-    public RadnaDretva(int s, boolean b){
+    public RadnaDretva(int s){
         nazivDretve=s;
-        brza = b;
     }
  
     public void run() {
@@ -17,10 +15,8 @@ public class RadnaDretva implements Runnable {
     private void obrada() {
     	try {
     		System.out.println(Thread.currentThread().getName() + " (Radi) dretva = "+nazivDretve);
-    		if (!brza)
-    			Thread.sleep(5000);  
-    		else
-    			Thread.sleep(1);
+    		// obrada traje 2 s
+    		Thread.sleep(2000);  
 		} catch (InterruptedException e) { 
 			e.printStackTrace(); 
 		}
