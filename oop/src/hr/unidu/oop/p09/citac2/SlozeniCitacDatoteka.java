@@ -26,20 +26,14 @@ public class SlozeniCitacDatoteka extends SwingWorker<List<String>, Integer> {
         for (File file : dir.listFiles()){
             list.add(file.getName());
             bi = i*100/br;
-            publish(bi); // slanje međurezultata - % obrade
-            setProgress(bi);
+            // Stvara objekt tipa PropertyChange i aktivira PropertyChangeListener u
+            //  klasi koja je pozvala ovu obradu (klasa PokreniSlozeniCitac)
+            // Ta obrada ažurira prograss bar.
+            setProgress(bi); //
             pauziraj(100); // pauza 1/10 sekunde
             ++i;
         }
         return list;
-    }
-    
-    @Override
-    // dohvaćanje i obrada međurezultata
-    protected void process(List<Integer> brojevi) {
-    	// Priksaži zadnji primljeni međurezultat iz liste
-    	Integer b = brojevi.get(brojevi.size()-1);
-        pozvani.napuniProgressBar(b);
     }
 
     @Override
@@ -48,7 +42,7 @@ public class SlozeniCitacDatoteka extends SwingWorker<List<String>, Integer> {
         try {
             List<String> rez = get();
             pozvani.napuniTekst(rez); // ažurira GUI polje pozivom metode iz GUI klase
-            pozvani.napuniProgressBar(100);
+            pozvani.napuniProgressBar(100); // napuni na ktajnju vrijednost
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         } 

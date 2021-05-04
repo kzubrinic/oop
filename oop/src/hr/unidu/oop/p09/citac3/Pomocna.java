@@ -1,16 +1,19 @@
 package hr.unidu.oop.p09.citac3;
 public class Pomocna{
     private String naziv;
-    private int br;
+    private String tip;
 
-    public Pomocna(String naziv, int br){
+    public Pomocna(String naziv, String tip){
         this.naziv = naziv;
-        this.br = br;
+        this.tip = tip;
     }
     public String getNaziv(){
         return naziv;
     }
-    public int getBr(){
-        return br;
+    public String getTip(){
+        return tip;
+    }
+    public String toString() {
+    	return naziv+tip;
     }
 }

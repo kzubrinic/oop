@@ -15,7 +15,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
-@SuppressWarnings("serial")
+/*
+ * Obrada prikazuje napredovanje koristeći komponentu tipa JProgressBar.
+ * Nazivi datoteka se prikazuju tek po završetku obrade.
+ */
+
 public class PokreniSlozeniCitac extends JFrame {
     private JProgressBar progressBar;
     private SwingWorker<List<String>, Integer> cs;
@@ -59,6 +63,7 @@ public class PokreniSlozeniCitac extends JFrame {
     private void ucitaj(){
     	if (mapa.getText().trim().length() > 0) {
 			cs = new SlozeniCitacDatoteka(mapa.getText().trim(), this);
+			cs.addPropertyChangeListener(e-> azurirajProgressBar(e.getPropertyName(),e.getNewValue()));
 			cs.execute();
 		}
     }
@@ -70,5 +75,10 @@ public class PokreniSlozeniCitac extends JFrame {
 	}
     public void napuniProgressBar(int vrij) {
     	progressBar.setValue(vrij);
+    }
+    private void azurirajProgressBar(String naziv, Object vrijednost) {
+    	if ("progress".equals(naziv)) {
+    		progressBar.setValue((Integer)vrijednost);
+       	}
     }
 }

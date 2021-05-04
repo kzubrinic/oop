@@ -1,5 +1,7 @@
 package hr.unidu.oop.p09.citac3;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 import javax.swing.SwingWorker;
 
@@ -18,8 +20,11 @@ public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
         setProgress(i);
         for (File file : dir.listFiles()){
             bi = i*100/br;
-            Pomocna p = new Pomocna(file.getName(), bi);
-            publish(p); // slanje međurezultata - naziv datoteke i % obrade
+            Pomocna p = new Pomocna(file.getName(), (file.isFile())? " [Datoteka] " : " [Mapa]");
+            publish(p); // slanje međurezultata - naziv i tip datoteke
+            // Stvara objekt tipa PropertyChange i aktivira PropertyChangeListener u
+            //  klasi koja je pozvala ovu obradu (klasa PokreniSlozeniCitac2)
+            // Ta obrada ažurira prograss bar.
             setProgress(bi);
             pauziraj(100); // pauza 1/10 sekunde
             ++i;
@@ -31,8 +36,7 @@ public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
     // dohvaćanje i obrada međurezultata
     protected void process(List<Pomocna> pom) {
     	Pomocna p = pom.get(pom.size()-1); // dohvati posljednji poslani međurezultat
-        pozvani.napuniTekst(p.getNaziv()); // ažurira GUI nazivom datoteke
-        pozvani.napuniProgressBar(p.getBr()); // ažuriraj progress bar
+        pozvani.napuniTekst(p.toString()); // ažurira GUI nazivom datoteke
     }
     @Override
     // obrada konačnih rezultata

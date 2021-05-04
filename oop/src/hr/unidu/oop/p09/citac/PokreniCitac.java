@@ -4,7 +4,10 @@ import java.util.List;
 
 import javax.swing.*;
 
-@SuppressWarnings("serial")
+/*
+ * Ne prikazuje se napredovanje obrade.
+ * Nazivi datoteka se prikazuju tek po završetku obrade.
+ */
 public class PokreniCitac extends JFrame{
 	private JTextField mapa;
 	private JTextArea rez;
