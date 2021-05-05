@@ -23,6 +23,7 @@ public class PokreniSlozeniCitac2 extends JFrame {
     private SwingWorker<Void, Pomocna> cs;
     private JTextField mapa;
     private JTextArea polje;
+    private JButton btnUcitaj;
 
     public static void main(String[] args) {
     	SwingUtilities.invokeLater(() -> {
@@ -41,8 +42,10 @@ public class PokreniSlozeniCitac2 extends JFrame {
         polje = new JTextArea("");
         polje.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(polje);
-        getContentPane().add(scrollPane);
-        JButton btnUitaj = new JButton("U\u010Ditaj");
+        add(scrollPane);
+        JPanel pomDolje = new JPanel();
+        btnUcitaj = new JButton("Učitaj");
+        pomDolje.add(btnUcitaj);
         progressBar = new JProgressBar(0,100);
         progressBar.setStringPainted(true);
         JPanel gornji = new JPanel();
@@ -52,13 +55,16 @@ public class PokreniSlozeniCitac2 extends JFrame {
         gornji.add(BorderLayout.WEST, l);
         gornji.add(BorderLayout.EAST, mapa);
         gornji.add(BorderLayout.NORTH, progressBar);
-        btnUitaj.addActionListener(e -> ucitaj());
-        getContentPane().add(btnUitaj, BorderLayout.SOUTH);
-        getContentPane().add(gornji, BorderLayout.NORTH);
+        btnUcitaj.addActionListener(e -> ucitaj());
+        add(pomDolje, BorderLayout.SOUTH);
+        add(gornji, BorderLayout.NORTH);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
     private void ucitaj(){
     	if (mapa.getText().trim().length() > 0) {
+    		postaviStatusGumba(false);
+    		polje.setText("");
 			cs = new SlozeniCitacDatoteka2(mapa.getText().trim(), this);
 			// Registriraj slušač promjene postotka obrade
 	        cs.addPropertyChangeListener(e-> azurirajProgressBar(e.getPropertyName(),e.getNewValue()));
@@ -77,5 +83,7 @@ public class PokreniSlozeniCitac2 extends JFrame {
     		progressBar.setValue((Integer)vrijednost);
        	}
     }
-    
+    public void postaviStatusGumba(boolean v) {
+    	btnUcitaj.setEnabled(v);;
+    }
 }

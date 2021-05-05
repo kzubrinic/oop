@@ -24,6 +24,7 @@ public class PokreniCitac extends JFrame{
 		JButton b = new JButton("Čitaj");
 		b.addActionListener((e)->{
 			if (mapa.getText().trim().length() > 0) {
+				rez.setText("");
 				SwingWorker<List<String>, Void> cs = new CitacDatoteka(mapa.getText().trim(), this);  
 				cs.execute();
 			}
@@ -34,6 +35,7 @@ public class PokreniCitac extends JFrame{
 		add(BorderLayout.SOUTH, pom2);
 		add(sp);
 		pack();
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setVisible(true);
 	}

@@ -25,6 +25,7 @@ public class PokreniSlozeniCitac extends JFrame {
     private SwingWorker<List<String>, Integer> cs;
     private JTextField mapa;
     private JTextArea polje;
+    private JButton btnUcitaj;
 
     public static void main(String[] args) {
     	SwingUtilities.invokeLater(() -> {
@@ -44,8 +45,10 @@ public class PokreniSlozeniCitac extends JFrame {
         polje = new JTextArea("");
         polje.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(polje);
-        getContentPane().add(scrollPane);
-        JButton btnUitaj = new JButton("Učitaj");
+        add(scrollPane);
+        JPanel pomDolje = new JPanel();
+        btnUcitaj = new JButton("Učitaj");
+        pomDolje.add(btnUcitaj);
         progressBar = new JProgressBar();
         progressBar.setStringPainted(true);
         JPanel gornji = new JPanel();
@@ -55,13 +58,16 @@ public class PokreniSlozeniCitac extends JFrame {
         gornji.add(BorderLayout.WEST, l);
         gornji.add(BorderLayout.EAST, mapa);
         gornji.add(BorderLayout.NORTH, progressBar);
-        btnUitaj.addActionListener(e -> ucitaj());
-        getContentPane().add(btnUitaj, BorderLayout.SOUTH);
-        getContentPane().add(gornji, BorderLayout.NORTH);
+        btnUcitaj.addActionListener(e -> ucitaj());
+        add(pomDolje, BorderLayout.SOUTH);
+        add(gornji, BorderLayout.NORTH);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
     private void ucitaj(){
     	if (mapa.getText().trim().length() > 0) {
+    		postaviStatusGumba(false);
+    		polje.setText("");
 			cs = new SlozeniCitacDatoteka(mapa.getText().trim(), this);
 			cs.addPropertyChangeListener(e-> azurirajProgressBar(e.getPropertyName(),e.getNewValue()));
 			cs.execute();
@@ -75,6 +81,9 @@ public class PokreniSlozeniCitac extends JFrame {
 	}
     public void napuniProgressBar(int vrij) {
     	progressBar.setValue(vrij);
+    }
+    public void postaviStatusGumba(boolean v) {
+    	btnUcitaj.setEnabled(v);;
     }
     private void azurirajProgressBar(String naziv, Object vrijednost) {
     	if ("progress".equals(naziv)) {
