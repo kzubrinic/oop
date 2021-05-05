@@ -20,7 +20,7 @@ public class IgraAnagram extends JFrame{
 	private String rijec;
 	private int maxBodova;
 	// Inicijalno dohvaća anagrame imena
-	private String datoteka = "oop/baza/rijeci-imena.txt";
+	private String datoteka = "baza/rijeci-imena.txt";
 	public IgraAnagram(String t){
 		super(t);
 		setLayout(new GridLayout(5,2));
@@ -31,11 +31,11 @@ public class IgraAnagram extends JFrame{
 		vrsta.addActionListener(evt -> {
 			int i = vrsta.getSelectedIndex();
 			if (i == 0) {
-				datoteka = "oop/baza/rijeci-imena.txt";
+				datoteka = "baza/rijeci-imena.txt";
 				setTitle("Anagrami - imena");
 			}
 			else {
-				datoteka = "oop/baza/rijeci-pojmovi.txt";
+				datoteka = "baza/rijeci-pojmovi.txt";
 				setTitle("Anagrami - pojmovi");
 			}
 			iniIgra();

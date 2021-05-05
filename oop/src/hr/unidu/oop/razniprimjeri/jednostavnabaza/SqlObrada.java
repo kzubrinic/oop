@@ -6,7 +6,7 @@ import java.util.List;
 
 public class SqlObrada implements Obrada{
 	private Connection conn;
-	private String spojniURL = "jdbc:sqlite:oop/baza/korisnici.db";
+	private String spojniURL = "jdbc:sqlite:baza/korisnici.db";
 
 	public SqlObrada() {
 		Connection co;
