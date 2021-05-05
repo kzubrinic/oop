@@ -31,6 +31,7 @@ public class CitacDatoteka extends SwingWorker<List<String>, Void> {
        try {
            List<String> rez = get();
            polazni.napuniTekst(rez); // ažurira GUI polje pozivom metode iz GUI klase
+           polazni.postaviStatusGumba(true);
        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
        } 

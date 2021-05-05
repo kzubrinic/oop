@@ -84,6 +84,6 @@ public class PokreniSlozeniCitac2 extends JFrame {
        	}
     }
     public void postaviStatusGumba(boolean v) {
-    	btnUcitaj.setEnabled(v);;
+    	btnUcitaj.setEnabled(v);
     }
 }

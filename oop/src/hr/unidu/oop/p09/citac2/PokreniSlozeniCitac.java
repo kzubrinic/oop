@@ -83,7 +83,7 @@ public class PokreniSlozeniCitac extends JFrame {
     	progressBar.setValue(vrij);
     }
     public void postaviStatusGumba(boolean v) {
-    	btnUcitaj.setEnabled(v);;
+    	btnUcitaj.setEnabled(v);
     }
     private void azurirajProgressBar(String naziv, Object vrijednost) {
     	if ("progress".equals(naziv)) {
