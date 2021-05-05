@@ -19,7 +19,7 @@ public class WrongWayBlocking extends JFrame {
 	public WrongWayBlocking(String naslov) {
 		super(naslov);
 		setSize(600, 80);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pbProgress.setMaximum(10);
 		pbProgress.setMinimum(0);
 		btnAction.setText("Start");
