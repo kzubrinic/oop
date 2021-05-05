@@ -16,8 +16,10 @@ public class WrongWayThread extends JFrame {
 	JButton btnAction = new JButton();
 	JProgressBar pbProgress = new JProgressBar();
 
-	public WrongWayThread() {
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	public WrongWayThread(String naslov) {
+		super(naslov);
+		setSize(600, 80);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pbProgress.setMaximum(10);
 		pbProgress.setMinimum(0);
 		btnAction.setText("Start");
@@ -28,16 +30,18 @@ public class WrongWayThread extends JFrame {
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
-			WrongWayThread frame = new WrongWayThread();
-			frame.pack();
+			WrongWayThread frame = new WrongWayThread("Pogrešan način");
+			frame.setLocationRelativeTo(null);
 			frame.setVisible(true);
 		});
 	}
 
 	private void btnAction_actionPerformed(ActionEvent e) {
 		pbProgress.setValue(0);
+		// Dugačka obrada se izvodi u posebnoj radnoj dretvi
 		new Thread(() -> {
 			for (int i = 0; i <= 10; i++) {
+				// POGREŠNO! GUI komponenta se ažuriura u radnoj dretvi!
 				pbProgress.setValue(i);
 				try {
 					Thread.sleep(1000);

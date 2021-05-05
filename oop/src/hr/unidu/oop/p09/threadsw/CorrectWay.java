@@ -16,20 +16,22 @@ public class CorrectWay extends JFrame {
 	JButton btnAction = new JButton();
 	JProgressBar pbProgress = new JProgressBar();
 
-	public CorrectWay() {
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	public CorrectWay(String naslov) {
+		super(naslov);
+		setSize(600, 80);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pbProgress.setMaximum(10);
 		pbProgress.setMinimum(0);
 		btnAction.setText("Start");
 		btnAction.addActionListener((e) -> btnAction_actionPerformed(e));
-		this.getContentPane().add(btnAction, BorderLayout.WEST);
-		this.getContentPane().add(pbProgress, BorderLayout.CENTER);
+		add(btnAction, BorderLayout.WEST);
+		add(pbProgress, BorderLayout.CENTER);
 	}
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
-			CorrectWay frame = new CorrectWay();
-			frame.pack();
+			CorrectWay frame = new CorrectWay("Ispravan način");
+			frame.setLocationRelativeTo(null);
 			frame.setVisible(true);
 		});
 	}
@@ -37,10 +39,11 @@ public class CorrectWay extends JFrame {
 	private void btnAction_actionPerformed(ActionEvent e) {
 		btnAction.setEnabled(false);
 		pbProgress.setValue(0);
-
+		// Dugačka obrada se izvodi u posebnoj radnoj dretvi
 		new Thread(() -> {
 			for (int i = 0; i <= 10; i++) {
 				int progressValue = i;
+				// GUI komponenta se ažurira u grafičkoj dretvi
 				SwingUtilities.invokeLater(() -> pbProgress.setValue(progressValue));
 				try {
 					Thread.sleep(500);
@@ -48,6 +51,7 @@ public class CorrectWay extends JFrame {
 					ie.printStackTrace();
 				}
 			}
+			// GUI komponenta se ažurira u grafičkoj dretvi
 			SwingUtilities.invokeLater(() -> btnAction.setEnabled(true));
 		}).start();
 	}
