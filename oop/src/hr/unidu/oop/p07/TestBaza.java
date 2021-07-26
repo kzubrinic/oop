@@ -180,7 +180,7 @@ public class TestBaza	{
 					System.out.println(k);
 				System.out.println("---------------------------------");
 			}
-			// Mijenja se naziv knjige s id-jem 103
+			// Mijenja se naziv knjige s id-jem 102
 			izmjena(new Korisnik(102, "JAVA in 8 Hours 2nd updated ed", "Ray Yao"));
 			// čita sve iz tablice knjige i prikazuje na zaslonu.
 			l = citanjeSvih();
@@ -190,7 +190,7 @@ public class TestBaza	{
 					System.out.println(k);
 				System.out.println("---------------------------------");
 			}
-			// Briše se redak s id-jem 201
+			// Briše se redak s id-jem 102
 			brisanje(102);
 			// čita sve iz tablice knjige i prikazuje na zaslonu.
 			// Stanje bi trebalo biti jednako početnom.
