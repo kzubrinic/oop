@@ -28,7 +28,7 @@ public class SlozeniCitacDatoteka extends SwingWorker<List<String>, Integer> {
             bi = i*100/br;
             // Stvara objekt tipa PropertyChange i aktivira PropertyChangeListener u
             //  klasi koja je pozvala ovu obradu (klasa PokreniSlozeniCitac)
-            // Ta obrada ažurira prograss bar.
+            // Ta obrada ažurira progress bar.
             setProgress(bi); //
             pauziraj(100); // pauza 1/10 sekunde
             ++i;
@@ -42,7 +42,8 @@ public class SlozeniCitacDatoteka extends SwingWorker<List<String>, Integer> {
         try {
             List<String> rez = get();
             pozvani.napuniTekst(rez); // ažurira GUI polje pozivom metode iz GUI klase
-            pozvani.napuniProgressBar(100); // napuni na ktajnju vrijednost
+            pozvani.napuniProgressBar(100); // napuni na krajnju vrijednost
+            pozvani.postaviStatusGumba(true);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         } 

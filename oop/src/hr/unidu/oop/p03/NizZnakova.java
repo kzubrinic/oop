@@ -31,7 +31,9 @@ public class NizZnakova {
 	}
 	
 	public String[] podijeliNiz(String niz){
-		return niz.split(","); // razbija niz po zarezu i vraća razbijeniniz
+		// Razbija niz po zarezu ispred kojeg može biti više 
+		//   znakova bjeline (razmak, tab ili CR)
+		return niz.split("\\s*,\\s*");
 	}
 
 	public void podijeliNizScanner(String niz){
@@ -107,7 +109,8 @@ public class NizZnakova {
 			System.out.println("compareToIgnoreCase(): Oba niza (" + niz + ") i (" + niz2 + ") su jednakog sadržaja");
 		
 		// Niz znakova se dijeli po delimiteru i sprema u polje
-		String n3 = "Pero,Perić,12.2,2015,Dubrovnik,178";
+		// Delimiter je zarez, ali ispred i  iza njega mogu se pojaviti znakovi bjeline (razmak, tab, CR,...)
+		String n3 = "Pero,  Perić ,12.2.2015. ,Dubrovnik , 178";
 		String[] polje = n.podijeliNiz(n3);
 
 		n.podijeliNizScanner(n3);

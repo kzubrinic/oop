@@ -43,6 +43,7 @@ public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
     public void done() {
         try {
             pozvani.napuniProgressBar(100);
+            pozvani.postaviStatusGumba(true);
         } catch (Exception e) {
             e.printStackTrace();
         } 
