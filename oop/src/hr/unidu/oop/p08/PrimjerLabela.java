@@ -13,7 +13,7 @@ public class PrimjerLabela extends JFrame {
                 p.setLocation(100, 100);
                 p.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 JLabel label1, label2, label3;
-                ImageIcon slika = new ImageIcon("slike/oblak.png", "Oblačić");
+                ImageIcon slika = new ImageIcon("slike/oblak.jpg", "Oblačić");
                 //labela koja sadrži tekst i sliku
                 label1 = new JLabel("Slika i tekst", slika, JLabel.CENTER);
                 //pozicija teksta u odnosu na sliku
