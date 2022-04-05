@@ -129,7 +129,7 @@ public class TestBaza	{
 			if(resultSet.next())
 			    return; // tablica KNJIGE postoji
 			
-			String upit = "create table KNJIGE (ID INTEGER PRIMARY KEY, NAZIV TEXT, AUTOR TEKST)";
+			String upit = "create table KNJIGE (ID INTEGER PRIMARY KEY, NAZIV TEXT, AUTOR TEXT)";
 			Statement stmt = conn.createStatement();
 			// Postavljaju se konkretna vrijednost id-ja
 			stmt.executeUpdate(upit);	
