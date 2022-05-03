@@ -2,6 +2,7 @@ package hr.unidu.oop.p09;
 
 import java.awt.BorderLayout;
 import java.util.List;
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 
 import javax.swing.*;
@@ -76,9 +77,11 @@ public class Brojac extends JFrame {
         		counterLabel.setText(i.toString());
             } catch (ExecutionException | InterruptedException e) {
                  e.printStackTrace();
-            } 
-
-        	
+            } catch (CancellationException e){
+            	 System.out.println("Dretva je prekinuta");
+            }
+            	
+       	
         }
     }
 
