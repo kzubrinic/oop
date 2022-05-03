@@ -3,6 +3,8 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.concurrent.CancellationException;
+
 import javax.swing.SwingWorker;
 
 public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
@@ -19,6 +21,10 @@ public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
         int br = dir.listFiles().length;
         setProgress(i);
         for (File file : dir.listFiles()){
+            if (isCancelled()) { // metoda vraća true ako je dretva prekinuta (pozvana metoda cancel() na dretvi)
+                System.out.println("Dretva je prekinuta");
+                break;
+            }
             bi = i*100/br;
             Pomocna p = new Pomocna(file.getName(), (file.isFile())? " [Datoteka] " : " [Mapa]");
             publish(p); // slanje međurezultata - naziv i tip datoteke
@@ -26,7 +32,8 @@ public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
             //  klasi koja je pozvala ovu obradu (klasa PokreniSlozeniCitac2)
             // Ta obrada ažurira prograss bar.
             setProgress(bi);
-            pauziraj(100); // pauza 1/10 sekunde
+            pauziraj(10); // pauza 1/10 sekunde
+
             ++i;
         }
         return null;
@@ -44,6 +51,8 @@ public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
         try {
             pozvani.napuniProgressBar(100);
             pozvani.postaviStatusGumba(true);
+        } catch (CancellationException e){
+       	     System.out.println("Dretva je prekinuta");
         } catch (Exception e) {
             e.printStackTrace();
         } 

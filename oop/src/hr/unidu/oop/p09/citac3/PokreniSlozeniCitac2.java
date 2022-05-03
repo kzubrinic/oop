@@ -24,6 +24,7 @@ public class PokreniSlozeniCitac2 extends JFrame {
     private JTextField mapa;
     private JTextArea polje;
     private JButton btnUcitaj;
+    private JButton btnPrekini;
 
     public static void main(String[] args) {
     	SwingUtilities.invokeLater(() -> {
@@ -45,7 +46,9 @@ public class PokreniSlozeniCitac2 extends JFrame {
         add(scrollPane);
         JPanel pomDolje = new JPanel();
         btnUcitaj = new JButton("Učitaj");
+        btnPrekini = new JButton("Prekini");
         pomDolje.add(btnUcitaj);
+        pomDolje.add(btnPrekini);
         progressBar = new JProgressBar(0,100);
         progressBar.setStringPainted(true);
         JPanel gornji = new JPanel();
@@ -56,6 +59,14 @@ public class PokreniSlozeniCitac2 extends JFrame {
         gornji.add(BorderLayout.EAST, mapa);
         gornji.add(BorderLayout.NORTH, progressBar);
         btnUcitaj.addActionListener(e -> ucitaj());
+        btnPrekini.addActionListener(e -> {
+    		// Ako je obrada prethodno pokrenuta, obrada se prekida nakon klika na gumb Start
+    		 if(!btnUcitaj.isEnabled()) { 
+    			 cs.cancel(true);
+    			 btnUcitaj.setEnabled(true);
+    			 cs = null;
+    	     }
+    	 });
         add(pomDolje, BorderLayout.SOUTH);
         add(gornji, BorderLayout.NORTH);
         setLocationRelativeTo(null);
