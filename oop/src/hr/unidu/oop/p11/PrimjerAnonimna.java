@@ -28,6 +28,8 @@ public class PrimjerAnonimna extends JFrame{
 				// Pristup varijabli i anonimne klase i vanjske klase
 				b.setText("lokalni i=" +i + " vanjski i=" + PrimjerAnonimna.this.i);
 				System.out.println("Pozvana metoda actionPerformed anonimne klase: lokalni i="+i+ " vanjski i="+PrimjerAnonimna.this.i);
+				// this je referenca na anonimnu klasu
+				System.out.println(this);
 			}
 			
 		});
@@ -41,6 +43,8 @@ public class PrimjerAnonimna extends JFrame{
 				// Pristup varijabli i anonimne klase i vanjske klase
 				b1.setText("lokalni j=" +j + " vanjski j=" + PrimjerAnonimna.this.j);
 				System.out.println("Pozvana metoda actionPerformed anonimne klase pomoću lambda izraza: lokalni j="+j+ " vanjski j="+PrimjerAnonimna.this.j);
+				// this je referenca na vanjsku klasu PrimjerAnonimna
+				System.out.println(this);
 		});
 		add(b1, BorderLayout.SOUTH);
 		pack();
