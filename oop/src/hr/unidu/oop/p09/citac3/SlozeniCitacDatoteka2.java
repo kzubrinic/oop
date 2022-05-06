@@ -42,8 +42,13 @@ public class SlozeniCitacDatoteka2 extends SwingWorker<Void, Pomocna> {
     @Override
     // dohvaćanje i obrada međurezultata
     protected void process(List<Pomocna> pom) {
-    	Pomocna p = pom.get(pom.size()-1); // dohvati posljednji poslani međurezultat
-        pozvani.napuniTekst(p.toString()); // ažurira GUI nazivom datoteke
+    	// Metoda publish se može pozvati i nekoliko puta zaredom prije nego se pozove metoda 
+    	//   process na EDT. Zbog toga se međurezultati (koji čekaju na obradu u metodi process) 
+    	//   slažu u listu. Kada se pozove metoda process najčešće treba obraditi sve 
+    	//   međurezultate u listi
+    	for(Pomocna p : pom) {
+    	  pozvani.napuniTekst(p.toString()); // ažurira GUI nazivom datoteke
+    	}
     }
     @Override
     // obrada konačnih rezultata
