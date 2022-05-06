@@ -1,7 +1,5 @@
 package hr.unidu.oop.p09.citac3;
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 import java.util.concurrent.CancellationException;
 
