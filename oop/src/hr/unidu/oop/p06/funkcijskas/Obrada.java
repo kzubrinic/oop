@@ -25,8 +25,6 @@ public class Obrada {
 		cetvrtiNacin();	// lambda izrazi (i funkcijska sučelja)
 		petiNacin();	// lambda izrazi (objava pomoću Consumer funkcijskog sučelja)
 		
-		ispis();
-		
 		sortiraj();
 		sortiraj1(); // lambda izraz koristi referencu na metodu
 		ispis();
@@ -43,8 +41,12 @@ public class Obrada {
 	
 	// "Klasičan" način - za svaku obradu posebna metoda s kompletnim kodom
 	private void prviNacin() {
+		System.out.println("---- POTENCIJALNO AGRESIVNI (1) ----");
 		ispisiPotencijalnoAgresivne();
+		System.out.println("------------------------------------");
+		System.out.println("---------- MALE SNAGE (1) ----------");
 		ispisiVozilaMaleSnage();
+		System.out.println("------------------------------------");
 	}
 	public void ispisiPotencijalnoAgresivne() {
 		for(Automobil a : vozila) {
@@ -64,10 +66,14 @@ public class Obrada {
 	// Korištenje funkcijskih sučelja - posebna klasa koja implementira FS, a zajednička
 	//  obrada koja kao objekt prima FS
 	private void drugiNacin() {
+		System.out.println("---- POTENCIJALNO AGRESIVNI (2) ----");
 		Predicate<Automobil> pa = new PotencijalnoAgresivni();
 		ispisiFs(pa);
+		System.out.println("------------------------------------");
+		System.out.println("---------- MALE SNAGE (2) ----------");
 		Predicate<Automobil> ms = new MaleSnage();
 		ispisiFs(ms);
+		System.out.println("------------------------------------");
 	}
 	
 	public void ispisiFs(Predicate<Automobil> pa) {
@@ -80,38 +86,50 @@ public class Obrada {
 	
 	// Korištenje anonimnih klasa (i funkcijskih sučelja)
 	private void treciNacin() {
+		System.out.println("---- POTENCIJALNO AGRESIVNI (3) ----");
 		ispisiFs(new Predicate<Automobil>() {
 			@Override
 			public boolean test(Automobil t) {
 				return t.getBoja() == Boja.CRVENA;
 			}
 		});
+		System.out.println("------------------------------------");
+		System.out.println("---------- MALE SNAGE (3) ----------");
 		ispisiFs(new Predicate<Automobil>() {
 			@Override
 			public boolean test(Automobil t) {
 				return t.getKategorija() == Kategorija.DO_55;
 			}
 		});
+		System.out.println("-----------------------------------");
 	}
 	
 	// Korištenje lambda izraza (i funkcijskih sučelja)
 	private void cetvrtiNacin() {
+		System.out.println("---- POTENCIJALNO AGRESIVNI (4) ----");
 		ispisiFs((t) -> {
 			return t.getBoja() == Boja.CRVENA;
 		});
+		System.out.println("------------------------------------");
+		System.out.println("---------- MALE SNAGE (4) ----------");
 		ispisiFs(t -> t.getKategorija() == Kategorija.DO_55);
+		System.out.println("------------------------------------");
 	}
 	
 	// Korištenje lambda izraza (i ispisa pomoću metode Consumer sučelja)
 	private void petiNacin() {
+		System.out.println("---- POTENCIJALNO AGRESIVNI (5) ----");
 		ispisiFs2(
 			(t) -> t.getBoja() == Boja.CRVENA,
 			(t) -> System.out.println(t)
 		);
+		System.out.println("------------------------------------");
+		System.out.println("---------- MALE SNAGE (5) ----------");
 		ispisiFs2(
 			(t) -> t.getKategorija() == Kategorija.DO_55,
 			(t) -> System.out.println(t)
 		);
+		System.out.println("------------------------------------");
 	}
 	public void ispisiFs2(Predicate<Automobil> pa, Consumer<Automobil> ak) {
 		for(Automobil a : vozila) {
@@ -122,7 +140,7 @@ public class Obrada {
 	}
 	
 	private void ispis() {
-		System.out.println("-------------------------------");
+		System.out.println("------- SVI AUTOMOBILI --------");
 		ispisCon((t) -> System.out.println(t));
 		System.out.println("-------------------------------");
 	}
