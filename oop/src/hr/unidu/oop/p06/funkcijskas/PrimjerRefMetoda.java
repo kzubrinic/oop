@@ -1,7 +1,8 @@
-package hr.unidu.oop.p11;
+package hr.unidu.oop.p06.funkcijskas;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 class PrimjerRefMetoda{
 	  public PrimjerRefMetoda(){
@@ -19,10 +20,12 @@ class PrimjerRefMetoda{
 	    List<String> list = Arrays.asList("AAA", "BBB", "CCC");
 	    // referenciranje static metode
 	    list.forEach(PrimjerRefMetoda::staticMetoda);
+	    list.forEach(System.out::println);
 	    // referenciranje metode koja nije static
 	    list.forEach(new PrimjerRefMetoda()::metoda);
 	    // referenciranje konstruktora
 	    list.forEach(PrimjerRefMetoda::new);
+	    
 	  }
 }
 
