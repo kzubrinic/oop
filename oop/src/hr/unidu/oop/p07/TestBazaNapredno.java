@@ -1,4 +1,6 @@
 package hr.unidu.oop.p07;
+import java.io.FileInputStream;
+import java.io.IOException;
 /**
  * Primjer rada s JDBC-om
  * baza sqlite
@@ -8,7 +10,8 @@ package hr.unidu.oop.p07;
 import java.sql.* ;
 import java.util.ArrayList;
 import java.util.List;
-public class TestBaza	{
+import java.util.Properties;
+public class TestBazaNapredno	{
 	private Connection conn;
 
     private List<Korisnik> citanjeSvih() {
@@ -33,6 +36,83 @@ public class TestBaza	{
 			return null;
 		}
 	}
+    
+    // SQLite ne podržava višestruko kretanje kroz ResultSet i njihovo ažuriranje, pa ovaj primjer
+    //   testiramo na MySQL bazi
+    private List<Korisnik> naprednoCitanje() {
+		// Pripremi upit
+		String upit = "SELECT ID, NAZIV, AUTOR FROM KNJIGE";
+		List<Korisnik> l = new ArrayList<>();
+		// SQLite podržava samo TYPE_FORWARD_ONLY
+		try (Statement stmt = conn.createStatement(
+				ResultSet.TYPE_SCROLL_SENSITIVE,
+				ResultSet.CONCUR_UPDATABLE);
+			// Izvedi upit - napuni skup rezultata u objekt tipa ResultSet. Svaki redak tablice
+			// je jedan element skupa rezultata.
+			ResultSet rs = stmt.executeQuery( upit )){
+			// dodaj na kraj novi redak
+			rs.moveToInsertRow(); 
+			rs.updateInt(1, 89); // ažurira ID novog retka
+			rs.updateString(2, "Novo dodani zapis"); // ažurira naziv nove knjige
+			rs.updateString(3, "Autor novo dodanog zapisa"); // ažurira autore nove knjige
+			rs.insertRow(); // sprema novi redak u bazu
+			rs.moveToInsertRow(); 
+			rs.updateInt(1, 99); // ažurira ID novog retka
+			rs.updateString(2, "Drugi novo dodani zapis"); // ažurira naziv druge nove knjige
+			rs.updateString(3, "Autor drugog novo dodanog zapisa"); // ažurira autore druge nove knjige
+			rs.insertRow(); // sprema novi redak u bazu
+			
+			rs.moveToCurrentRow(); // pomiče se na zapamćeni redak prije inserta
+			// Prođi kroz sve retke tablice koje je vratio sql - jedan po jedan
+			while(rs.next()){
+				// getter metoda koja dohvaća podatke može kao konstruktor primati ili NAZIV stupca
+				// u tablici iz koje se čita (vidi id i autora!) ili REDNI BROJ (prvi stupac ima
+				// indeks 1, drugi 2, treći 3,... -> vidi NAZIV knjige). Za svaki tip podatka
+				// postoji posebna getter metoda.
+				l.add(new Korisnik(rs.getInt("ID"), rs.getString(2), rs.getString("AUTOR")));
+			}
+			
+			return l;
+		}catch(SQLException se) {
+			prikaziSqlIznimke(se);
+			return null;
+		}
+	}
+    
+    private List<Korisnik> naprednoCitanje2() {
+		// Pripremi upit
+		String upit = "SELECT ID, NAZIV, AUTOR FROM KNJIGE";
+		List<Korisnik> l = new ArrayList<>();
+		// SQLite podržava samo TYPE_FORWARD_ONLY
+		try (Statement stmt = conn.createStatement(
+				ResultSet.TYPE_SCROLL_SENSITIVE,
+				ResultSet.CONCUR_UPDATABLE);
+			// Izvedi upit - napuni skup rezultata u objekt tipa ResultSet. Svaki redak tablice
+			// je jedan element skupa rezultata.
+			ResultSet rs = stmt.executeQuery( upit )){
+			
+			rs.absolute(2); // pozicioniraj se na 2. redak
+			rs.updateString("AUTOR", "PROMIJEnjeni autor");
+			rs.updateRow(); // izmijenjeni podaci se spremaju u bazu
+
+			
+			rs.beforeFirst(); // pomiče se na početak da bi next() dohvatio prvi redak
+			// Prođi kroz sve retke tablice koje je vratio sql - jedan po jedan
+			while(rs.next()){
+				// getter metoda koja dohvaća podatke može kao konstruktor primati ili NAZIV stupca
+				// u tablici iz koje se čita (vidi id i autora!) ili REDNI BROJ (prvi stupac ima
+				// indeks 1, drugi 2, treći 3,... -> vidi NAZIV knjige). Za svaki tip podatka
+				// postoji posebna getter metoda.
+				l.add(new Korisnik(rs.getInt("ID"), rs.getString(2), rs.getString("AUTOR")));
+			}
+			
+			return l;
+		}catch(SQLException se) {
+			prikaziSqlIznimke(se);
+			return null;
+		}
+	}
+
 
 	private void unos(Korisnik k){
 		// Ako zapis sa zadanim ID-jem već postoji ne smije se dodavati
@@ -154,8 +234,15 @@ public class TestBaza	{
         // URL za spajanje na "embedded" bazu knjiznica.db koja je stvorena u mapi baza/
         // U projekt mora biti uključen JAR koji sadrži konkretnu implementaciju programa
         // za rad s konkretnom bazom (u ovoj verziji korišten je sqlite-jdbc-3.21.0.jar ).
-		String spojniURL = "jdbc:sqlite:baza/knjiznica1.db";
-        try(Connection co = DriverManager.getConnection(spojniURL)) {
+		
+	    // SQLite ne podržava višestruko kretanje kroz ResultSet i njihovo ažuriranje, pa ovaj primjer
+	    //   radi na MySQL bazi
+		String spojniURL = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7774666";
+		String[] userPass = usernamePassword();
+		if (userPass == null) {
+			return;
+		}
+        try(Connection co = DriverManager.getConnection(spojniURL, userPass[0], userPass[1])) {
 			conn = co;
 			provjeriTablicu();
 			// čita sve iz tablice knjige i prikazuje na zaslonu
@@ -201,6 +288,24 @@ public class TestBaza	{
 					System.out.println(k);
 				System.out.println("---------------------------------");
 			}
+			// prije čitanja se kroz kursor dodaju 2 nova zapisa
+			l = naprednoCitanje();
+			if(l!=null) {
+				System.out.println("NOVO DOHVAĆENE KNJIGE:");
+				for(Korisnik k : l)
+					System.out.println(k);
+				System.out.println("---------------------------------");
+			}
+			// Brišu se novo dodani redci
+			brisanje(89);
+			brisanje(99);
+			l = naprednoCitanje2();
+			if(l!=null) {
+				System.out.println("DOHVAĆENE KNJIGE:");
+				for(Korisnik k : l)
+					System.out.println(k);
+				System.out.println("---------------------------------");
+			}
 			// Veza na bazu se zatvara automatski jer je konekcija stvorena unutar try bloka.
 		} catch(SQLException se ) {
 			// Može biti više SQL iznimaka - proći kroz sve!
@@ -211,8 +316,22 @@ public class TestBaza	{
 			e.getStackTrace();
 		}
 	}
+	
+	private String[] usernamePassword(){
+		Properties prop = new Properties();
+        try (FileInputStream input = new FileInputStream("baza/config.properties")) {
+            prop.load(input);
+            String[] uP = new String[2];
+            uP[0] = prop.getProperty("username");
+            uP[1] = prop.getProperty("password");
+            return uP;
+        } catch (IOException e) {
+            System.out.println("Greška prilikom čitanja konfiguracijske datoteke: " + e.getMessage());
+        }
+        return null;
+	}
 	public static void main(String[] args){
-		TestBaza t = new TestBaza();
+		TestBazaNapredno t = new TestBazaNapredno();
 		t.obrada();
 	}
 }
