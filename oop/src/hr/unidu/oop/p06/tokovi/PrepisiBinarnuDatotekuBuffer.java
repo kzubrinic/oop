@@ -5,19 +5,19 @@ import java.nio.file.Files;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
-public class IspisiBinarnuDatotekuBuffer {
+public class PrepisiBinarnuDatotekuBuffer {
   public void prepisiSliku(){
-    Path p = Paths.get("oop/slike/DukeMask-mala.png");
-    Path p2 = Paths.get("oop/slike/DukeMask-mala2.png");
-    try (BufferedInputStream is = new BufferedInputStream(Files.newInputStream (p));
-         BufferedOutputStream os = new BufferedOutputStream(Files.newOutputStream (p2))) {
+    Path pi = Paths.get("oop/slike/DukeMask-mala.png");
+    Path po = Paths.get("oop/slike/out-DukeMask-mala2.png");
+    try (BufferedInputStream is = new BufferedInputStream(Files.newInputStream (pi));
+         BufferedOutputStream os = new BufferedOutputStream(Files.newOutputStream (po))) {
       byte[] buff = new byte[1024];
       while (true) {
         int r = is.read(buff);
         if (r < 1) break;
+        os.write(buff);
         for(int i=0; i<r; i++){
           System.out.printf("%02x ", buff[i]);
-          os.write(buff[i]);
         }
       }
     } catch (IOException ex) {
@@ -26,7 +26,7 @@ public class IspisiBinarnuDatotekuBuffer {
   }
   
   public static void main(String[] args) {
-	  IspisiBinarnuDatotekuBuffer o = new IspisiBinarnuDatotekuBuffer();
+	  PrepisiBinarnuDatotekuBuffer o = new PrepisiBinarnuDatotekuBuffer();
 	  o.prepisiSliku();
   }
 }

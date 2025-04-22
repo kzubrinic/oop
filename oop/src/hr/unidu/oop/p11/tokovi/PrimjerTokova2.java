@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class PrimjerTokova2 {
 
@@ -25,6 +26,7 @@ public class PrimjerTokova2 {
 		PrimjerTokova2 pt = new PrimjerTokova2();
 		
 		pt.transformacija(lista);
+		pt.transformacija2();
 	}
 	
 	private void transformacija(List<Osoba> lista) {
@@ -41,5 +43,17 @@ public class PrimjerTokova2 {
 		System.out.println("--------------------");
 	}
 
-
+	private void transformacija2() {
+		List<List<String>> listaLista = Arrays.asList(
+	            Arrays.asList("a", "b", "c"),
+	            Arrays.asList("d", "e"),
+	            Arrays.asList("f", "g", "h")
+	        );
+		   List<String> flatLista = listaLista.stream()
+		     .flatMap(List::stream)
+		     .collect(Collectors.toList());
+		   
+		   flatLista.stream().forEach(System.out::println);
+	}
+	
 }

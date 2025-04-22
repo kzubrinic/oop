@@ -3,17 +3,23 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.IOException;
-public class IspisiBinarnuDatoteku {
+public class PrepisiBinarnuDatoteku {
   public void kreni(){
-    Path p = Paths.get("oop/slike/DukeMask-mala.png");
-    try (InputStream is = Files.newInputStream (p)) {
+    Path pi = Paths.get("oop/slike/DukeMask-mala.png");
+    Path po = Paths.get("oop/slike/out-DukeMask-mala.png");
+    try (InputStream is = Files.newInputStream (pi);
+    		OutputStream os = Files.newOutputStream (po)) {
       byte[] buff = new byte[1024];
       while (true) {
         int r = is.read(buff);
         if (r < 1) break;
-        for(int i=0; i<r; i++)
-          System.out.printf("%02x ", buff[i]);
+        os.write(buff);
+        for(int i=0; i<r; i++) {
+            System.out.printf("%02x ", buff[i]);
+        }
+          
       }
     } catch (IOException ex) {
     	ex.printStackTrace();
@@ -21,7 +27,7 @@ public class IspisiBinarnuDatoteku {
     }
   }
   public static void main(String[] args) {
-	  IspisiBinarnuDatoteku o = new IspisiBinarnuDatoteku();
+	  PrepisiBinarnuDatoteku o = new PrepisiBinarnuDatoteku();
 	  o.kreni();
   }
 }
