@@ -10,7 +10,7 @@ public class NajjednostavnijiGui extends JFrame{
 	public static void main(String[] args){
 		NajjednostavnijiGui p = new NajjednostavnijiGui();   
 	    p.setSize(400, 200);
-	    //p.setLocationRelativeTo(null);
+	    p.setLocationRelativeTo(null);
 	    p.setVisible(true);
 	}
 }

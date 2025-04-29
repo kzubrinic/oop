@@ -30,7 +30,7 @@ public class Stablo extends JFrame {
 
 	public static void main(String[] args) {
 		try {
-			SwingUtilities.invokeAndWait(() -> {
+			SwingUtilities.invokeLater(() -> {
 				Stablo frame = new Stablo("Stablo", true);
 			});
 		} catch (Exception e){

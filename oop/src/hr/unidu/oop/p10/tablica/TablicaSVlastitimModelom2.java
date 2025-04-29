@@ -28,7 +28,7 @@ public class TablicaSVlastitimModelom2 extends JFrame {
 
     public static void main(String[] args) {
         try {
-            SwingUtilities.invokeAndWait(() -> {
+            SwingUtilities.invokeLater(() -> {
                 TablicaSVlastitimModelom2 frame = new TablicaSVlastitimModelom2("Tablica s vlastitim modelom 2", true);
             });
         } catch (Exception e) {

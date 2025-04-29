@@ -6,7 +6,7 @@ public class Primjer {
 
 	public static void main(String[] args) {
 		try {
-		       SwingUtilities.invokeAndWait(() -> {
+		       SwingUtilities.invokeLater(() -> {
 		    	   new MvcView();
 		       });
 	    } catch (Exception e) {

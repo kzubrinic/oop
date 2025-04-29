@@ -18,7 +18,7 @@ public class ObradaViseDogadjajaJava8 extends JFrame{
 
     public static void main(String[] args) {
         try {
-            SwingUtilities.invokeAndWait(() -> {
+            SwingUtilities.invokeLater(() -> {
                 ObradaViseDogadjajaJava8 window = new ObradaViseDogadjajaJava8();
                 window.pack();
                 window.setLocationRelativeTo(null);

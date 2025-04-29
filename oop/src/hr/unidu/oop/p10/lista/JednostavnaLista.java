@@ -15,7 +15,7 @@ public class JednostavnaLista extends JFrame {
 	
 	public static void main(String[] args) {
 		try {
-		       SwingUtilities.invokeAndWait(() -> {
+		       SwingUtilities.invokeLater(() -> {
 				  JednostavnaLista frame = new JednostavnaLista("Jednostavna lista", true);
 				  
 			   });

@@ -110,7 +110,7 @@ public class TreciProzorBox extends JFrame {
 
 	public static void main(String[] args) {
 		try {
-            SwingUtilities.invokeAndWait(() -> {
+            SwingUtilities.invokeLater(() -> {
                 // Stvori novi prozor (izvedi konstruktor)
                 TreciProzorBox p = new TreciProzorBox("Prijave");
                 // Prilagodi veličinu prozora komponentama

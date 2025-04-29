@@ -8,7 +8,7 @@ public class PrimjerLabela extends JFrame {
 
     public static void main(String[] args) {
         try {
-            SwingUtilities.invokeAndWait(() -> {
+            SwingUtilities.invokeLater(() -> {
                 PrimjerLabela p = new PrimjerLabela("Primjer labela");
                 p.setLocation(100, 100);
                 p.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

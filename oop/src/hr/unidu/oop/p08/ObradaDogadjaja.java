@@ -18,7 +18,7 @@ public class ObradaDogadjaja extends JFrame {
 
     public static void main(String[] args) {
         try {
-            SwingUtilities.invokeAndWait(() -> {
+            SwingUtilities.invokeLater(() -> {
                 ObradaDogadjaja window = new ObradaDogadjaja();
                 window.pack();
                 window.setLocationRelativeTo(null);

@@ -19,7 +19,7 @@ public class JednostavnoStablo extends JFrame{
 
 	public static void main(String[] args) {
 		try {
-			SwingUtilities.invokeAndWait(() -> {
+			SwingUtilities.invokeLater(() -> {
 				JednostavnoStablo frame = new JednostavnoStablo("Jednostavno stablo", true);
 			});
 		}catch (Exception e){

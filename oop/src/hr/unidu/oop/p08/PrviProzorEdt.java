@@ -5,7 +5,7 @@ public class PrviProzorEdt extends JFrame {
   public static void main(String[] args) {
     try {
       // Lambda izraz Java >= 8 jer je sučelje Runnable funkcijsko
-       SwingUtilities.invokeAndWait(() -> {
+       SwingUtilities.invokeLater(() -> {
          PrviProzorEdt p = new PrviProzorEdt(); // grafičke komponente se izvode i koriste u EDT
          p.setTitle("Prvi prozor");
          p.setSize(400, 200);
@@ -14,7 +14,7 @@ public class PrviProzorEdt extends JFrame {
          p.setVisible(true);
        });
 // Anonimna klasa
-//      SwingUtilities.invokeAndWait(new Runnable(){
+//      SwingUtilities.invokeLater(new Runnable(){
 //        public void run() {
 //          PrviProzorPro p = new PrviProzorPro();
 //          p.setTitle("Prvi prozor");

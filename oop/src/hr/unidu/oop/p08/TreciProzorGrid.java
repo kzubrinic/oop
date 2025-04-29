@@ -92,7 +92,7 @@ public class TreciProzorGrid extends JFrame {
 
 	public static void main(String[] args) {
 		try {
-            SwingUtilities.invokeAndWait(() -> {
+            SwingUtilities.invokeLater(() -> {
                 // Stvori novi prozor (izvedi konstruktor)
                 TreciProzorGrid p = new TreciProzorGrid("Prijave");
                 // Prilagodi veličinu prozora komponentama

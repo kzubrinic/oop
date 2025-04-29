@@ -27,7 +27,7 @@ public class TablicaIzDatoteke extends JFrame {
 	private JTextField fime, fprezime, fslika;
 	public static void main(String[] args) {
 		try {
-		       SwingUtilities.invokeAndWait(() -> {
+		       SwingUtilities.invokeLater(() -> {
 		    	   TablicaIzDatoteke frame = new TablicaIzDatoteke("Tablica s vlastitim modelom", true);
 			   });
 		    } catch (Exception e){

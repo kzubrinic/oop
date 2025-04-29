@@ -10,7 +10,7 @@ public class JednostavnaTablica extends JFrame {
 
 	public static void main(String[] args) {
 		try {
-		       SwingUtilities.invokeAndWait(() -> {
+		       SwingUtilities.invokeLater(() -> {
 				  JednostavnaTablica frame = new JednostavnaTablica("Jednostavna tablica", true);
 			   });
 		    } catch (Exception e){

@@ -14,7 +14,7 @@ public class StabloDirektorija extends JFrame{
 
 	public static void main(String[] args) {
 		try {
-			SwingUtilities.invokeAndWait(() -> {
+			SwingUtilities.invokeLater(() -> {
 				StabloDirektorija frame = new StabloDirektorija("Stablo direktorija", true);
 			});
 		}catch (Exception e){

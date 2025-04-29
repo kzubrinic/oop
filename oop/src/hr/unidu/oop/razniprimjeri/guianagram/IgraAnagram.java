@@ -89,7 +89,7 @@ public class IgraAnagram extends JFrame{
 	
 	public static void main(String[] args) {
 		try {
-			SwingUtilities.invokeAndWait(() -> {
+			SwingUtilities.invokeLater(() -> {
 				IgraAnagram p = new IgraAnagram("Anagrami - imena");
 			});
 		} catch (Exception e) {

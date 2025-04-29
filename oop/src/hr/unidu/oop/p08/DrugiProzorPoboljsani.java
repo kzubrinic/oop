@@ -20,7 +20,7 @@ public class DrugiProzorPoboljsani extends JFrame {
     }
     public static void main(String[] args) {
     try {
-       SwingUtilities.invokeAndWait(() -> {
+       SwingUtilities.invokeLater(() -> {
          DrugiProzorPoboljsani p = new DrugiProzorPoboljsani("Drugi poboljšani prozor");
          p.setLocation(100, 100);
          p.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

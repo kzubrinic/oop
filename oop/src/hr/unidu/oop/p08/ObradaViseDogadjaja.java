@@ -20,7 +20,7 @@ public class ObradaViseDogadjaja extends JFrame{
 
 	public static void main(String[] args) {
 		try {
-			SwingUtilities.invokeAndWait(() -> {
+			SwingUtilities.invokeLater(() -> {
 				ObradaViseDogadjaja window = new ObradaViseDogadjaja();
 				window.pack();
 				window.setLocationRelativeTo(null);
