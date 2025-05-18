@@ -25,6 +25,7 @@ public class PrimjerLabela extends JFrame {
                 //tool tipovi
                 label1.setToolTipText("Labela koja sadrži tekst i sliku");
                 label2.setToolTipText("Labela koja sadrži samo tekst");
+                label2.setFont(new Font("Arial", Font.BOLD, 16));
                 label3.setToolTipText("Labela koja sadrži samo sliku");
                 p.add(label1, BorderLayout.WEST);
                 p.add(label2, BorderLayout.EAST);
