@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
+
 public class PrimjerTokova2 {
 
 	private static Osoba[] ulaz = {new Osoba("Pero", "Katić"), new Osoba("Pero", "Perić"), new Osoba("Ana", "Anić"), new Osoba("Ivo", "Ivić"), new Osoba("Kate", "Katić"), new Osoba("Ivo", "Ivić")}; 
@@ -27,6 +28,7 @@ public class PrimjerTokova2 {
 		
 		pt.transformacija(lista);
 		pt.transformacija2();
+		pt.visestrukiOrder();
 	}
 	
 	private void transformacija(List<Osoba> lista) {
@@ -54,6 +56,19 @@ public class PrimjerTokova2 {
 		     .collect(Collectors.toList());
 		   
 		   flatLista.stream().forEach(System.out::println);
+	}
+	
+	private void visestrukiOrder() {
+		System.out.println("Sortirano po prezimenu, pa imenu");
+		List<Osoba> lista = Arrays.asList(ulaz)
+			.stream()
+			.distinct()
+			.sorted(Comparator.comparing(Osoba::getPrezime)        
+		    .thenComparing(Comparator.comparing(Osoba::getIme)))
+		  .collect(Collectors.toList());
+		lista.forEach(p -> 
+		  System.out.println(p.getPrezime() + " " + p.getIme()));
+
 	}
 	
 }
