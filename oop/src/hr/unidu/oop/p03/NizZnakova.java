@@ -60,6 +60,33 @@ public class NizZnakova {
 		for (String s : niz)
 			System.out.println(s);
 	}
+	
+	private void blokTeksta() {
+		String pjesma = """
+        Tamo na Jadranu
+        sav u suncu leži grad
+        plavo mu more ljubi
+        zidine ponosne i stare.
+         
+        Galeba jata
+        i mirisnih palmi klat
+        pjesma moru
+        to Dubrovnik je naš.
+        """;
+		System.out.println(pjesma);
+	}
+	private void bezBlokaTeksta() {
+		String pjesma = "Tamo na Jadranu\n" +
+                "sav u suncu leži grad\n" +
+                "plavo mu more ljubi\n" +
+                "zidine ponosne i stare.\n" +
+                "\n" +
+                "Galeba jata\n" +
+                "i mirisnih palmi klat\n" +
+                "pjesma moru\n" +
+                "to Dubrovnik je naš.\n"; 
+		System.out.println(pjesma);
+	}
 
 	public static void main(String[] args) {
 		NizZnakova n = new NizZnakova();
@@ -127,6 +154,11 @@ public class NizZnakova {
 		else
 			System.out.println("Prva pozicija slova o je " + poz1 + " , a " +
 					"posljednja " + poz2);
+		
+		// Primjer korištenja bloka teksta
+		n.blokTeksta();
+		// ekvivalentni "klasičan string
+		n.bezBlokaTeksta();
 
 	}
 
